@@ -96,4 +96,14 @@ public class ArrayDictionary implements Map {
         return nrElements;
     }
 
+    @Override
+    public void update(Object key, Object value) {
+        for (int i = 0; i < nrElements; i++) {
+            if (keys[i].equals(key)) {
+                values[i] = value;
+                return;
+            }
+        }
+    }
+
 }

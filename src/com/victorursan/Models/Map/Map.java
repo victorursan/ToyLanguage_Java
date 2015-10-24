@@ -20,4 +20,6 @@ public interface Map {
     boolean remove(Object key);
     //Returns the number of key-value mappings in this map.
     int	size();
+    //Update a pair key-value
+    void update(Object key, Object value);
 }

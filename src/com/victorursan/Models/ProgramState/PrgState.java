@@ -21,4 +21,13 @@ public class PrgState {
         originalProgram = prg;
         exeStack.push(originalProgram);
     }
+
+    public Stack getExeStack() {
+        return exeStack;
+    }
+
+    public Map getSymTable() {
+        return symTable;
+    }
+
 }
