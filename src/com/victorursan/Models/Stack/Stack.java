@@ -1,12 +1,14 @@
 package com.victorursan.Models.Stack;
 
+import com.victorursan.Models.Statements.IStmt;
+
 /**
  * Created by victor on 10/6/15.
  */
 public interface Stack {
-    void push(Object e);
-    Object pop();
+    void push(IStmt e);
+    IStmt pop();
     boolean isEmpty();
-    Object peek();
-    int search(Object e);
+    IStmt peek();
+    int search(IStmt e);
 }

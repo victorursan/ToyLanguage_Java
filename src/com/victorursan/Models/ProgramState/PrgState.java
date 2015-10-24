@@ -14,9 +14,11 @@ public class PrgState {
     public List out;
     public IStmt originalProgram; //optional field, but good to have
 
-    public PrgState(Stack stack, Map dictionary, List list){
+    public PrgState(Stack stack, Map dictionary, List list, IStmt prg){
         exeStack = stack;
         symTable = dictionary;
         out = list;
+        originalProgram = prg;
+        exeStack.push(originalProgram);
     }
 }

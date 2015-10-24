@@ -1,19 +1,21 @@
 package com.victorursan.Models.Stack;
 
+import com.victorursan.Models.Statements.IStmt;
+
 /**
  * Created by victor on 10/6/15.
  */
 public class ArrayStack implements Stack {
-    private Object elements[];
+    private IStmt elements[];
     private int nrElements;
 
     public ArrayStack() {
         nrElements = 0;
-        elements = new Object[10];
+        elements = new IStmt[10];
     }
 
     @Override
-    public void push(Object e) {
+    public void push(IStmt e) {
         if (nrElements == elements.length) {
             resize();
         }
@@ -21,13 +23,13 @@ public class ArrayStack implements Stack {
     }
 
     private void resize() {
-        Object[] tmp = new Object[elements.length * 2];
+        IStmt[] tmp = new IStmt[elements.length * 2];
         System.arraycopy(elements, 0, tmp, 0, elements.length);
         elements = tmp;
     }
 
     @Override
-    public Object pop() {
+    public IStmt pop() {
         if (nrElements > 0){
             return  elements[--nrElements];
         }
@@ -40,7 +42,7 @@ public class ArrayStack implements Stack {
     }
 
     @Override
-    public Object peek() {
+    public IStmt peek() {
         if (nrElements > 0) {
             return elements[nrElements - 1];
         }
@@ -48,10 +50,8 @@ public class ArrayStack implements Stack {
     }
 
     @Override
-    public int search(Object e) {
-        for(int i = 1; i <= nrElements; i++ ) {
-            if (elements[nrElements - i].equals(e)) return i;
-        }
+    public int search(IStmt e) {
+        for(int i = 1; i <= nrElements; i++ ) if (elements[nrElements - i].equals(e)) return i;
         return -1;
     }
 }
