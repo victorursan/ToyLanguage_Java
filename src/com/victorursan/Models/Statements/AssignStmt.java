@@ -1,6 +1,6 @@
 package com.victorursan.Models.Statements;
 
-import com.victorursan.Domain.Expressions.Exp;
+import com.victorursan.Models.Expressions.Exp;
 
 /**
  * Created by victor on 10/12/15.
