@@ -30,4 +30,8 @@ public class PrgState {
         return symTable;
     }
 
+    public List getOut() {
+        return out;
+    }
+
 }
