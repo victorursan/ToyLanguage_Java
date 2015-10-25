@@ -34,4 +34,8 @@ public class PrgState {
         return out;
     }
 
+    public void printState() {
+        System.out.print("yeah...");
+    }
+
 }

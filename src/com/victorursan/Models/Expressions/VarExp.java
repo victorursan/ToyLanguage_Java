@@ -9,6 +9,10 @@ import com.victorursan.Models.Map.Map;
 public class VarExp extends Exp {
     public String id;
 
+    public VarExp(String id) {
+        this.id = id;
+    }
+
     @Override
     public int eval(Map tbl) {
         if (tbl.get(id) instanceof Integer) {

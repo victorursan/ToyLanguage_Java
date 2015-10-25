@@ -11,6 +11,12 @@ public class ArithExp extends Exp{
     public Exp e2;
     public Character op;
 
+    public ArithExp(Exp e1, Character op, Exp e2) {
+        this.e1 = e1;
+        this.e2 = e2;
+        this.op = op;
+    }
+
     @Override
     public int eval(Map tbl) {
         if (op == '+') {

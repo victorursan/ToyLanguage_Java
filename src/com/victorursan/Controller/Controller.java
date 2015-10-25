@@ -55,4 +55,15 @@ public class Controller {
         }
     }
 
+    public void allStep() {
+        PrgState prg = repo.getCrtProgram(); // repo is the controller field of type MyRepoInterface try{
+        try {
+        while(true){
+            oneStep(prg);
+            prg.printState();
+        }
+        }
+        catch(MyStmtExecException e) {}
+    }
+
 }
