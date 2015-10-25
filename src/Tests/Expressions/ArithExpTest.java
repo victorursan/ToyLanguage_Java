@@ -17,8 +17,8 @@ public class ArithExpTest extends TestCase {
     }
 
     public void testEval() throws Exception {
-        Exp ex = new ArithExp(new ConstExp(5), '+', new ArithExp(new ConstExp(4), '*', new ConstExp(5)));
-        assertEquals(ex.eval(new ArrayDictionary()), 25);
+        Exp ex = new ArithExp(new ConstExp(5), "+", new ArithExp(new ConstExp(4), "*", new ConstExp(5)));
+        assertEquals(ex.eval(new ArrayDictionary()).intValue(), 25);
         System.out.print(ex.eval(new ArrayDictionary()));
     }
 

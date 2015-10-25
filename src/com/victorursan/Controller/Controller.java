@@ -53,7 +53,7 @@ public class Controller {
         } else if (crtStmt instanceof PrintStmt) {
             PrintStmt crtStmt1 = (PrintStmt) crtStmt;
             List output = state.getOut();
-            output.add(crtStmt1);
+            output.add(crtStmt1.exp);
         }
         if (printFlag) {
             state.printState();
@@ -67,7 +67,9 @@ public class Controller {
             oneStep(state);
         }
         }
-        catch(MyStmtExecException e) {}
+        catch(MyStmtExecException e) {
+            System.out.println("Finished");
+        }
     }
 
 }

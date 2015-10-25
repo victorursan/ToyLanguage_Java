@@ -7,7 +7,7 @@ import com.victorursan.Models.Map.Map;
  */
 
 public class Exp {
-    public int eval(Map tbl) {
+    public Integer eval(Map tbl) {
         return 0;
     }
 

@@ -9,26 +9,26 @@ import com.victorursan.Models.Map.Map;
 public class ArithExp extends Exp{
     public Exp e1;
     public Exp e2;
-    public Character op;
+    public String op;
 
-    public ArithExp(Exp e1, Character op, Exp e2) {
+    public ArithExp(Exp e1, String op, Exp e2) {
         this.e1 = e1;
         this.e2 = e2;
         this.op = op;
     }
 
     @Override
-    public int eval(Map tbl) {
-        if (op == '+') {
+    public Integer eval(Map tbl) {
+        if (op.equals("+")) {
             return (e1.eval(tbl) + e2.eval(tbl));
         }
-        if (op == '-') {
+        if (op.equals("-")) {
             return (e1.eval(tbl) - e2.eval(tbl));
         }
-        if (op == '*') {
+        if (op.equals("*")) {
             return (e1.eval(tbl) * e2.eval(tbl));
         }
-        if (op == '/') {
+        if (op.equals("/")) {
             return (e1.eval(tbl) / e2.eval(tbl));
         }
         return 0;

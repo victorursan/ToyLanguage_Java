@@ -2,6 +2,7 @@ package com.victorursan.Models.ProgramState;
 
 import com.victorursan.Models.List.List;
 import com.victorursan.Models.Map.Map;
+import com.victorursan.Models.Stack.ArrayStack;
 import com.victorursan.Models.Stack.Stack;
 import com.victorursan.Models.Statements.IStmt;
 
@@ -35,7 +36,18 @@ public class PrgState {
     }
 
     public void printState() {
-        System.out.print("yeah...");
+        Stack tmpStack = new ArrayStack();
+
+        while (!exeStack.isEmpty()) {
+            IStmt element = exeStack.pop();
+            tmpStack.push(element);
+            System.out.println(element.toStr());
+        }
+        while (!tmpStack.isEmpty()) {
+            exeStack.push(tmpStack.pop());
+        }
+
+        System.out.println("");
     }
 
 }

@@ -6,14 +6,14 @@ import com.victorursan.Models.Map.Map;
  * Created by victor on 10/12/15.
  */
 public class ConstExp extends Exp {
-    public int number;
+    public Integer number;
 
-    public ConstExp(int number) {
+    public ConstExp(Integer number) {
         this.number = number;
     }
 
     @Override
-    public int eval(Map tbl) {
+    public Integer eval(Map tbl) {
         return number;
     }
 

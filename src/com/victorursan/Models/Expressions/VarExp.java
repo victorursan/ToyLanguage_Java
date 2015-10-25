@@ -14,9 +14,9 @@ public class VarExp extends Exp {
     }
 
     @Override
-    public int eval(Map tbl) {
-        if (tbl.get(id) instanceof Integer) {
-            return (Integer) tbl.get(id);
+    public Integer eval(Map tbl) {
+        if (tbl.get(id) != null) {
+            return tbl.get(id);
         }
         return 0;
     }
