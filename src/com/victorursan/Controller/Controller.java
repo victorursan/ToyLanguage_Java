@@ -14,8 +14,10 @@ import com.victorursan.Controller.MyStmtExecException;
  */
 public class Controller {
     private Repository repo;
+    public boolean printFlag;
 
     public Controller(Repository repo) {
+        printFlag = true;
         this.repo = repo;
     }
 
@@ -53,14 +55,16 @@ public class Controller {
             List output = state.getOut();
             output.add(crtStmt1);
         }
+        if (printFlag) {
+            state.printState();
+        }
     }
 
-    public void allStep() {
-        PrgState prg = repo.getCrtProgram(); // repo is the controller field of type MyRepoInterface try{
+    public void allStep(PrgState state) {
+//        PrgState prg = repo.getCrtProgram(); // repo is the controller field of type MyRepoInterface try{
         try {
         while(true){
-            oneStep(prg);
-            prg.printState();
+            oneStep(state);
         }
         }
         catch(MyStmtExecException e) {}

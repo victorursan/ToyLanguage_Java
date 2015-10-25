@@ -1,11 +1,11 @@
 package com.victorursan;
 
-import com.victorursan.Views.Console;
+import com.victorursan.Views.MyConsole;
 
 public class Main {
 
     public static void main(String[] args) {
-        Console console = new Console();
-        console.run();
+        MyConsole myConsole = new MyConsole();
+        myConsole.run();
     }
 }
