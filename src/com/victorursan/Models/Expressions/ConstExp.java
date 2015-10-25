@@ -5,7 +5,7 @@ import com.victorursan.Models.Map.Map;
 /**
  * Created by victor on 10/12/15.
  */
-public class ConstExp extends Exp {
+public class ConstExp implements Exp {
     public Integer number;
 
     public ConstExp(Integer number) {

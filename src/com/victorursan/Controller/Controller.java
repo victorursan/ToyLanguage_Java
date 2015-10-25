@@ -1,6 +1,7 @@
 package com.victorursan.Controller;
 
 import com.victorursan.Models.Expressions.Exp;
+import com.victorursan.Models.Expressions.UninitializedVariableException;
 import com.victorursan.Models.List.List;
 import com.victorursan.Models.Map.Map;
 import com.victorursan.Models.ProgramState.PrgState;
@@ -21,7 +22,7 @@ public class Controller {
         this.repo = repo;
     }
 
-    public void oneStep(PrgState state) throws MyStmtExecException {
+    public void oneStep(PrgState state) throws MyStmtExecException, UninitializedVariableException {
         Stack stk = state.getExeStack();
         if (stk.isEmpty()) {
             throw new MyStmtExecException();
@@ -53,22 +54,16 @@ public class Controller {
         } else if (crtStmt instanceof PrintStmt) {
             PrintStmt crtStmt1 = (PrintStmt) crtStmt;
             List output = state.getOut();
-            output.add(crtStmt1.exp);
+            output.add(crtStmt1.exp.eval(state.getSymTable()));
         }
         if (printFlag) {
             state.printState();
         }
     }
 
-    public void allStep(PrgState state) {
-//        PrgState prg = repo.getCrtProgram(); // repo is the controller field of type MyRepoInterface try{
-        try {
-        while(true){
+    public void allStep(PrgState state) throws MyStmtExecException, UninitializedVariableException{
+        while(!state.exeStack.isEmpty()){
             oneStep(state);
-        }
-        }
-        catch(MyStmtExecException e) {
-            System.out.println("Finished");
         }
     }
 

@@ -1,5 +1,6 @@
 package com.victorursan.Models.ProgramState;
 
+import com.victorursan.Models.Expressions.Exp;
 import com.victorursan.Models.List.List;
 import com.victorursan.Models.Map.Map;
 import com.victorursan.Models.Stack.ArrayStack;
@@ -37,7 +38,7 @@ public class PrgState {
 
     public void printState() {
         Stack tmpStack = new ArrayStack();
-
+        System.out.println("Exec Stack:");
         while (!exeStack.isEmpty()) {
             IStmt element = exeStack.pop();
             tmpStack.push(element);
@@ -45,6 +46,18 @@ public class PrgState {
         }
         while (!tmpStack.isEmpty()) {
             exeStack.push(tmpStack.pop());
+        }
+
+        System.out.println("\nSymbol table");
+
+        for (String key: symTable.keys()) {
+            System.out.println(key + " = " + symTable.get(key).toString());
+        }
+
+        System.out.println("\nOutput List");
+
+        for (int index = 0; index < out.size(); index++) {
+            System.out.println(out.get(index));
         }
 
         System.out.println("");

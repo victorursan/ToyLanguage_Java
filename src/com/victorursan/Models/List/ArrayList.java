@@ -6,22 +6,22 @@ import com.victorursan.Models.Expressions.Exp;
  * Created by victor on 10/24/15.
  */
 public class ArrayList implements List {
-    private Exp[] elements;
+    private Integer[] elements;
     private int nrElements;
 
     public ArrayList() {
-        elements = new Exp[10];
+        elements = new Integer[10];
         nrElements = 0;
     }
 
     private void resize() {
-        Exp[] tmpKeys = new Exp[elements.length * 2];
+        Integer[] tmpKeys = new Integer[elements.length * 2];
         System.arraycopy(elements, 0, tmpKeys, 0, elements.length);
         elements = tmpKeys;
     }
 
     @Override
-    public boolean add(Exp e) {
+    public boolean add(Integer e) {
         if (nrElements == elements.length) {
             resize();
             return true;
@@ -31,7 +31,7 @@ public class ArrayList implements List {
     }
 
     @Override
-    public boolean contains(Exp element) {
+    public boolean contains(Integer element) {
         for (int i = 0; i < nrElements; i++) {
             if (elements[i].equals(element)) {
                 return true;
@@ -41,7 +41,7 @@ public class ArrayList implements List {
     }
 
     @Override
-    public Exp get(int index) {
+    public Integer get(int index) {
         if (index <= nrElements) {
             return elements[index];
         }

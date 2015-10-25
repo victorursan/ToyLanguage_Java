@@ -105,4 +105,11 @@ public class ArrayDictionary implements Map {
         }
     }
 
+    @Override
+    public String[] keys() {
+        String[] tmpkey = new String[nrElements];
+        System.arraycopy(keys, 0, tmpkey, 0, nrElements);
+        return tmpkey;
+    }
+
 }

@@ -2,10 +2,7 @@ package com.victorursan.Views;
 
 import com.victorursan.Controller.Controller;
 import com.victorursan.Controller.MyStmtExecException;
-import com.victorursan.Models.Expressions.ArithExp;
-import com.victorursan.Models.Expressions.ConstExp;
-import com.victorursan.Models.Expressions.Exp;
-import com.victorursan.Models.Expressions.VarExp;
+import com.victorursan.Models.Expressions.*;
 import com.victorursan.Models.List.ArrayList;
 import com.victorursan.Models.Map.ArrayDictionary;
 import com.victorursan.Models.ProgramState.PrgState;
@@ -39,27 +36,42 @@ public class MyConsole {
         try {
             print(message);
             BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
-            String inputString = bufferRead.readLine();
-            return inputString;
-        } catch (IOException e) {}
+            return bufferRead.readLine();
+        } catch (IOException e) {
+            print(e.getMessage());
+        }
         return "";
     }
 
     private Integer readInteger(String message) {
-        print(message);
-        return scanner.nextInt();
-
+        try {
+            return Integer.parseInt(readString(message));
+        } catch (NumberFormatException e) {
+            print("That is not a number");
+        }
+        return 0;
     }
 
     private void oneStep() {
         try {
             ctrl.oneStep(currentProgram);
         } catch (MyStmtExecException e) {
+            print("Finished");
+            currentProgram = null;
+        } catch (UninitializedVariableException e) {
+            print("A variable is not initialized");
         }
     }
 
     private void allStep() {
-        ctrl.allStep(currentProgram);
+        try {
+            ctrl.allStep(currentProgram);
+        } catch (MyStmtExecException e) {
+            print("Finished");
+            currentProgram = null;
+        } catch (UninitializedVariableException e) {
+            print("A variable is not initialized");
+        }
     }
 
     private void setPrintFlag() {
@@ -200,6 +212,7 @@ public class MyConsole {
         IStmt prgStatement = inputStatement();
         currentProgram = new PrgState(new ArrayStack(), new ArrayDictionary(), new ArrayList(), prgStatement);
         PrgState[] programs = {currentProgram};
+        currentProgram.printState();
         ctrl = new Controller(new MyRepository(programs));
     }
 
@@ -225,6 +238,7 @@ public class MyConsole {
                     break;
                 case 3:
                     allStep();
+                    firstMenu();
                     break;
                 case 4:
                     setPrintFlag();

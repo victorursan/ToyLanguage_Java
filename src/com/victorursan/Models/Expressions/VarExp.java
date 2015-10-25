@@ -6,7 +6,7 @@ import com.victorursan.Models.Map.Map;
  * Created by victor on 10/12/15.
  */
 
-public class VarExp extends Exp {
+public class VarExp implements Exp {
     public String id;
 
     public VarExp(String id) {
@@ -14,11 +14,12 @@ public class VarExp extends Exp {
     }
 
     @Override
-    public Integer eval(Map tbl) {
+    public Integer eval(Map tbl) throws UninitializedVariableException {
         if (tbl.get(id) != null) {
             return tbl.get(id);
+        } else {
+            throw new UninitializedVariableException();
         }
-        return 0;
     }
 
     @Override

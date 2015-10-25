@@ -22,4 +22,6 @@ public interface Map {
     int	size();
     //Update a pair key-value
     void update(String key, Integer value);
+    //Returns a list of all keys;
+    String[] keys();
 }

@@ -6,7 +6,7 @@ import com.victorursan.Models.Map.Map;
  * Created by victor on 10/12/15.
  */
 
-public class ArithExp extends Exp{
+public class ArithExp implements Exp{
     public Exp e1;
     public Exp e2;
     public String op;
@@ -18,7 +18,7 @@ public class ArithExp extends Exp{
     }
 
     @Override
-    public Integer eval(Map tbl) {
+    public Integer eval(Map tbl) throws UninitializedVariableException{
         if (op.equals("+")) {
             return (e1.eval(tbl) + e2.eval(tbl));
         }
