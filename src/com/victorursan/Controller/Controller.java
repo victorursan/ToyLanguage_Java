@@ -15,15 +15,17 @@ import com.victorursan.Controller.MyStmtExecException;
  */
 public class Controller {
     private Repository repo;
+    private PrgState crtPrgState;
     public boolean printFlag;
 
-    public Controller(Repository repo) {
+    public Controller(Repository thisRepo) {
         printFlag = true;
-        this.repo = repo;
+        repo = thisRepo;
+        crtPrgState = repo.getCrtProgram();
     }
 
-    public void oneStep(PrgState state) throws MyStmtExecException, UninitializedVariableException {
-        Stack stk = state.getExeStack();
+    public void oneStep() throws MyStmtExecException, UninitializedVariableException {
+        Stack stk = crtPrgState.getExeStack();
         if (stk.isEmpty()) {
             throw new MyStmtExecException();
         }
@@ -36,7 +38,7 @@ public class Controller {
             AssignStmt crtStmt1 = (AssignStmt) crtStmt;
             Exp exp = crtStmt1.exp;
             String id = crtStmt1.id;
-            Map symTbl = state.getSymTable();
+            Map symTbl = repo.getCrtProgram().getSymTable();
             int val = exp.eval(symTbl);
             if (symTbl.containsKey(id)) {
                 symTbl.update(id, val);
@@ -45,7 +47,7 @@ public class Controller {
             }
         } else if (crtStmt instanceof IfStmt) {
             IfStmt crtStmt1 = (IfStmt) crtStmt;
-            Map symTbl = state.getSymTable();
+            Map symTbl = crtPrgState.getSymTable();
             if (crtStmt1.exp.eval(symTbl) != 0) {
                 stk.push(crtStmt1.thenS);
             } else {
@@ -53,17 +55,17 @@ public class Controller {
             }
         } else if (crtStmt instanceof PrintStmt) {
             PrintStmt crtStmt1 = (PrintStmt) crtStmt;
-            List output = state.getOut();
-            output.add(crtStmt1.exp.eval(state.getSymTable()));
+            List output = crtPrgState.getOut();
+            output.add(crtStmt1.exp.eval(crtPrgState.getSymTable()));
         }
         if (printFlag) {
-            state.printState();
+            crtPrgState.printState();
         }
     }
 
-    public void allStep(PrgState state) throws MyStmtExecException, UninitializedVariableException{
-        while(!state.exeStack.isEmpty()){
-            oneStep(state);
+    public void allStep() throws MyStmtExecException, UninitializedVariableException{
+        while(!crtPrgState.getExeStack().isEmpty()){
+            oneStep();
         }
     }
 

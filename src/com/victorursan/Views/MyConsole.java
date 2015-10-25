@@ -54,7 +54,7 @@ public class MyConsole {
 
     private void oneStep() {
         try {
-            ctrl.oneStep(currentProgram);
+            ctrl.oneStep();
         } catch (MyStmtExecException e) {
             print("Finished");
             currentProgram = null;
@@ -65,7 +65,7 @@ public class MyConsole {
 
     private void allStep() {
         try {
-            ctrl.allStep(currentProgram);
+            ctrl.allStep();
         } catch (MyStmtExecException e) {
             print("Finished");
             currentProgram = null;

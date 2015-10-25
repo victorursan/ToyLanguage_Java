@@ -11,10 +11,10 @@ import com.victorursan.Models.Statements.IStmt;
  * Created by victor on 10/12/15.
  */
 public class PrgState {
-    public Stack exeStack;
-    public Map symTable;
-    public List out;
-    public IStmt originalProgram; //optional field, but good to have
+    private Stack exeStack;
+    private Map symTable;
+    private List out;
+    private IStmt originalProgram; //optional field, but good to have
 
     public PrgState(Stack stack, Map dictionary, List list, IStmt prg){
         exeStack = stack;
