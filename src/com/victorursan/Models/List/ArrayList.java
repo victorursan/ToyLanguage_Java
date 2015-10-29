@@ -1,27 +1,26 @@
 package com.victorursan.Models.List;
 
-import com.victorursan.Models.Expressions.Exp;
 
 /**
  * Created by victor on 10/24/15.
  */
-public class ArrayList implements List {
-    private Integer[] elements;
+public class ArrayList<T>implements IList<T>{
+    private Object[] elements;
     private int nrElements;
 
     public ArrayList() {
-        elements = new Integer[10];
+        elements = new Object[10];
         nrElements = 0;
     }
 
     private void resize() {
-        Integer[] tmpKeys = new Integer[elements.length * 2];
+        Object[] tmpKeys = new Object[elements.length * 2];
         System.arraycopy(elements, 0, tmpKeys, 0, elements.length);
         elements = tmpKeys;
     }
 
     @Override
-    public boolean add(Integer e) {
+    public boolean add(T e) {
         if (nrElements == elements.length) {
             resize();
             return true;
@@ -31,7 +30,7 @@ public class ArrayList implements List {
     }
 
     @Override
-    public boolean contains(Integer element) {
+    public boolean contains(T element) {
         for (int i = 0; i < nrElements; i++) {
             if (elements[i].equals(element)) {
                 return true;
@@ -41,9 +40,9 @@ public class ArrayList implements List {
     }
 
     @Override
-    public Integer get(int index) {
+    public T get(int index) {
         if (index <= nrElements) {
-            return elements[index];
+            return (T)elements[index];
         }
         return null;
     }

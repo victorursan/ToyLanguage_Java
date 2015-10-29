@@ -5,15 +5,15 @@ import com.victorursan.Models.Expressions.Exp;
 /**
  * Created by victor on 10/24/15.
  */
-public interface List {
+public interface IList<T> {
     //Return if or not the list is empty
     boolean isEmpty();
     //Appends the specified element to the end of this list (optional operation).
-    boolean	add(Integer e);
+    boolean	add(T e);
     //Returns true if this list contains the specified element.
-    boolean	contains(Integer element);
+    boolean	contains(T element);
     //Returns the element at the specified position in this list.
-    Integer get(int index);
+    T get(int index);
     //Returns the number of elements in this list.
     int	size();
 

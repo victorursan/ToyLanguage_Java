@@ -22,10 +22,8 @@ import java.util.Scanner;
 public class MyConsole {
     private Controller ctrl;
     private PrgState currentProgram;
-    private Scanner scanner;
 
     public MyConsole() {
-        scanner = new Scanner(System.in);
     }
 
     private void print(String message) {

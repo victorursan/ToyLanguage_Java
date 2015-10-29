@@ -15,11 +15,8 @@ public class VarExp implements Exp {
 
     @Override
     public Integer eval(Map tbl) throws UninitializedVariableException {
-        if (tbl.get(id) != null) {
-            return tbl.get(id);
-        } else {
-            throw new UninitializedVariableException();
-        }
+        if (tbl.containsKey(id)) return tbl.get(id);
+        else throw new UninitializedVariableException();
     }
 
     @Override

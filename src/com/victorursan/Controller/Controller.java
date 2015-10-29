@@ -2,7 +2,7 @@ package com.victorursan.Controller;
 
 import com.victorursan.Models.Expressions.Exp;
 import com.victorursan.Models.Expressions.UninitializedVariableException;
-import com.victorursan.Models.List.List;
+import com.victorursan.Models.List.IList;
 import com.victorursan.Models.Map.Map;
 import com.victorursan.Models.ProgramState.PrgState;
 import com.victorursan.Models.Stack.Stack;
@@ -55,7 +55,7 @@ public class Controller {
             }
         } else if (crtStmt instanceof PrintStmt) {
             PrintStmt crtStmt1 = (PrintStmt) crtStmt;
-            List output = crtPrgState.getOut();
+            IList<Integer> output = crtPrgState.getOut();
             output.add(crtStmt1.exp.eval(crtPrgState.getSymTable()));
         }
         if (printFlag) {

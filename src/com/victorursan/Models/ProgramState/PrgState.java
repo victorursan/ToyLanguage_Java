@@ -1,7 +1,7 @@
 package com.victorursan.Models.ProgramState;
 
 import com.victorursan.Models.Expressions.Exp;
-import com.victorursan.Models.List.List;
+import com.victorursan.Models.List.IList;
 import com.victorursan.Models.Map.Map;
 import com.victorursan.Models.Stack.ArrayStack;
 import com.victorursan.Models.Stack.Stack;
@@ -13,10 +13,10 @@ import com.victorursan.Models.Statements.IStmt;
 public class PrgState {
     private Stack exeStack;
     private Map symTable;
-    private List out;
+    private IList<Integer> out;
     private IStmt originalProgram; //optional field, but good to have
 
-    public PrgState(Stack stack, Map dictionary, List list, IStmt prg){
+    public PrgState(Stack stack, Map dictionary, IList<Integer> list, IStmt prg){
         exeStack = stack;
         symTable = dictionary;
         out = list;
@@ -32,7 +32,7 @@ public class PrgState {
         return symTable;
     }
 
-    public List getOut() {
+    public IList<Integer> getOut() {
         return out;
     }
 
