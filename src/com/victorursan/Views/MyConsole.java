@@ -9,12 +9,10 @@ import com.victorursan.Models.ProgramState.PrgState;
 import com.victorursan.Models.Stack.ArrayStack;
 import com.victorursan.Models.Statements.*;
 import com.victorursan.Repository.MyRepository;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.Scanner;
 
 /**
  * Created by victor on 10/24/15.

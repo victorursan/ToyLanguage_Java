@@ -3,7 +3,7 @@ package com.victorursan.Models.Map;
 /**
  * Created by victor on 10/24/15.
  */
-public class ArrayDictionary implements Map {
+public class ArrayDictionary implements Map<String, Integer> {
     private String keys[];
     private Integer values[];
     private int nrElements;

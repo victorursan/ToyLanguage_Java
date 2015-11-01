@@ -13,7 +13,7 @@ public class ConstExp implements Exp {
     }
 
     @Override
-    public Integer eval(Map tbl) {
+    public Integer eval(Map<String, Integer> tbl) {
         return number;
     }
 

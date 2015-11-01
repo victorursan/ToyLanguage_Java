@@ -25,7 +25,7 @@ public class Controller {
     }
 
     public void oneStep() throws MyStmtExecException, UninitializedVariableException {
-        Stack stk = crtPrgState.getExeStack();
+        Stack<IStmt> stk = crtPrgState.getExeStack();
         if (stk.isEmpty()) {
             throw new MyStmtExecException();
         }

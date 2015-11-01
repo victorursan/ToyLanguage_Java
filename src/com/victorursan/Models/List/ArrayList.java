@@ -4,12 +4,12 @@ package com.victorursan.Models.List;
 /**
  * Created by victor on 10/24/15.
  */
-public class ArrayList<T>implements IList<T>{
+public class ArrayList<T> implements IList<T>{
     private Object[] elements;
     private int nrElements;
 
     public ArrayList() {
-        elements = new Object[10];
+        elements = new Integer[10];
         nrElements = 0;
     }
 

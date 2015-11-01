@@ -5,7 +5,7 @@ import com.victorursan.Models.Statements.IStmt;
 /**
  * Created by victor on 10/6/15.
  */
-public class ArrayStack implements Stack {
+public class ArrayStack implements Stack<IStmt> {
     private IStmt elements[];
     private int nrElements;
 

@@ -7,7 +7,7 @@ import com.victorursan.Models.Map.Map;
  */
 
 public interface Exp {
-    Integer eval(Map tbl) throws UninitializedVariableException;
+    Integer eval(Map<String, Integer> tbl) throws UninitializedVariableException;
     String toStr();
 }
 
