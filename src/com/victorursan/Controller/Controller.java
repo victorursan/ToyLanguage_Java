@@ -1,7 +1,6 @@
 package com.victorursan.Controller;
 
-import com.victorursan.Models.Expressions.Exp;
-import com.victorursan.Models.Expressions.UninitializedVariableException;
+import com.victorursan.Models.Expressions.*;
 import com.victorursan.Models.List.IList;
 import com.victorursan.Models.Map.Map;
 import com.victorursan.Models.ProgramState.PrgState;
@@ -38,7 +37,7 @@ public class Controller {
             AssignStmt crtStmt1 = (AssignStmt) crtStmt;
             Exp exp = crtStmt1.exp;
             String id = crtStmt1.id;
-            Map symTbl = repo.getCrtProgram().getSymTable();
+            Map<String, Integer> symTbl = repo.getCrtProgram().getSymTable();
             int val = exp.eval(symTbl);
             if (symTbl.containsKey(id)) {
                 symTbl.update(id, val);
@@ -47,7 +46,7 @@ public class Controller {
             }
         } else if (crtStmt instanceof IfStmt) {
             IfStmt crtStmt1 = (IfStmt) crtStmt;
-            Map symTbl = crtPrgState.getSymTable();
+            Map<String, Integer> symTbl = crtPrgState.getSymTable();
             if (crtStmt1.exp.eval(symTbl) != 0) {
                 stk.push(crtStmt1.thenS);
             } else {
@@ -58,7 +57,8 @@ public class Controller {
             IList<Integer> output = crtPrgState.getOut();
             output.add(crtStmt1.exp.eval(crtPrgState.getSymTable()));
         }
-        if (printFlag) {
+
+    if (printFlag) {
             crtPrgState.printState();
         }
     }

@@ -9,6 +9,7 @@ import com.victorursan.Models.ProgramState.PrgState;
 import com.victorursan.Models.Stack.ArrayStack;
 import com.victorursan.Models.Statements.*;
 import com.victorursan.Repository.MyRepository;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -22,6 +23,7 @@ public class MyConsole {
     private PrgState currentProgram;
 
     public MyConsole() {
+
     }
 
     private void print(String message) {
@@ -177,6 +179,7 @@ public class MyConsole {
         return new PrintStmt(expression);
     }
 
+
     private IStmt inputStatement() {
         print("1. Compound statement");
         print("2. Assignment statement");
@@ -206,7 +209,8 @@ public class MyConsole {
 
     private void inputProgram() {
         IStmt prgStatement = inputStatement();
-        currentProgram = new PrgState(new ArrayStack(), new ArrayDictionary(), new ArrayList(), prgStatement);
+                //new CompStmt(new AssignStmt("a", new ArithExp(new ConstExp(2), "-", new ConstExp(2))),new CompStmt(new IfStmt(new VarExp("a"),new AssignStmt("v",new ConstExp(2)), new AssignStmt("v", new ConstExp(3))), new PrintStmt(new VarExp("v"))));
+        currentProgram = new PrgState(new ArrayStack(), new ArrayDictionary(), new ArrayList<>(), prgStatement);
         PrgState[] programs = {currentProgram};
         currentProgram.printState();
         ctrl = new Controller(new MyRepository(programs));
@@ -221,31 +225,27 @@ public class MyConsole {
 
         if (opt != 1 && currentProgram == null) {
             print("There is no program, please insert a program");
-            firstMenu();
+
         } else {
             switch (opt) {
                 case 1:
                     inputProgram();
-                    firstMenu();
                     break;
                 case 2:
                     oneStep();
-                    firstMenu();
                     break;
                 case 3:
                     allStep();
-                    firstMenu();
                     break;
                 case 4:
                     setPrintFlag();
-                    firstMenu();
                     break;
                 default:
                     print("Invalid option, please try again");
-                    firstMenu();
                     break;
             }
         }
+        firstMenu();
     }
 
     public void run() {

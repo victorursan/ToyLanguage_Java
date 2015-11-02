@@ -19,18 +19,10 @@ public class ArithExp implements Exp{
 
     @Override
     public Integer eval(Map<String, Integer> tbl) throws UninitializedVariableException{
-        if (op.equals("+")) {
-            return (e1.eval(tbl) + e2.eval(tbl));
-        }
-        if (op.equals("-")) {
-            return (e1.eval(tbl) - e2.eval(tbl));
-        }
-        if (op.equals("*")) {
-            return (e1.eval(tbl) * e2.eval(tbl));
-        }
-        if (op.equals("/")) {
-            return (e1.eval(tbl) / e2.eval(tbl));
-        }
+        if (op.equals("+")) return (e1.eval(tbl) + e2.eval(tbl));
+        if (op.equals("-")) return (e1.eval(tbl) - e2.eval(tbl));
+        if (op.equals("*")) return (e1.eval(tbl) * e2.eval(tbl));
+        if (op.equals("/")) return (e1.eval(tbl) / e2.eval(tbl));
         return 0;
     }
 
