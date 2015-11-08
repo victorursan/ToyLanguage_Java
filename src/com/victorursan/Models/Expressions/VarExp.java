@@ -7,7 +7,15 @@ import com.victorursan.Models.Map.Map;
  */
 
 public class VarExp implements Exp {
-    public String id;
+    private String id;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public VarExp(String id) {
         this.id = id;

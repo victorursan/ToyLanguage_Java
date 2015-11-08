@@ -6,7 +6,15 @@ import com.victorursan.Models.Map.Map;
  * Created by victor on 10/12/15.
  */
 public class ConstExp implements Exp {
-    public Integer number;
+    private Integer number;
+
+    public Integer getNumber() {
+        return number;
+    }
+
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
 
     public ConstExp(Integer number) {
         this.number = number;

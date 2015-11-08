@@ -74,7 +74,7 @@ public class MyConsole {
 
     private void setPrintFlag() {
         print("Currently it is:");
-        if (ctrl.printFlag) {
+        if (ctrl.isPrintFlag()) {
             print("On");
             print("1. Set Off");
         } else {
@@ -85,7 +85,7 @@ public class MyConsole {
         Integer opt = readInteger("Option: ");
         switch (opt) {
             case 1:
-                ctrl.printFlag = !ctrl.printFlag;
+                ctrl.setPrintFlag(!ctrl.isPrintFlag());
                 break;
             case 2:
                 break;
@@ -173,6 +173,14 @@ public class MyConsole {
         return new IfStmt(expression, thenS, elseS);
     }
 
+    private  WhileStmt whileStatement() {
+        print("Expression:");
+        Exp expression = inputExpression();
+        print("Statement:");
+        IStmt statement = inputStatement();
+        return new WhileStmt(expression, statement);
+    }
+
     private PrintStmt printStatement() {
         print("Expression:");
         Exp expression = inputExpression();
@@ -185,6 +193,7 @@ public class MyConsole {
         print("2. Assignment statement");
         print("3. If statement");
         print("4. Print statement");
+        print("5. While statement");
         Integer opt = readInteger("Option: ");
         IStmt prg;
         switch (opt) {
@@ -199,6 +208,9 @@ public class MyConsole {
                 break;
             case 4:
                 prg = printStatement();
+                break;
+            case 5:
+                prg = whileStatement();
                 break;
             default:
                 print("Invalid option, please try again");

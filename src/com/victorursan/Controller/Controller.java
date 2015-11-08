@@ -15,7 +15,31 @@ import com.victorursan.Controller.MyStmtExecException;
 public class Controller {
     private Repository repo;
     private PrgState crtPrgState;
-    public boolean printFlag;
+    private boolean printFlag;
+
+    public boolean isPrintFlag() {
+        return printFlag;
+    }
+
+    public void setPrintFlag(boolean printFlag) {
+        this.printFlag = printFlag;
+    }
+
+    public PrgState getCrtPrgState() {
+        return crtPrgState;
+    }
+
+    public void setCrtPrgState(PrgState crtPrgState) {
+        this.crtPrgState = crtPrgState;
+    }
+
+    public Repository getRepo() {
+        return repo;
+    }
+
+    public void setRepo(Repository repo) {
+        this.repo = repo;
+    }
 
     public Controller(Repository thisRepo) {
         printFlag = true;
@@ -31,12 +55,12 @@ public class Controller {
         IStmt crtStmt = stk.pop();
         if (crtStmt instanceof CompStmt) {
             CompStmt crtStmt1 = (CompStmt) crtStmt;
-            stk.push(crtStmt1.second);
-            stk.push(crtStmt1.first);
+            stk.push(crtStmt1.getSecond());
+            stk.push(crtStmt1.getFirst());
         } else if (crtStmt instanceof AssignStmt) {
             AssignStmt crtStmt1 = (AssignStmt) crtStmt;
-            Exp exp = crtStmt1.exp;
-            String id = crtStmt1.id;
+            Exp exp = crtStmt1.getExp();
+            String id = crtStmt1.getId();
             Map<String, Integer> symTbl = repo.getCrtProgram().getSymTable();
             int val = exp.eval(symTbl);
             if (symTbl.containsKey(id)) {
@@ -47,18 +71,26 @@ public class Controller {
         } else if (crtStmt instanceof IfStmt) {
             IfStmt crtStmt1 = (IfStmt) crtStmt;
             Map<String, Integer> symTbl = crtPrgState.getSymTable();
-            if (crtStmt1.exp.eval(symTbl) != 0) {
-                stk.push(crtStmt1.thenS);
+            if (crtStmt1.getExp().eval(symTbl) != 0) {
+                stk.push(crtStmt1.getThenS());
             } else {
-                stk.push(crtStmt1.elseS);
+                stk.push(crtStmt1.getElseS());
             }
         } else if (crtStmt instanceof PrintStmt) {
             PrintStmt crtStmt1 = (PrintStmt) crtStmt;
             IList<Integer> output = crtPrgState.getOut();
-            output.add(crtStmt1.exp.eval(crtPrgState.getSymTable()));
+            output.add(crtStmt1.getExp().eval(crtPrgState.getSymTable()));
+
+        } else if (crtStmt instanceof WhileStmt) {
+            WhileStmt crtStmt1 = (WhileStmt) crtStmt;
+            Map<String, Integer> symTbl = crtPrgState.getSymTable();
+            if (crtStmt1.getExp().eval(symTbl) != 0) {
+                stk.push(crtStmt1);
+                stk.push(crtStmt1.getStmt());
+            }
         }
 
-    if (printFlag) {
+        if (printFlag) {
             crtPrgState.printState();
         }
     }
