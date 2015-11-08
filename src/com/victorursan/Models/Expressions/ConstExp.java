@@ -1,6 +1,6 @@
 package com.victorursan.Models.Expressions;
 
-import com.victorursan.Models.Map.Map;
+import com.victorursan.Models.Map.IMap;
 
 /**
  * Created by victor on 10/12/15.
@@ -21,12 +21,12 @@ public class ConstExp implements Exp {
     }
 
     @Override
-    public Integer eval(Map<String, Integer> tbl) {
+    public Integer eval(IMap<String, Integer> tbl) {
         return number;
     }
 
     @Override
-    public String toStr() {
+    public String toString() {
         return " " + String.valueOf(number) + " ";
     }
 }

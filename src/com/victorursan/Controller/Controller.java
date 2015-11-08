@@ -1,13 +1,13 @@
 package com.victorursan.Controller;
 
-import com.victorursan.Models.Expressions.*;
+import com.victorursan.Models.Expressions.Exp;
+import com.victorursan.Models.Expressions.UninitializedVariableException;
 import com.victorursan.Models.List.IList;
-import com.victorursan.Models.Map.Map;
+import com.victorursan.Models.Map.IMap;
 import com.victorursan.Models.ProgramState.PrgState;
-import com.victorursan.Models.Stack.Stack;
+import com.victorursan.Models.Stack.IStack;
 import com.victorursan.Models.Statements.*;
 import com.victorursan.Repository.Repository;
-import com.victorursan.Controller.MyStmtExecException;
 
 /**
  * Created by victor on 10/24/15.
@@ -48,7 +48,7 @@ public class Controller {
     }
 
     public void oneStep() throws MyStmtExecException, UninitializedVariableException {
-        Stack<IStmt> stk = crtPrgState.getExeStack();
+        IStack<IStmt> stk = crtPrgState.getExeStack();
         if (stk.isEmpty()) {
             throw new MyStmtExecException();
         }
@@ -61,16 +61,12 @@ public class Controller {
             AssignStmt crtStmt1 = (AssignStmt) crtStmt;
             Exp exp = crtStmt1.getExp();
             String id = crtStmt1.getId();
-            Map<String, Integer> symTbl = repo.getCrtProgram().getSymTable();
+            IMap<String, Integer> symTbl = repo.getCrtProgram().getSymTable();
             int val = exp.eval(symTbl);
-            if (symTbl.containsKey(id)) {
-                symTbl.update(id, val);
-            } else {
-                symTbl.put(id, val);
-            }
+            symTbl.put(id, val);
         } else if (crtStmt instanceof IfStmt) {
             IfStmt crtStmt1 = (IfStmt) crtStmt;
-            Map<String, Integer> symTbl = crtPrgState.getSymTable();
+            IMap<String, Integer> symTbl = crtPrgState.getSymTable();
             if (crtStmt1.getExp().eval(symTbl) != 0) {
                 stk.push(crtStmt1.getThenS());
             } else {
@@ -83,20 +79,19 @@ public class Controller {
 
         } else if (crtStmt instanceof WhileStmt) {
             WhileStmt crtStmt1 = (WhileStmt) crtStmt;
-            Map<String, Integer> symTbl = crtPrgState.getSymTable();
+            IMap<String, Integer> symTbl = crtPrgState.getSymTable();
             if (crtStmt1.getExp().eval(symTbl) != 0) {
                 stk.push(crtStmt1);
                 stk.push(crtStmt1.getStmt());
             }
         }
-
         if (printFlag) {
-            crtPrgState.printState();
+            System.out.println(crtPrgState.printState());
         }
     }
 
-    public void allStep() throws MyStmtExecException, UninitializedVariableException{
-        while(!crtPrgState.getExeStack().isEmpty()){
+    public void allStep() throws MyStmtExecException, UninitializedVariableException {
+        while (!crtPrgState.getExeStack().isEmpty()) {
             oneStep();
         }
     }

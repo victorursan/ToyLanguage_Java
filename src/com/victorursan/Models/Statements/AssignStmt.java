@@ -5,7 +5,7 @@ import com.victorursan.Models.Expressions.Exp;
 /**
  * Created by victor on 10/12/15.
  */
-public class AssignStmt implements IStmt{
+public class AssignStmt implements IStmt {
     private String id;
     private Exp exp;
 
@@ -31,7 +31,7 @@ public class AssignStmt implements IStmt{
     }
 
     @Override
-    public String toStr() {
-        return id + "=" + exp.toStr();
+    public String toString() {
+        return id + "=" + exp.toString();
     }
 }

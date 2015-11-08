@@ -1,21 +1,20 @@
 package com.victorursan.Models.ProgramState;
 
 import com.victorursan.Models.List.IList;
-import com.victorursan.Models.Map.Map;
-import com.victorursan.Models.Stack.ArrayStack;
-import com.victorursan.Models.Stack.Stack;
+import com.victorursan.Models.Map.IMap;
+import com.victorursan.Models.Stack.IStack;
 import com.victorursan.Models.Statements.IStmt;
 
 /**
  * Created by victor on 10/12/15.
  */
 public class PrgState {
-    private Stack<IStmt> exeStack;
-    private Map<String, Integer> symTable;
+    private IStack<IStmt> exeStack;
+    private IMap<String, Integer> symTable;
     private IList<Integer> out;
     private IStmt originalProgram; //optional field, but good to have
 
-    public PrgState(Stack<IStmt> stack, Map<String, Integer> dictionary, IList<Integer> list, IStmt prg){
+    public PrgState(IStack<IStmt> stack, IMap<String, Integer> dictionary, IList<Integer> list, IStmt prg) {
         exeStack = stack;
         symTable = dictionary;
         out = list;
@@ -23,11 +22,11 @@ public class PrgState {
         exeStack.push(originalProgram);
     }
 
-    public Stack<IStmt> getExeStack() {
+    public IStack<IStmt> getExeStack() {
         return exeStack;
     }
 
-    public Map<String, Integer> getSymTable() {
+    public IMap<String, Integer> getSymTable() {
         return symTable;
     }
 
@@ -35,30 +34,10 @@ public class PrgState {
         return out;
     }
 
-    public void printState() {
-        Stack<IStmt> tmpStack = new ArrayStack();
-        System.out.println("Exec Stack:");
-        while (!exeStack.isEmpty()) {
-            IStmt element = exeStack.pop();
-            tmpStack.push(element);
-            System.out.println(element.toStr());
-        }
-        while (!tmpStack.isEmpty()) {
-            exeStack.push(tmpStack.pop());
-        }
-
-        System.out.println("\nSymbol table");
-
-            for (String key: symTable.keys()) {
-                System.out.println(key + " = " + symTable.get(key).toString());
-            }
-        System.out.println("\nOutput List");
-
-        for (int index = 0; index < out.size(); index++) {
-            System.out.println(out.get(index));
-        }
-
-        System.out.println("");
+    public String printState() {
+        return "--------------------------------\n" +  "Exec Stack:\n" + exeStack.toString() +
+                "\nSymbol table\n" + symTable.toString() + "\n\nOutput List\n" + out.toString() +
+                "\n\n--------------------------------\n";
     }
 
 }

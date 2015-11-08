@@ -5,7 +5,7 @@ import com.victorursan.Models.Expressions.Exp;
 /**
  * Created by victor on 10/12/15.
  */
-public class IfStmt implements IStmt{
+public class IfStmt implements IStmt {
     private Exp exp;
     private IStmt thenS;
     private IStmt elseS;
@@ -41,7 +41,7 @@ public class IfStmt implements IStmt{
     }
 
     @Override
-    public String toStr() {
-        return "IF(" +  exp.toStr() + ")THEN(" + thenS.toStr()  + ")ELSE(" + elseS.toStr() + ")";
+    public String toString() {
+        return "IF(" + exp.toString() + ")THEN(" + thenS.toString() + ")ELSE(" + elseS.toString() + ")";
     }
 }

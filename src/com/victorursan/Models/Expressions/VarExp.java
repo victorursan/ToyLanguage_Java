@@ -1,6 +1,6 @@
 package com.victorursan.Models.Expressions;
 
-import com.victorursan.Models.Map.Map;
+import com.victorursan.Models.Map.IMap;
 
 /**
  * Created by victor on 10/12/15.
@@ -22,13 +22,13 @@ public class VarExp implements Exp {
     }
 
     @Override
-    public Integer eval(Map<String, Integer> tbl) throws UninitializedVariableException {
+    public Integer eval(IMap<String, Integer> tbl) throws UninitializedVariableException {
         if (tbl.containsKey(id)) return tbl.get(id);
         else throw new UninitializedVariableException();
     }
 
     @Override
-    public String toStr() {
+    public String toString() {
         return " " + id + " ";
     }
 }

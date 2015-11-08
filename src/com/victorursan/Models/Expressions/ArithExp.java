@@ -1,12 +1,12 @@
 package com.victorursan.Models.Expressions;
 
-import com.victorursan.Models.Map.Map;
+import com.victorursan.Models.Map.IMap;
 
 /**
  * Created by victor on 10/12/15.
  */
 
-public class ArithExp implements Exp{
+public class ArithExp implements Exp {
     private Exp e1;
     private Exp e2;
     private String op;
@@ -42,7 +42,7 @@ public class ArithExp implements Exp{
     }
 
     @Override
-    public Integer eval(Map<String, Integer> tbl) throws UninitializedVariableException{
+    public Integer eval(IMap<String, Integer> tbl) throws UninitializedVariableException {
         if (op.equals("+")) return (e1.eval(tbl) + e2.eval(tbl));
         if (op.equals("-")) return (e1.eval(tbl) - e2.eval(tbl));
         if (op.equals("*")) return (e1.eval(tbl) * e2.eval(tbl));
@@ -51,7 +51,7 @@ public class ArithExp implements Exp{
     }
 
     @Override
-    public String toStr() {
-        return "(" + e1.toStr() + " " + op + " " + e2.toStr() + ")" ;
+    public String toString() {
+        return "(" + e1 + " " + op + " " + e2 + ")";
     }
 }

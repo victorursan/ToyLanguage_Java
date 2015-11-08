@@ -17,18 +17,21 @@ public class WhileStmt implements IStmt {
     public Exp getExp() {
         return exp;
     }
+
     public IStmt getStmt() {
         return stmt;
     }
+
     public void settExp(Exp exp) {
         this.exp = exp;
     }
+
     public void setStmt(IStmt stmt) {
         this.stmt = stmt;
     }
 
     @Override
-    public String toStr() {
-        return "While( " + exp.toStr() + ") { " + stmt.toStr() + " }";
+    public String toString() {
+        return "While( " + exp.toString() + ") { " + stmt.toString() + " }";
     }
 }

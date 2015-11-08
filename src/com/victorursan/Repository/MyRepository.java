@@ -17,7 +17,7 @@ public class MyRepository implements Repository {
     @Override
     public PrgState getCrtProgram() {
         if (prgNumber > 0)
-                return this.prgStates[0];
+            return this.prgStates[0];
         return null;
     }
 }

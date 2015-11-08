@@ -3,10 +3,10 @@ package com.victorursan.Views;
 import com.victorursan.Controller.Controller;
 import com.victorursan.Controller.MyStmtExecException;
 import com.victorursan.Models.Expressions.*;
-import com.victorursan.Models.List.ArrayList;
-import com.victorursan.Models.Map.ArrayDictionary;
+import com.victorursan.Models.List.MyLibraryList;
+import com.victorursan.Models.Map.MyLibraryDictionary;
 import com.victorursan.Models.ProgramState.PrgState;
-import com.victorursan.Models.Stack.ArrayStack;
+import com.victorursan.Models.Stack.MyLibraryStack;
 import com.victorursan.Models.Statements.*;
 import com.victorursan.Repository.MyRepository;
 
@@ -173,7 +173,7 @@ public class MyConsole {
         return new IfStmt(expression, thenS, elseS);
     }
 
-    private  WhileStmt whileStatement() {
+    private WhileStmt whileStatement() {
         print("Expression:");
         Exp expression = inputExpression();
         print("Statement:");
@@ -220,11 +220,12 @@ public class MyConsole {
     }
 
     private void inputProgram() {
-        IStmt prgStatement = inputStatement();
-                //new CompStmt(new AssignStmt("a", new ArithExp(new ConstExp(2), "-", new ConstExp(2))),new CompStmt(new IfStmt(new VarExp("a"),new AssignStmt("v",new ConstExp(2)), new AssignStmt("v", new ConstExp(3))), new PrintStmt(new VarExp("v"))));
-        currentProgram = new PrgState(new ArrayStack(), new ArrayDictionary(), new ArrayList<>(), prgStatement);
+        IStmt prgStatement = new CompStmt(new AssignStmt("a", new ArithExp(new ConstExp(2), "-", new ConstExp(2))), new CompStmt(new IfStmt(new VarExp("a"), new AssignStmt("v", new ConstExp(2)), new AssignStmt("v", new ConstExp(3))), new PrintStmt(new VarExp("v"))));
+//                inputStatement();
+
+        currentProgram = new PrgState(new MyLibraryStack<>(), new MyLibraryDictionary<>(), new MyLibraryList<>(), prgStatement);
         PrgState[] programs = {currentProgram};
-        currentProgram.printState();
+        print(currentProgram.printState());
         ctrl = new Controller(new MyRepository(programs));
     }
 

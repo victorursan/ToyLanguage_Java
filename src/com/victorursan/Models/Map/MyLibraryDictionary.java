@@ -1,0 +1,65 @@
+package com.victorursan.Models.Map;
+
+import java.util.HashMap;
+import java.util.Set;
+
+/**
+ * Created by victor on 10/24/15.
+ */
+public class MyLibraryDictionary<K, V> implements IMap<K, V> {
+    private HashMap<K, V> hashMap;
+
+    public MyLibraryDictionary() {
+        hashMap = new HashMap<>();
+    }
+
+    @Override
+    public void clear() {
+        hashMap = new HashMap<>();
+    }
+
+    @Override
+    public boolean containsKey(K key) {
+        return hashMap.containsKey(key);
+    }
+
+    @Override
+    public boolean containsValue(V value) {
+        return hashMap.containsValue(value);
+    }
+
+    @Override
+    public V get(K key) {
+        return hashMap.get(key);
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return hashMap.isEmpty();
+    }
+
+    @Override
+    public void put(K key, V value) {
+        hashMap.put(key, value);
+    }
+
+    @Override
+    public V remove(K key) {
+        return hashMap.remove(key);
+    }
+
+    @Override
+    public int size() {
+        return hashMap.size();
+    }
+
+    @Override
+    public Set<K> keySet() {
+        return hashMap.keySet();
+    }
+
+    @Override
+    public String toString() {
+        return " " + hashMap + " ";
+    }
+}

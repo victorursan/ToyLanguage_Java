@@ -1,6 +1,6 @@
 package Tests.Map;
 
-import com.victorursan.Models.Map.ArrayDictionary;
+import com.victorursan.Models.Map.MyLibraryDictionary;
 import junit.framework.TestCase;
 
 /**
@@ -8,11 +8,11 @@ import junit.framework.TestCase;
  */
 public class ArrayDictionaryTest extends TestCase {
 
-    private ArrayDictionary myDictionary;
+    private MyLibraryDictionary<String, Integer> myDictionary;
 
     public void setUp() throws Exception {
         super.setUp();
-        myDictionary = new ArrayDictionary();
+        myDictionary = new MyLibraryDictionary<>();
         myDictionary.put("a", 1);
         myDictionary.put("b", 2);
     }
@@ -49,7 +49,7 @@ public class ArrayDictionaryTest extends TestCase {
     }
 
     public void testSize() throws Exception {
-//        assertEquals(myDictionary.size(), 2);
+        assertEquals(myDictionary.size(), 2);
     }
 
 }
