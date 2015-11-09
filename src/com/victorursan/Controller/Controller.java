@@ -1,5 +1,6 @@
 package com.victorursan.Controller;
 
+import com.victorursan.Models.Expressions.ArithExp;
 import com.victorursan.Models.Expressions.DivisionByZeroException;
 import com.victorursan.Models.Expressions.Exp;
 import com.victorursan.Models.Expressions.UninitializedVariableException;
@@ -88,6 +89,13 @@ public class Controller {
             }
         } else if (crtStmt instanceof SkipStmt) {
             //nothing
+        } else if (crtStmt instanceof SwitchStmt) {
+            SwitchStmt crtStmt1 = (SwitchStmt) crtStmt;
+            Exp difSwitch = new ArithExp(crtStmt1.getExp(), "-", crtStmt1.getExpCase2());
+            Exp difSwitch2 = new ArithExp(crtStmt1.getExp(), "-", crtStmt1.getExpCase1());
+            IStmt ifSwitch = new IfStmt(difSwitch2, crtStmt1.getDefaultCase(), crtStmt1.getCase1());
+            IStmt switchStmt = new IfStmt(difSwitch, ifSwitch, crtStmt1.getCase2());
+            stk.push(switchStmt);
         }
         } catch (EmptyStackException e) {
             throw new MyStmtExecException();
