@@ -168,12 +168,17 @@ public class MyConsole {
         return relationalExpression();
     }
 
+    private ReadExp readExpression() throws UnexpectedTypeException {
+        return new ReadExp();
+    }
+
     private Exp inputExpression() throws UnexpectedTypeException {
         print("1. Arithmetical expression");
         print("2. Constant expression");
         print("3. Var expression");
         print("4. Relational expression");
         print("5. Logical expression");
+        print("6. Read expression");
         try {
             Exp expr;
             Integer opt = readInteger("Option: ");
@@ -193,7 +198,9 @@ public class MyConsole {
                 case 5:
                     expr = logicalExpression();
                     break;
-
+                case 6:
+                    expr = readExpression();
+                    break;
                 default:
                     print("Invalid option, please try again");
                     expr = inputExpression();

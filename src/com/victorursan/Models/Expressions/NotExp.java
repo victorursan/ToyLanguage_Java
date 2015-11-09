@@ -17,6 +17,7 @@ public class NotExp implements Exp {
     public Integer eval(IMap<String, Integer> tbl) throws UninitializedVariableException, DivisionByZeroException, NoSuchKeyException {
         return exp.eval(tbl) == 0 ? 1: 0;
     }
+
     @Override
     public String toString() {
         return "!(" + exp + ")";
