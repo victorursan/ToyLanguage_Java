@@ -247,6 +247,10 @@ public class MyConsole {
         return new WhileStmt(expression, statement);
     }
 
+    private SkipStmt skipStatements() throws UnexpectedTypeException {
+        return new SkipStmt();
+    }
+
     private PrintStmt printStatement() throws UnexpectedTypeException {
         print("Expression:");
         Exp expression = inputExpression();
@@ -260,6 +264,7 @@ public class MyConsole {
         print("3. If statement");
         print("4. Print statement");
         print("5. While statement");
+        print("6. Skip statement");
         try {
             Integer opt = readInteger("Option: ");
             IStmt prg;
@@ -279,6 +284,10 @@ public class MyConsole {
                 case 5:
                     prg = whileStatement();
                     break;
+                case 6:
+                    prg = skipStatements();
+                    break;
+
                 default:
                     print("Invalid option, please try again");
                     prg = inputStatement();

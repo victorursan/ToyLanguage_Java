@@ -86,6 +86,8 @@ public class Controller {
                 stk.push(crtStmt1);
                 stk.push(crtStmt1.getStmt());
             }
+        } else if (crtStmt instanceof SkipStmt) {
+            //nothing
         }
         } catch (EmptyStackException e) {
             throw new MyStmtExecException();
