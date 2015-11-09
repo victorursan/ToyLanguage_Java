@@ -123,7 +123,6 @@ public class MyConsole {
         }
         print("invalid operand");
         return arithmeticalExpression();
-
     }
 
     private ConstExp constantExpression() throws UnexpectedTypeException {
@@ -136,11 +135,26 @@ public class MyConsole {
         return new VarExp(id);
     }
 
+    private RelationalExp relationalExpression() throws UnexpectedTypeException {
+        print("Available operands: <, <=, ==, !=, >, >=");
+        String opperand = readString("Operand: ");
+        if (Arrays.asList(new String[]{"<", "<=", "==", "!=", ">", ">="}).contains(opperand)) {
+            print("Left:");
+            Exp left = inputExpression();
+            print("Right:");
+            Exp right = inputExpression();
+            return new RelationalExp(left, opperand, right);
+        }
+        print("invalid operand");
+        return relationalExpression();
+    }
 
     private Exp inputExpression() throws UnexpectedTypeException {
         print("1. Arithmetical expression");
         print("2. Constant expression");
         print("3. Var expression");
+        print("4. Relational expression");
+
         try {
             Exp expr;
             Integer opt = readInteger("Option: ");
@@ -153,6 +167,9 @@ public class MyConsole {
                     break;
                 case 3:
                     expr = variableExpression();
+                    break;
+                case 4:
+                    expr = relationalExpression();
                     break;
                 default:
                     print("Invalid option, please try again");
