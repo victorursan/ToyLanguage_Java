@@ -1,12 +1,16 @@
 package com.victorursan.Controller;
 
+import com.victorursan.Models.Expressions.DivisionByZeroException;
 import com.victorursan.Models.Expressions.Exp;
 import com.victorursan.Models.Expressions.UninitializedVariableException;
 import com.victorursan.Models.List.IList;
 import com.victorursan.Models.Map.IMap;
+import com.victorursan.Models.Map.NoSuchKeyException;
 import com.victorursan.Models.ProgramState.PrgState;
+import com.victorursan.Models.Stack.EmptyStackException;
 import com.victorursan.Models.Stack.IStack;
 import com.victorursan.Models.Statements.*;
+import com.victorursan.Repository.EmptyRepositoryException;
 import com.victorursan.Repository.Repository;
 
 /**
@@ -41,18 +45,16 @@ public class Controller {
         this.repo = repo;
     }
 
-    public Controller(Repository thisRepo) {
+    public Controller(Repository thisRepo) throws EmptyRepositoryException {
         printFlag = true;
         repo = thisRepo;
         crtPrgState = repo.getCrtProgram();
     }
 
-    public void oneStep() throws MyStmtExecException, UninitializedVariableException {
+    public void oneStep() throws MyStmtExecException, UninitializedVariableException, EmptyRepositoryException, DivisionByZeroException, NoSuchKeyException {
         IStack<IStmt> stk = crtPrgState.getExeStack();
-        if (stk.isEmpty()) {
-            throw new MyStmtExecException();
-        }
-        IStmt crtStmt = stk.pop();
+        try {
+            IStmt crtStmt = stk.pop();
         if (crtStmt instanceof CompStmt) {
             CompStmt crtStmt1 = (CompStmt) crtStmt;
             stk.push(crtStmt1.getSecond());
@@ -85,12 +87,16 @@ public class Controller {
                 stk.push(crtStmt1.getStmt());
             }
         }
+        } catch (EmptyStackException e) {
+            throw new MyStmtExecException();
+        }
         if (printFlag) {
             System.out.println(crtPrgState.printState());
         }
     }
 
-    public void allStep() throws MyStmtExecException, UninitializedVariableException {
+    public void allStep() throws MyStmtExecException, UninitializedVariableException, NoSuchKeyException,
+                                 EmptyRepositoryException, DivisionByZeroException {
         while (!crtPrgState.getExeStack().isEmpty()) {
             oneStep();
         }

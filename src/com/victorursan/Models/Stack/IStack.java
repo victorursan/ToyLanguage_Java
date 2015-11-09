@@ -6,7 +6,7 @@ package com.victorursan.Models.Stack;
 public interface IStack<T> {
     void push(T e);
 
-    T pop();
+    T pop() throws EmptyStackException;
 
     boolean isEmpty();
 

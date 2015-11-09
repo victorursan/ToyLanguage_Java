@@ -29,7 +29,8 @@ public class MyLibraryDictionary<K, V> implements IMap<K, V> {
     }
 
     @Override
-    public V get(K key) {
+    public V get(K key) throws NoSuchKeyException {
+        if (!this.containsKey(key)) throw new NoSuchKeyException();
         return hashMap.get(key);
     }
 
@@ -44,7 +45,8 @@ public class MyLibraryDictionary<K, V> implements IMap<K, V> {
     }
 
     @Override
-    public V remove(K key) {
+    public V remove(K key) throws NoSuchKeyException {
+        if (!this.containsKey(key)) throw new NoSuchKeyException();
         return hashMap.remove(key);
     }
 

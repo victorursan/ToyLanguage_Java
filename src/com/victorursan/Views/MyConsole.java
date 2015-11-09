@@ -5,9 +5,11 @@ import com.victorursan.Controller.MyStmtExecException;
 import com.victorursan.Models.Expressions.*;
 import com.victorursan.Models.List.MyLibraryList;
 import com.victorursan.Models.Map.MyLibraryDictionary;
+import com.victorursan.Models.Map.NoSuchKeyException;
 import com.victorursan.Models.ProgramState.PrgState;
 import com.victorursan.Models.Stack.MyLibraryStack;
 import com.victorursan.Models.Statements.*;
+import com.victorursan.Repository.EmptyRepositoryException;
 import com.victorursan.Repository.MyRepository;
 
 import java.io.BufferedReader;
@@ -41,13 +43,12 @@ public class MyConsole {
         return "";
     }
 
-    private Integer readInteger(String message) {
+    private Integer readInteger(String message) throws UnexpectedTypeException {
         try {
             return Integer.parseInt(readString(message));
         } catch (NumberFormatException e) {
-            print("That is not a number");
+            throw new UnexpectedTypeException();
         }
-        return 0;
     }
 
     private void oneStep() {
@@ -58,6 +59,12 @@ public class MyConsole {
             currentProgram = null;
         } catch (UninitializedVariableException e) {
             print("A variable is not initialized");
+        } catch (NoSuchKeyException e) {
+            print("No such Variable");
+        } catch (DivisionByZeroException e) {
+            print("Division by zero");
+        } catch (EmptyRepositoryException e) {
+            print("No program state ");
         }
     }
 
@@ -69,10 +76,17 @@ public class MyConsole {
             currentProgram = null;
         } catch (UninitializedVariableException e) {
             print("A variable is not initialized");
+        } catch (NoSuchKeyException e) {
+            print("No such Variable");
+        } catch (DivisionByZeroException e) {
+            print("Division by zero");
+        } catch (EmptyRepositoryException e) {
+            print("No program state ");
         }
     }
 
-    private void setPrintFlag() {
+
+    private void setPrintFlag() throws UnexpectedTypeException {
         print("Currently it is:");
         if (ctrl.isPrintFlag()) {
             print("On");
@@ -97,7 +111,7 @@ public class MyConsole {
 
     }
 
-    private ArithExp arithmeticalExpression() {
+    private ArithExp arithmeticalExpression() throws UnexpectedTypeException {
         print("Available operands: +, -, *, /");
         String opperand = readString("Operand: ");
         if (Arrays.asList(new String[]{"+", "-", "*", "/"}).contains(opperand)) {
@@ -112,7 +126,7 @@ public class MyConsole {
 
     }
 
-    private ConstExp constantExpression() {
+    private ConstExp constantExpression() throws UnexpectedTypeException {
         Integer number = readInteger("Number: ");
         return new ConstExp(number);
     }
@@ -123,32 +137,37 @@ public class MyConsole {
     }
 
 
-    private Exp inputExpression() {
+    private Exp inputExpression() throws UnexpectedTypeException {
         print("1. Arithmetical expression");
         print("2. Constant expression");
         print("3. Var expression");
-        Exp expr;
-        Integer opt = readInteger("Option: ");
-        switch (opt) {
-            case 1:
-                expr = arithmeticalExpression();
-                break;
-            case 2:
-                expr = constantExpression();
-                break;
-            case 3:
-                expr = variableExpression();
-                break;
-            default:
-                print("Invalid option, please try again");
-                expr = inputExpression();
-                break;
+        try {
+            Exp expr;
+            Integer opt = readInteger("Option: ");
+            switch (opt) {
+                case 1:
+                    expr = arithmeticalExpression();
+                    break;
+                case 2:
+                    expr = constantExpression();
+                    break;
+                case 3:
+                    expr = variableExpression();
+                    break;
+                default:
+                    print("Invalid option, please try again");
+                    expr = inputExpression();
+                    break;
 
+            }
+            return expr;
+        } catch (UnexpectedTypeException e) {
+            print("Invalid option, please try again");
+            return inputExpression();
         }
-        return expr;
     }
 
-    private CompStmt compoundStatement() {
+    private CompStmt compoundStatement() throws UnexpectedTypeException {
         print("Left side:");
         IStmt left = inputStatement();
         print("Right side:");
@@ -156,14 +175,14 @@ public class MyConsole {
         return new CompStmt(left, right);
     }
 
-    private AssignStmt assignmentStatement() {
+    private AssignStmt assignmentStatement() throws UnexpectedTypeException {
         String name = readString("Var name:");
         print("Right side:");
         Exp exp = inputExpression();
         return new AssignStmt(name, exp);
     }
 
-    private IfStmt ifStatement() {
+    private IfStmt ifStatement() throws UnexpectedTypeException {
         print("Expression:");
         Exp expression = inputExpression();
         print("Then Statement:");
@@ -173,7 +192,7 @@ public class MyConsole {
         return new IfStmt(expression, thenS, elseS);
     }
 
-    private WhileStmt whileStatement() {
+    private WhileStmt whileStatement() throws UnexpectedTypeException {
         print("Expression:");
         Exp expression = inputExpression();
         print("Statement:");
@@ -181,7 +200,7 @@ public class MyConsole {
         return new WhileStmt(expression, statement);
     }
 
-    private PrintStmt printStatement() {
+    private PrintStmt printStatement() throws UnexpectedTypeException {
         print("Expression:");
         Exp expression = inputExpression();
         return new PrintStmt(expression);
@@ -194,37 +213,43 @@ public class MyConsole {
         print("3. If statement");
         print("4. Print statement");
         print("5. While statement");
-        Integer opt = readInteger("Option: ");
-        IStmt prg;
-        switch (opt) {
-            case 1:
-                prg = compoundStatement();
-                break;
-            case 2:
-                prg = assignmentStatement();
-                break;
-            case 3:
-                prg = ifStatement();
-                break;
-            case 4:
-                prg = printStatement();
-                break;
-            case 5:
-                prg = whileStatement();
-                break;
-            default:
-                print("Invalid option, please try again");
-                prg = inputStatement();
+        try {
+            Integer opt = readInteger("Option: ");
+            IStmt prg;
+            switch (opt) {
+                case 1:
+                    prg = compoundStatement();
+                    break;
+                case 2:
+                    prg = assignmentStatement();
+                    break;
+                case 3:
+                    prg = ifStatement();
+                    break;
+                case 4:
+                    prg = printStatement();
+                    break;
+                case 5:
+                    prg = whileStatement();
+                    break;
+                default:
+                    print("Invalid option, please try again");
+                    prg = inputStatement();
+            }
+
+            return prg;
+        } catch (UnexpectedTypeException e) {
+            print("Invalid option, please try again");
+            return inputStatement();
         }
-        return prg;
     }
 
-    private void inputProgram() {
-        IStmt prgStatement = new CompStmt(new AssignStmt("a", new ArithExp(new ConstExp(2), "-", new ConstExp(2))), new CompStmt(new IfStmt(new VarExp("a"), new AssignStmt("v", new ConstExp(2)), new AssignStmt("v", new ConstExp(3))), new PrintStmt(new VarExp("v"))));
-//                inputStatement();
-
+    private void inputProgram() throws EmptyRepositoryException {
+        IStmt prgStatement = inputStatement();
+                //new CompStmt(new AssignStmt("a", new ArithExp(new ConstExp(2), "-", new ConstExp(2))), new CompStmt(new IfStmt(new VarExp("a"), new AssignStmt("v", new ConstExp(2)), new AssignStmt("v", new ConstExp(3))), new PrintStmt(new VarExp("v"))));
         currentProgram = new PrgState(new MyLibraryStack<>(), new MyLibraryDictionary<>(), new MyLibraryList<>(), prgStatement);
-        PrgState[] programs = {currentProgram};
+        MyLibraryList<PrgState> programs = new MyLibraryList<>();
+        programs.add(currentProgram);
         print(currentProgram.printState());
         ctrl = new Controller(new MyRepository(programs));
     }
@@ -234,31 +259,36 @@ public class MyConsole {
         print("2. One Step");
         print("3. All Step");
         print("4. Set printFlag");
-        Integer opt = readInteger("Option: ");
-
-        if (opt != 1 && currentProgram == null) {
-            print("There is no program, please insert a program");
-
-        } else {
-            switch (opt) {
-                case 1:
-                    inputProgram();
-                    break;
-                case 2:
-                    oneStep();
-                    break;
-                case 3:
-                    allStep();
-                    break;
-                case 4:
-                    setPrintFlag();
-                    break;
-                default:
-                    print("Invalid option, please try again");
-                    break;
+        try {
+            Integer opt = readInteger("Option: ");
+            if (opt != 1 && currentProgram == null) {
+                print("There is no program, please insert a program");
+            } else {
+                switch (opt) {
+                    case 1:
+                        inputProgram();
+                        break;
+                    case 2:
+                        oneStep();
+                        break;
+                    case 3:
+                        allStep();
+                        break;
+                    case 4:
+                        setPrintFlag();
+                        break;
+                    default:
+                        print("Invalid option, please try again");
+                        break;
+                }
             }
+            firstMenu();
+        } catch (UnexpectedTypeException e) {
+            print("Invalid option, please insert a number");
+            firstMenu();
+        } catch (EmptyRepositoryException e) {
+            print("No program added");
         }
-        firstMenu();
     }
 
     public void run() {

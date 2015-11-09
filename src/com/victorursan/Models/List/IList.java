@@ -14,7 +14,7 @@ public interface IList<T> {
     boolean contains(T element);
 
     //Returns the element at the specified position in this list.
-    T get(int index);
+    T get(int index) throws IndexOutOfBoundsException;
 
     //Returns the number of elements in this list.
     int size();

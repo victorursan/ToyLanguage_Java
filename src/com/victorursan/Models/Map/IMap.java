@@ -16,7 +16,7 @@ public interface IMap<K, V> {
     boolean containsValue(V value);
 
     //Returns the value to which the specified key is mapped, or null if this map contains no mapping for the key.
-    V get(K key);
+    V get(K key) throws NoSuchKeyException;
 
     //Returns true if this map contains no key-value mappings.
     boolean isEmpty();
@@ -25,7 +25,7 @@ public interface IMap<K, V> {
     void put(K key, V value);
 
     //Removes the mapping for a key from this map if it is present (optional operation).
-    V remove(K key);
+    V remove(K key) throws NoSuchKeyException;
 
     //Returns the number of key-value mappings in this map.
     int size();

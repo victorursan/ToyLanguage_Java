@@ -18,7 +18,8 @@ public class MyLibraryStack<T> implements IStack<T> {
     }
 
     @Override
-    public T pop() {
+    public T pop() throws  EmptyStackException {
+        if (this.isEmpty()) throw new EmptyStackException();
         return elements.pop();
     }
 

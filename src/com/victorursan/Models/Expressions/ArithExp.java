@@ -1,6 +1,7 @@
 package com.victorursan.Models.Expressions;
 
 import com.victorursan.Models.Map.IMap;
+import com.victorursan.Models.Map.NoSuchKeyException;
 
 /**
  * Created by victor on 10/12/15.
@@ -42,11 +43,14 @@ public class ArithExp implements Exp {
     }
 
     @Override
-    public Integer eval(IMap<String, Integer> tbl) throws UninitializedVariableException {
+    public Integer eval(IMap<String, Integer> tbl) throws UninitializedVariableException, DivisionByZeroException, NoSuchKeyException {
         if (op.equals("+")) return (e1.eval(tbl) + e2.eval(tbl));
         if (op.equals("-")) return (e1.eval(tbl) - e2.eval(tbl));
         if (op.equals("*")) return (e1.eval(tbl) * e2.eval(tbl));
-        if (op.equals("/")) return (e1.eval(tbl) / e2.eval(tbl));
+        if (op.equals("/")) {
+            if (e2.eval(tbl) == 0) throw new DivisionByZeroException();
+            return (e1.eval(tbl) / e2.eval(tbl));
+        }
         return 0;
     }
 
