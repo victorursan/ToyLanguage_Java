@@ -149,12 +149,31 @@ public class MyConsole {
         return relationalExpression();
     }
 
+    private Exp logicalExpression() throws UnexpectedTypeException {
+        print("Available operands: !, ||, &&");
+        String opperand = readString("Operand: ");
+        if(opperand.equals("!")) {
+            print("Expression:");
+            Exp exp = inputExpression();
+            return new NotExp(exp);
+        }
+        else if (Arrays.asList(new String[]{"||", "&&"}).contains(opperand)) {
+            print("Left:");
+            Exp left = inputExpression();
+            print("Right:");
+            Exp right = inputExpression();
+            return new LogicalExp(left, opperand, right);
+        }
+        print("invalid operand");
+        return relationalExpression();
+    }
+
     private Exp inputExpression() throws UnexpectedTypeException {
         print("1. Arithmetical expression");
         print("2. Constant expression");
         print("3. Var expression");
         print("4. Relational expression");
-
+        print("5. Logical expression");
         try {
             Exp expr;
             Integer opt = readInteger("Option: ");
@@ -171,6 +190,10 @@ public class MyConsole {
                 case 4:
                     expr = relationalExpression();
                     break;
+                case 5:
+                    expr = logicalExpression();
+                    break;
+
                 default:
                     print("Invalid option, please try again");
                     expr = inputExpression();
