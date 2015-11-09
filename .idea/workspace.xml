@@ -2,23 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad1fe0b3-9388-4ef7-ad02-29082d2ebc78" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Controller/Controller.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Controller/Controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Controller/MyStmtExecException.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Controller/MyStmtExecException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/ArithExp.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/ArithExp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/Exp.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/Exp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/UninitializedVariableException.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/UninitializedVariableException.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/VarExp.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/VarExp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Models/List/IList.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Models/List/IList.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Models/List/MyLibraryList.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Models/List/MyLibraryList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Models/Map/IMap.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Models/Map/IMap.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Models/Map/MyLibraryDictionary.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Models/Map/MyLibraryDictionary.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Models/Stack/IStack.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Models/Stack/IStack.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Models/Stack/MyLibraryStack.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Models/Stack/MyLibraryStack.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Models/Statements/CompStmt.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Models/Statements/CompStmt.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Repository/MyRepository.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Repository/MyRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Repository/Repository.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Repository/Repository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Views/MyConsole.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Views/MyConsole.java" />
     </list>
     <ignored path="ToyLanguage_Java.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,36 +31,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ArithExp.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/ArithExp.java">
+      <file leaf-file-name="MyLibraryList.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/List/MyLibraryList.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="46" column="43" selection-start-line="46" selection-start-column="43" selection-end-line="46" selection-end-column="43" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MyConsole.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MyRepository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/victorursan/Repository/MyRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="26" column="45" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MyConsole.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/victorursan/Views/MyConsole.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.8333335">
-              <caret line="19" column="3" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
+            <state vertical-scroll-proportion="-9.407408">
+              <caret line="55" column="24" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EmptyRepositoryException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/victorursan/Repository/EmptyRepositoryException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -88,53 +73,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PrgState.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/ProgramState/PrgState.java">
+      <file leaf-file-name="RepositoryException.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/victorursan/Repository/RepositoryException.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+              <caret line="5" column="50" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UnexpectedTypeException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/victorursan/Views/UnexpectedTypeException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="58" selection-start-line="5" selection-start-column="58" selection-end-line="5" selection-end-column="58" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VarExp.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/VarExp.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UninitializedVariableException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/UninitializedVariableException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/victorursan/Controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="98" column="33" selection-start-line="98" selection-start-column="33" selection-end-line="98" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.73811835">
+              <caret line="93" column="31" selection-start-line="93" selection-start-column="31" selection-end-line="93" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -142,15 +95,42 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConstExp.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/ConstExp.java">
+      <file leaf-file-name="IfStmt.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Statements/IfStmt.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
-              <folding>
-                <element signature="e#555#556#0" expanded="true" />
-                <element signature="e#612#613#0" expanded="true" />
-              </folding>
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IStmt.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Statements/IStmt.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PrintStmt.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Statements/PrintStmt.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WhileStmt.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Statements/WhileStmt.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -212,18 +192,18 @@
         <option value="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/DivisionByZeroException.java" />
         <option value="$PROJECT_DIR$/src/com/victorursan/Models/List/EmptyListException.java" />
         <option value="$PROJECT_DIR$/src/com/victorursan/Models/List/IndexOutOfBoundsException.java" />
-        <option value="$PROJECT_DIR$/src/com/victorursan/Models/List/MyLibraryList.java" />
         <option value="$PROJECT_DIR$/src/com/victorursan/Models/Stack/EmptyStackException.java" />
-        <option value="$PROJECT_DIR$/src/com/victorursan/Models/Stack/MyLibraryStack.java" />
         <option value="$PROJECT_DIR$/src/com/victorursan/Models/Map/NoSuchKeyException.java" />
         <option value="$PROJECT_DIR$/src/com/victorursan/Models/Map/MyLibraryDictionary.java" />
         <option value="$PROJECT_DIR$/src/com/victorursan/Repository/EmptyRepositoryException.java" />
         <option value="$PROJECT_DIR$/src/com/victorursan/Repository/MyRepository.java" />
-        <option value="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/VarExp.java" />
         <option value="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/ArithExp.java" />
         <option value="$PROJECT_DIR$/src/com/victorursan/Views/UnexpectedTypeException.java" />
         <option value="$PROJECT_DIR$/src/com/victorursan/Controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/com/victorursan/Views/MyConsole.java" />
+        <option value="$PROJECT_DIR$/src/com/victorursan/Models/List/MyLibraryList.java" />
+        <option value="$PROJECT_DIR$/src/com/victorursan/Models/Stack/MyLibraryStack.java" />
+        <option value="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/VarExp.java" />
       </list>
     </option>
   </component>
@@ -241,7 +221,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1916" />
+    <option name="width" value="1026" />
     <option name="height" value="1177" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -1139,7 +1119,7 @@
       <workItem from="1446537929587" duration="2895000" />
       <workItem from="1446719731583" duration="270000" />
       <workItem from="1446980417415" duration="10488000" />
-      <workItem from="1447074701639" duration="5344000" />
+      <workItem from="1447074701639" duration="9655000" />
     </task>
     <servers />
   </component>
@@ -1161,10 +1141,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71928000" />
+    <option name="totallyTimeSpent" value="76239000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1916" height="1177" extended-state="0" />
+    <frame x="0" y="23" width="1026" height="1177" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1174,10 +1154,10 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29367328" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29367328" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19797225" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37703252" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1363,6 +1343,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Map/IMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/List/IList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/ModelException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="27" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Views/UnexpectedTypeException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="58" selection-start-line="5" selection-start-column="58" selection-end-line="5" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Repository/EmptyRepositoryException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Controller/MyStmtExecException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Controller/ControllerException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="51" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/List/IndexOutOfBoundsException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1371,19 +1407,137 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/List/MyLibraryList.java">
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Map/NoSuchKeyException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Map/MyLibraryDictionary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="54" column="20" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#749#750#0" expanded="true" />
-            <element signature="e#787#788#0" expanded="true" />
-            <element signature="e#833#834#0" expanded="true" />
-            <element signature="e#874#875#0" expanded="true" />
-            <element signature="e#920#921#0" expanded="true" />
-            <element signature="e#963#964#0" expanded="true" />
+            <element signature="e#1166#1167#0" expanded="true" />
+            <element signature="e#1203#1204#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Stack/IStack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Stack/MyLibraryStack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
+          <folding>
+            <element signature="e#790#791#0" expanded="true" />
+            <element signature="e#831#832#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/ArithExp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="50" column="71" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/ConstExp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding>
+            <element signature="e#555#556#0" expanded="true" />
+            <element signature="e#612#613#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/DivisionByZeroException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/UninitializedVariableException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/Exp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/VarExp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/ProgramState/PrgState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="57" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Stack/EmptyStackException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Statements/AssignStmt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Statements/CompStmt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Statements/PrintStmt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1403,14 +1557,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Statements/AssignStmt.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Statements/WhileStmt.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1419,121 +1565,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Statements/PrintStmt.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Statements/CompStmt.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Stack/EmptyStackException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Stack/IStack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Stack/MyLibraryStack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
-          <folding>
-            <element signature="e#702#703#0" expanded="true" />
-            <element signature="e#743#744#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Map/NoSuchKeyException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Map/MyLibraryDictionary.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="55" column="5" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1166#1167#0" expanded="true" />
-            <element signature="e#1203#1204#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Map/IMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/List/IList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/DivisionByZeroException.java">
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/List/MyLibraryList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/ModelException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="27" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Controller/ControllerException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="51" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Controller/MyStmtExecException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Repository/RepositoryException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="50" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
           <folding />
         </state>
       </provider>
@@ -1542,71 +1577,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="26" column="45" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/Exp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/ConstExp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
-          <folding>
-            <element signature="e#555#556#0" expanded="true" />
-            <element signature="e#612#613#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/VarExp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/UninitializedVariableException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/ArithExp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="43" selection-start-line="46" selection-start-column="43" selection-end-line="46" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Views/UnexpectedTypeException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="58" selection-start-line="5" selection-start-column="58" selection-end-line="5" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/ProgramState/PrgState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1619,28 +1589,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Repository/EmptyRepositoryException.java">
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Repository/RepositoryException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <caret line="5" column="50" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Controller/Controller.java">
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Views/MyConsole.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="98" column="33" selection-start-line="98" selection-start-column="33" selection-end-line="98" selection-end-column="33" />
+        <state vertical-scroll-proportion="-9.407408">
+          <caret line="55" column="24" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Views/MyConsole.java">
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.8333335">
-          <caret line="19" column="3" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.73811835">
+          <caret line="93" column="31" selection-start-line="93" selection-start-column="31" selection-end-line="93" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

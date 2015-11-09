@@ -10,7 +10,7 @@ public interface IStack<T> {
 
     boolean isEmpty();
 
-    T peek();
+    T peek() throws EmptyStackException;
 
     int search(T e);
 }

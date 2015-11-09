@@ -1,7 +1,5 @@
 package com.victorursan.Models.List;
 
-
-import java.lang.*;
 import java.util.ArrayList;
 
 /**
@@ -28,7 +26,7 @@ public class MyLibraryList<T> implements IList<T> {
     public T get(int index) throws IndexOutOfBoundsException {
         if (index >= 0 && index < elements.size())
         return elements.get(index);
-            throw new java.lang.IndexOutOfBoundsException();
+            throw new IndexOutOfBoundsException();
     }
 
     @Override

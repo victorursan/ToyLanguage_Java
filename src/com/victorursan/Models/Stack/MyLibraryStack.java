@@ -29,7 +29,8 @@ public class MyLibraryStack<T> implements IStack<T> {
     }
 
     @Override
-    public T peek() {
+    public T peek() throws EmptyStackException {
+        if (this.isEmpty()) throw new EmptyStackException();
         return elements.peek();
     }
 

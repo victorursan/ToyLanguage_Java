@@ -25,7 +25,7 @@ public class VarExp implements Exp {
     @Override
     public Integer eval(IMap<String, Integer> tbl) throws UninitializedVariableException, NoSuchKeyException {
         if (tbl.containsKey(id)) return tbl.get(id);
-        else throw new UninitializedVariableException();
+        throw new UninitializedVariableException();
     }
 
     @Override
