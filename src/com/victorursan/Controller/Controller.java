@@ -96,7 +96,11 @@ public class Controller {
             IStmt ifSwitch = new IfStmt(difSwitch2, crtStmt1.getDefaultCase(), crtStmt1.getCase1());
             IStmt switchStmt = new IfStmt(difSwitch, ifSwitch, crtStmt1.getCase2());
             stk.push(switchStmt);
+        } else if (crtStmt instanceof IfThenStmt) {
+            IfThenStmt crtStmt1 = (IfThenStmt) crtStmt;
+            stk.push(new IfStmt(crtStmt1.getExp(), crtStmt1.getThenS(), new SkipStmt()));
         }
+
         } catch (EmptyStackException e) {
             throw new MyStmtExecException();
         }

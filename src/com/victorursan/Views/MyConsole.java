@@ -260,7 +260,6 @@ public class MyConsole {
     private SwitchStmt switchStatement() throws UnexpectedTypeException {
         String variableName = readString("Variable name");
         Exp expr = new VarExp(variableName);
-
         System.out.println("Case 1 expression:");
         Exp expCase1 = inputExpression();
         System.out.println("Case 1 Statement:");
@@ -276,6 +275,14 @@ public class MyConsole {
         return new SwitchStmt(expr, expCase1, case1, expCase2, case2, caseDefault);
     }
 
+    private IfThenStmt ifThenStatement() throws UnexpectedTypeException {
+        print("Expression:");
+        Exp expression = inputExpression();
+        print("Then Statement:");
+        IStmt thenS = inputStatement();
+        return new IfThenStmt(expression, thenS);
+    }
+
     private IStmt inputStatement() {
         print("1. Compound statement");
         print("2. Assignment statement");
@@ -284,6 +291,7 @@ public class MyConsole {
         print("5. While statement");
         print("6. Skip statement");
         print("7. Switch statement");
+        print("8. If then statement");
         try {
             Integer opt = readInteger("Option: ");
             IStmt prg;
@@ -308,6 +316,9 @@ public class MyConsole {
                     break;
                 case 7:
                     prg = switchStatement();
+                    break;
+                case 8:
+                    prg = ifThenStatement();
                     break;
                 default:
                     print("Invalid option, please try again");
