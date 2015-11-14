@@ -20,8 +20,7 @@ public class ReadExp implements Exp {
     private String readString(String message) {
         try {
             print(message);
-            BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
-            return bufferRead.readLine();
+            return new BufferedReader(new InputStreamReader(System.in)).readLine();
         } catch (IOException e) {
             print(e.getMessage());
         }
@@ -42,7 +41,7 @@ public class ReadExp implements Exp {
     @Override
     public Integer eval(IMap<String, Integer> tbl) throws UninitializedVariableException, DivisionByZeroException, NoSuchKeyException {
         try {
-            return readInteger("");
+            return readInteger("input=");
         } catch (UnexpectedTypeException e) {
             return eval(tbl);
         }

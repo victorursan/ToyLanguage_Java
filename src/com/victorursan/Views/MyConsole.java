@@ -333,7 +333,8 @@ public class MyConsole {
     }
 
     private void inputProgram() throws EmptyRepositoryException {
-        IStmt prgStatement = inputStatement();
+        IStmt prgStatement =  new CompStmt(new AssignStmt("a", new ArithExp(new ReadExp(), "-", new ConstExp(2))), new CompStmt(new IfStmt(new VarExp("a"), new AssignStmt("v", new ConstExp(2)), new AssignStmt("v", new ConstExp(3))), new PrintStmt(new VarExp("v"))));
+                //inputStatement();
                 //new CompStmt(new AssignStmt("a", new ArithExp(new ConstExp(2), "-", new ConstExp(2))), new CompStmt(new IfStmt(new VarExp("a"), new AssignStmt("v", new ConstExp(2)), new AssignStmt("v", new ConstExp(3))), new PrintStmt(new VarExp("v"))));
         currentProgram = new PrgState(new MyLibraryStack<>(), new MyLibraryDictionary<>(), new MyLibraryList<>(), prgStatement);
         MyLibraryList<PrgState> programs = new MyLibraryList<>();
