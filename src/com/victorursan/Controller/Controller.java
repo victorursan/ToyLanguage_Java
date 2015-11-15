@@ -12,7 +12,10 @@ import com.victorursan.Models.Stack.EmptyStackException;
 import com.victorursan.Models.Stack.IStack;
 import com.victorursan.Models.Statements.*;
 import com.victorursan.Repository.EmptyRepositoryException;
+import com.victorursan.Repository.MyRepository;
 import com.victorursan.Repository.Repository;
+
+import java.io.IOException;
 
 /**
  * Created by victor on 10/24/15.
@@ -21,6 +24,22 @@ public class Controller {
     private Repository repo;
     private PrgState crtPrgState;
     private boolean printFlag;
+    private boolean logFlag;
+
+    public Controller(Repository thisRepo) throws EmptyRepositoryException {
+        printFlag = true;
+        logFlag = true;
+        repo = thisRepo;
+        crtPrgState = repo.getCrtProgram();
+    }
+
+    public boolean isLogFlag() {
+        return logFlag;
+    }
+
+    public void setLogFlag(boolean logFlag) {
+        this.logFlag = logFlag;
+    }
 
     public boolean isPrintFlag() {
         return printFlag;
@@ -30,12 +49,8 @@ public class Controller {
         this.printFlag = printFlag;
     }
 
-    public PrgState getCrtPrgState() {
-        return crtPrgState;
-    }
-
-    public void setCrtPrgState(PrgState crtPrgState) {
-        this.crtPrgState = crtPrgState;
+    public PrgState getCrtPrgState() throws EmptyRepositoryException {
+        return repo.getCrtProgram();
     }
 
     public Repository getRepo() {
@@ -44,12 +59,6 @@ public class Controller {
 
     public void setRepo(Repository repo) {
         this.repo = repo;
-    }
-
-    public Controller(Repository thisRepo) throws EmptyRepositoryException {
-        printFlag = true;
-        repo = thisRepo;
-        crtPrgState = repo.getCrtProgram();
     }
 
     public void oneStep() throws MyStmtExecException, UninitializedVariableException, EmptyRepositoryException, DivisionByZeroException, NoSuchKeyException {
@@ -100,12 +109,14 @@ public class Controller {
             IfThenStmt crtStmt1 = (IfThenStmt) crtStmt;
             stk.push(new IfStmt(crtStmt1.getExp(), crtStmt1.getThenS(), new SkipStmt()));
         }
-
         } catch (EmptyStackException e) {
             throw new MyStmtExecException();
         }
         if (printFlag) {
             System.out.println(crtPrgState.printState());
+        }
+        if (logFlag) {
+            repo.logPrgState();
         }
     }
 

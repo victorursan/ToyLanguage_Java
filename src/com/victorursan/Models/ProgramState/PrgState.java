@@ -5,10 +5,12 @@ import com.victorursan.Models.Map.IMap;
 import com.victorursan.Models.Stack.IStack;
 import com.victorursan.Models.Statements.IStmt;
 
+import java.io.Serializable;
+
 /**
  * Created by victor on 10/12/15.
  */
-public class PrgState {
+public class PrgState implements Serializable {
     private IStack<IStmt> exeStack;
     private IMap<String, Integer> symTable;
     private IList<Integer> out;

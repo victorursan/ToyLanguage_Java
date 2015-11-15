@@ -3,6 +3,8 @@ package com.victorursan.Views;
 import com.victorursan.Controller.Controller;
 import com.victorursan.Controller.MyStmtExecException;
 import com.victorursan.Models.Expressions.*;
+import com.victorursan.Models.List.IList;
+import com.victorursan.Models.List.IndexOutOfBoundsException;
 import com.victorursan.Models.List.MyLibraryList;
 import com.victorursan.Models.Map.MyLibraryDictionary;
 import com.victorursan.Models.Map.NoSuchKeyException;
@@ -11,11 +13,14 @@ import com.victorursan.Models.Stack.MyLibraryStack;
 import com.victorursan.Models.Statements.*;
 import com.victorursan.Repository.EmptyRepositoryException;
 import com.victorursan.Repository.MyRepository;
+import com.victorursan.Repository.Repository;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by victor on 10/24/15.
@@ -25,7 +30,6 @@ public class MyConsole {
     private PrgState currentProgram;
 
     public MyConsole() {
-
     }
 
     private void print(String message) {
@@ -54,8 +58,10 @@ public class MyConsole {
     private void oneStep() {
         try {
             ctrl.oneStep();
+            ctrl.getRepo().serializePrgStatet();
         } catch (MyStmtExecException e) {
             print("Finished");
+            ctrl.getRepo().serializePrgStatet();
             currentProgram = null;
         } catch (UninitializedVariableException e) {
             print("A variable is not initialized");
@@ -71,8 +77,10 @@ public class MyConsole {
     private void allStep() {
         try {
             ctrl.allStep();
+            ctrl.getRepo().serializePrgStatet();
         } catch (MyStmtExecException e) {
             print("Finished");
+            ctrl.getRepo().serializePrgStatet();
             currentProgram = null;
         } catch (UninitializedVariableException e) {
             print("A variable is not initialized");
@@ -152,12 +160,11 @@ public class MyConsole {
     private Exp logicalExpression() throws UnexpectedTypeException {
         print("Available operands: !, ||, &&");
         String opperand = readString("Operand: ");
-        if(opperand.equals("!")) {
+        if (opperand.equals("!")) {
             print("Expression:");
             Exp exp = inputExpression();
             return new NotExp(exp);
-        }
-        else if (Arrays.asList(new String[]{"||", "&&"}).contains(opperand)) {
+        } else if (Arrays.asList(new String[]{"||", "&&"}).contains(opperand)) {
             print("Left:");
             Exp left = inputExpression();
             print("Right:");
@@ -333,14 +340,50 @@ public class MyConsole {
     }
 
     private void inputProgram() throws EmptyRepositoryException {
-        IStmt prgStatement =  new CompStmt(new AssignStmt("a", new ArithExp(new ReadExp(), "-", new ConstExp(2))), new CompStmt(new IfStmt(new VarExp("a"), new AssignStmt("v", new ConstExp(2)), new AssignStmt("v", new ConstExp(3))), new PrintStmt(new VarExp("v"))));
-                //inputStatement();
-                //new CompStmt(new AssignStmt("a", new ArithExp(new ConstExp(2), "-", new ConstExp(2))), new CompStmt(new IfStmt(new VarExp("a"), new AssignStmt("v", new ConstExp(2)), new AssignStmt("v", new ConstExp(3))), new PrintStmt(new VarExp("v"))));
-        currentProgram = new PrgState(new MyLibraryStack<>(), new MyLibraryDictionary<>(), new MyLibraryList<>(), prgStatement);
-        MyLibraryList<PrgState> programs = new MyLibraryList<>();
-        programs.add(currentProgram);
+        IStmt prgStatement = new CompStmt(new AssignStmt("a", new ArithExp(new ReadExp(), "-", new ConstExp(2))),
+                new CompStmt(new IfStmt(new VarExp("a"), new AssignStmt("v", new ConstExp(2)),
+                        new AssignStmt("v", new ConstExp(3))), new PrintStmt(new VarExp("v"))));
+//                inputStatement();
+        IList<PrgState> programs = new MyLibraryList<>();
+        programs.add(new PrgState(new MyLibraryStack<>(), new MyLibraryDictionary<>(), new MyLibraryList<>(), prgStatement));
+
+        Repository repo = new MyRepository(programs);
+
+        ctrl = new Controller(repo);
+        currentProgram = ctrl.getCrtPrgState();
         print(currentProgram.printState());
-        ctrl = new Controller(new MyRepository(programs));
+        ctrl.getRepo().serializePrgStatet();
+    }
+
+    private void lastProgramState() throws EmptyRepositoryException, IOException {
+        IList<PrgState> prgStates = new MyRepository().deserializePrgStatet();
+        ctrl = new Controller(new MyRepository(prgStates));
+        currentProgram = ctrl.getCrtPrgState();
+        print(currentProgram.printState());
+    }
+
+    private void setLogFlag() throws UnexpectedTypeException {
+        print("Currently it is:");
+        if (ctrl.isLogFlag()) {
+            print("On");
+            print("1. Set Off");
+        } else {
+            print("Off");
+            print("1. Set On");
+        }
+        print("2. Back");
+        Integer opt = readInteger("Option: ");
+        switch (opt) {
+            case 1:
+                ctrl.setLogFlag(!ctrl.isLogFlag());
+                break;
+            case 2:
+                break;
+            default:
+                print("Invalid option, please try again");
+                setLogFlag();
+                break;
+        }
     }
 
     private void firstMenu() {
@@ -348,9 +391,11 @@ public class MyConsole {
         print("2. One Step");
         print("3. All Step");
         print("4. Set printFlag");
+        print("5. Last program state");
+        print("6. Set logFlag");
         try {
             Integer opt = readInteger("Option: ");
-            if (opt != 1 && currentProgram == null) {
+            if (opt != 1 && opt != 5 && currentProgram == null) {
                 print("There is no program, please insert a program");
             } else {
                 switch (opt) {
@@ -366,6 +411,12 @@ public class MyConsole {
                     case 4:
                         setPrintFlag();
                         break;
+                    case 5:
+                        lastProgramState();
+                        break;
+                    case 6:
+                        setLogFlag();
+                        break;
                     default:
                         print("Invalid option, please try again");
                         break;
@@ -377,8 +428,12 @@ public class MyConsole {
             firstMenu();
         } catch (EmptyRepositoryException e) {
             print("No program added");
+        } catch (IOException e) {
+            print("No previous program");
+            firstMenu();
         }
     }
+
 
     public void run() {
         firstMenu();

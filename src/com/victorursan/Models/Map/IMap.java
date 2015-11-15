@@ -1,11 +1,12 @@
 package com.victorursan.Models.Map;
 
+import java.io.Serializable;
 import java.util.Set;
 
 /**
  * Created by victor on 10/24/15.
  */
-public interface IMap<K, V> {
+public interface IMap<K, V> extends Serializable {
     //Removes all of the mappings from this map (optional operation).
     void clear();
 

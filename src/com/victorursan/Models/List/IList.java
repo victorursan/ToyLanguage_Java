@@ -1,9 +1,11 @@
 package com.victorursan.Models.List;
 
+import java.io.Serializable;
+
 /**
  * Created by victor on 10/24/15.
  */
-public interface IList<T> {
+public interface IList<T> extends Serializable {
     //Return if or not the list is empty
     boolean isEmpty();
 
