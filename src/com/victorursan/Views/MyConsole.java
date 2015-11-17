@@ -4,7 +4,6 @@ import com.victorursan.Controller.Controller;
 import com.victorursan.Controller.MyStmtExecException;
 import com.victorursan.Models.Expressions.*;
 import com.victorursan.Models.List.IList;
-import com.victorursan.Models.List.IndexOutOfBoundsException;
 import com.victorursan.Models.List.MyLibraryList;
 import com.victorursan.Models.Map.MyLibraryDictionary;
 import com.victorursan.Models.Map.NoSuchKeyException;
@@ -16,11 +15,9 @@ import com.victorursan.Repository.MyRepository;
 import com.victorursan.Repository.Repository;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * Created by victor on 10/24/15.
@@ -58,10 +55,10 @@ public class MyConsole {
     private void oneStep() {
         try {
             ctrl.oneStep();
-            ctrl.getRepo().serializePrgStatet();
+//            ctrl.serializeProgramState();
         } catch (MyStmtExecException e) {
             print("Finished");
-            ctrl.getRepo().serializePrgStatet();
+//            ctrl.serializeProgramState();
             currentProgram = null;
         } catch (UninitializedVariableException e) {
             print("A variable is not initialized");
@@ -77,10 +74,10 @@ public class MyConsole {
     private void allStep() {
         try {
             ctrl.allStep();
-            ctrl.getRepo().serializePrgStatet();
+//            ctrl.serializeProgramState();
         } catch (MyStmtExecException e) {
             print("Finished");
-            ctrl.getRepo().serializePrgStatet();
+//            ctrl.serializeProgramState();
             currentProgram = null;
         } catch (UninitializedVariableException e) {
             print("A variable is not initialized");
@@ -352,12 +349,13 @@ public class MyConsole {
         ctrl = new Controller(repo);
         currentProgram = ctrl.getCrtPrgState();
         print(currentProgram.printState());
-        ctrl.getRepo().serializePrgStatet();
+        ctrl.serializeProgramState();
     }
 
     private void lastProgramState() throws EmptyRepositoryException, IOException {
-        IList<PrgState> prgStates = new MyRepository().deserializePrgStatet();
-        ctrl = new Controller(new MyRepository(prgStates));
+        Repository repo = new MyRepository();
+                repo.deserializePrgStatet();
+        ctrl = new Controller(repo);
         currentProgram = ctrl.getCrtPrgState();
         print(currentProgram.printState());
     }

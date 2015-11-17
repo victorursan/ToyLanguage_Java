@@ -1,0 +1,24 @@
+--------------------------------
+Exec Stack:
+a=(read() -  2 )
+(IF( a )THEN(v= 2 )ELSE(v= 3 );print( v ))
+
+Symbol table
+
+
+Output List
+
+
+--------------------------------
+--------------------------------
+Exec Stack:
+(IF( a )THEN(v= 2 )ELSE(v= 3 );print( v ))
+
+Symbol table
+a -> 0
+
+
+Output List
+
+
+--------------------------------

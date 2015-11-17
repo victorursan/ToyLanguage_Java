@@ -5,6 +5,10 @@ import com.victorursan.Models.List.IndexOutOfBoundsException;
 import com.victorursan.Models.ProgramState.PrgState;
 
 import java.io.*;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
 
 /**
  * Created by victor on 10/24/15.
@@ -15,6 +19,10 @@ public class MyRepository implements Repository {
 
     public MyRepository(IList<PrgState> prgStates) {
         this.prgStates = prgStates;
+        try {
+            Files.deleteIfExists(FileSystems.getDefault().getPath("prgState.txt"));
+        } catch (IOException e) {
+        }
     }
     public MyRepository() {
         this.prgStates = null;
@@ -22,10 +30,6 @@ public class MyRepository implements Repository {
 
     public IList<PrgState> getPrgStates() {
         return prgStates;
-    }
-
-    public void setPrgStates(IList<PrgState> prgStates) {
-        this.prgStates = prgStates;
     }
 
     @Override
@@ -38,6 +42,18 @@ public class MyRepository implements Repository {
         }
         throw new EmptyRepositoryException();
     }
+
+    @Override
+    public void logPrgState() {
+        try {
+            FileChannel fc = new RandomAccessFile("prgState.txt", "rw").getChannel();
+            fc.position(fc.size());
+            fc.write(ByteBuffer.wrap(this.getCrtProgram().printState().getBytes()));
+        } catch (IOException| EmptyRepositoryException  e) {
+           System.out.println("no such file");
+        }
+    }
+
 
     @Override
     public void serializePrgStatet() {
@@ -57,18 +73,13 @@ public class MyRepository implements Repository {
         }
     }
 
-    @Override
-    public void logPrgState() {
-
-    }
 
     @Override
-    public IList<PrgState> deserializePrgStatet() throws IOException {
-        IList<PrgState> prgState = null;
+    public void deserializePrgStatet() throws IOException {
         ObjectInputStream in = null;
         try{
             in = new ObjectInputStream(new FileInputStream("prgState.ser"));
-            prgState = (IList<PrgState>) in.readObject();
+           this.prgStates = (IList<PrgState>) in.readObject();
         } catch (ClassNotFoundException e) {
             System.err.println("Error deserialization, class not found " + e.getMessage());
         } finally{
@@ -79,7 +90,6 @@ public class MyRepository implements Repository {
                     System.err.println("Error " + e.getMessage());
                 }
         }
-        return prgState;
     }
 }
 

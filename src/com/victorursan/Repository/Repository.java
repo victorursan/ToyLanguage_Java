@@ -2,7 +2,6 @@ package com.victorursan.Repository;
 
 import com.victorursan.Models.List.IList;
 import com.victorursan.Models.ProgramState.PrgState;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
@@ -10,8 +9,7 @@ import java.io.IOException;
  */
 public interface Repository {
     PrgState getCrtProgram() throws EmptyRepositoryException;
-    void setPrgStates(IList<PrgState> prgStates);
     void serializePrgStatet();
     void logPrgState();
-    IList<PrgState> deserializePrgStatet() throws IOException;
+    void deserializePrgStatet() throws IOException;
 }

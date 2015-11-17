@@ -12,10 +12,8 @@ import com.victorursan.Models.Stack.EmptyStackException;
 import com.victorursan.Models.Stack.IStack;
 import com.victorursan.Models.Statements.*;
 import com.victorursan.Repository.EmptyRepositoryException;
-import com.victorursan.Repository.MyRepository;
 import com.victorursan.Repository.Repository;
 
-import java.io.IOException;
 
 /**
  * Created by victor on 10/24/15.
@@ -53,12 +51,9 @@ public class Controller {
         return repo.getCrtProgram();
     }
 
-    public Repository getRepo() {
-        return repo;
-    }
 
-    public void setRepo(Repository repo) {
-        this.repo = repo;
+    public void serializeProgramState () {
+        repo.serializePrgStatet ();
     }
 
     public void oneStep() throws MyStmtExecException, UninitializedVariableException, EmptyRepositoryException, DivisionByZeroException, NoSuchKeyException {

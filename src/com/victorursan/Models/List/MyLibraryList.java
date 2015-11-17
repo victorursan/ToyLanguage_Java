@@ -41,6 +41,10 @@ public class MyLibraryList<T> implements IList<T> {
 
     @Override
     public String toString() {
-        return " " + elements + " ";
+        String toPrint = "";
+        for (T elem : elements) {
+            toPrint = elem.toString() + "\n" + toPrint;
+        }
+        return toPrint;
     }
 }

@@ -62,6 +62,10 @@ public class MyLibraryDictionary<K, V> implements IMap<K, V> {
 
     @Override
     public String toString() {
-        return " " + hashMap + " ";
+        String toPrint = "";
+        for (K elem : hashMap.keySet()) {
+            toPrint = elem.toString() + " -> " + hashMap.get(elem)  + "\n" + toPrint;
+        }
+        return toPrint;
     }
 }
