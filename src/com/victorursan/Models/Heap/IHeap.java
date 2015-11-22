@@ -7,6 +7,6 @@ import java.io.Serializable;
  */
 public interface IHeap<T> extends Serializable {
     int add(T e);
-    T get(int index);
-    void update(int index, T value);
+    T get(int index) throws ArrayIndexOutOfBoundsException;
+    void update(int index, T value) throws ArrayIndexOutOfBoundsException;
 }
