@@ -15,23 +15,30 @@ public class HeapTest extends TestCase{
         myHeap.add(10);
         myHeap.add(20);
         myHeap.add(30);
-
     }
 
     public void testAdd() {
-        assertEquals(3, myHeap.add(40));
-        assertEquals(4, myHeap.add(50));
-        assertEquals(5, myHeap.add(60));
+        assertEquals(4, myHeap.add(40));
+        assertEquals(5, myHeap.add(50));
+        assertEquals(6, myHeap.add(60));
     }
 
     public void testGet() {
-        assert (50 == myHeap.get(4));
-        assert (60 == myHeap.get(5));
+        try {
+            assert (50 == myHeap.get(5));
+            assert (60 == myHeap.get(6));
+        } catch (HashIndexOutOfBoundsException e) {
+            e.printStackTrace();
+        }
     }
 
     public void testUpdate() {
-        myHeap.update(4, 34);
-        assert (34 == myHeap.get(4));
+        try {
+            myHeap.update(3, 34);
+            assert (34 == myHeap.get(3));
+        } catch (HashIndexOutOfBoundsException e) {
+            e.printStackTrace();
+        }
     }
 
 }
