@@ -24,4 +24,9 @@ public class ReadHeapExp implements Exp{
     public String getId() {
         return id;
     }
+
+    @Override
+    public String toString() {
+        return "readHeap( " + id + ")";
+    }
 }

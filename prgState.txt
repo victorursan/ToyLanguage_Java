@@ -1,7 +1,7 @@
 --------------------------------
 Exec Stack:
-a=(read() -  2 )
-(IF( a )THEN(v= 2 )ELSE(v= 3 );print( v ))
+new( a,  10 ) 
+(writeHeap( a,  4 );(b= 5 ;writeHeap( b,  7 )))
 
 Symbol table
 
@@ -14,12 +14,13 @@ Output List
 --------------------------------
 --------------------------------
 Exec Stack:
-(IF( a )THEN(v= 2 )ELSE(v= 3 );print( v ))
+(writeHeap( a,  4 );(b= 5 ;writeHeap( b,  7 )))
 
 Symbol table
-a -> 0
+a -> 1
 
 Heap table
+1 -> 10
 
 
 Output List
@@ -28,13 +29,14 @@ Output List
 --------------------------------
 --------------------------------
 Exec Stack:
-IF( a )THEN(v= 2 )ELSE(v= 3 )
-print( v )
+writeHeap( a,  4 )
+(b= 5 ;writeHeap( b,  7 ))
 
 Symbol table
-a -> 0
+a -> 1
 
 Heap table
+1 -> 10
 
 
 Output List
@@ -43,13 +45,13 @@ Output List
 --------------------------------
 --------------------------------
 Exec Stack:
-v= 3 
-print( v )
+(b= 5 ;writeHeap( b,  7 ))
 
 Symbol table
-a -> 0
+a -> 1
 
 Heap table
+1 -> 4
 
 
 Output List
@@ -58,13 +60,14 @@ Output List
 --------------------------------
 --------------------------------
 Exec Stack:
-print( v )
+b= 5 
+writeHeap( b,  7 )
 
 Symbol table
-v -> 3
-a -> 0
+a -> 1
 
 Heap table
+1 -> 4
 
 
 Output List
@@ -73,16 +76,17 @@ Output List
 --------------------------------
 --------------------------------
 Exec Stack:
+writeHeap( b,  7 )
 
 Symbol table
-v -> 3
-a -> 0
+b -> 5
+a -> 1
 
 Heap table
+1 -> 4
 
 
 Output List
-3
 
 
 --------------------------------

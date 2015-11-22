@@ -116,6 +116,11 @@ public class Controller {
             IMap<String, Integer> symTbl = crtPrgState.getSymTable();
             IHeap<Integer> heap =  getCrtPrgState().getHeapTable();
             symTbl.put(crtStmt1.getId(), heap.add(crtStmt1.getExp().eval(symTbl, heap)));
+        } else if (crtStmt instanceof WriteHeapStmt) {
+            WriteHeapStmt crtStmt1 = (WriteHeapStmt) crtStmt;
+            IMap<String, Integer> symTbl = crtPrgState.getSymTable();
+            IHeap<Integer> heap =  getCrtPrgState().getHeapTable();
+            heap.update(symTbl.get(crtStmt1.getId()), crtStmt1.getExp().eval(symTbl, heap));
         }
         } catch (EmptyStackException e) {
             throw new MyStmtExecException();

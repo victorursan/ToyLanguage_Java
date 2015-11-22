@@ -298,6 +298,13 @@ public class MyConsole {
         return new NewStmt(name, exp);
     }
 
+    private WriteHeapStmt writeHeapStatement() throws UnexpectedTypeException {
+        String name = readString("Var name:");
+        print("Right side:");
+        Exp exp = inputExpression();
+        return new WriteHeapStmt(name, exp);
+    }
+
     private IStmt inputStatement() {
         print("1. Compound statement");
         print("2. Assignment statement");
@@ -308,6 +315,7 @@ public class MyConsole {
         print("7. Switch statement");
         print("8. If then statement");
         print("9. New statement");
+        print("10. Write Heap statement");
         try {
             Integer opt = readInteger("Option: ");
             IStmt prg;
@@ -339,7 +347,9 @@ public class MyConsole {
                 case 9:
                     prg = newStatement();
                     break;
-
+                case 10:
+                    prg = writeHeapStatement();
+                    break;
                 default:
                     print("Invalid option, please try again");
                     prg = inputStatement();
@@ -353,7 +363,8 @@ public class MyConsole {
     }
 
     private void inputProgram() throws EmptyRepositoryException {
-        IStmt prgStatement =new CompStmt(new AssignStmt("a", new ArithExp(new ReadExp(), "-", new ConstExp(2))), new CompStmt(new IfStmt(new VarExp("a"), new AssignStmt("v", new ConstExp(2)), new AssignStmt("v", new ConstExp(3))), new PrintStmt(new VarExp("v"))));
+        IStmt prgStatement = new CompStmt(new NewStmt("a", new ConstExp(10)), new CompStmt(new WriteHeapStmt("a", new ConstExp(4)),  new CompStmt(new AssignStmt("b", new ConstExp(5)), new WriteHeapStmt("b", new ConstExp(7)))));
+                //new CompStmt(new AssignStmt("a", new ArithExp(new ReadExp(), "-", new ConstExp(2))), new CompStmt(new IfStmt(new VarExp("a"), new AssignStmt("v", new ConstExp(2)), new AssignStmt("v", new ConstExp(3))), new PrintStmt(new VarExp("v"))));
                 //inputStatement();
 
         IList<PrgState> programs = new MyLibraryList<>();

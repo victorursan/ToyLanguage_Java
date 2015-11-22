@@ -14,5 +14,6 @@ import java.io.Serializable;
 
 public interface Exp extends Serializable {
     Integer eval(IMap<String, Integer> tbl, IHeap<Integer> heap) throws UninitializedVariableException, DivisionByZeroException, NoSuchKeyException, HashIndexOutOfBoundsException;
+    String toString();
 }
 
