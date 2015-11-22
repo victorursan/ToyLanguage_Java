@@ -1,5 +1,6 @@
 package com.victorursan.Models.Expressions;
 
+import com.victorursan.Models.Heap.IHeap;
 import com.victorursan.Models.Map.IMap;
 import com.victorursan.Models.Map.NoSuchKeyException;
 
@@ -43,13 +44,13 @@ public class ArithExp implements Exp {
     }
 
     @Override
-    public Integer eval(IMap<String, Integer> tbl) throws UninitializedVariableException, DivisionByZeroException, NoSuchKeyException {
-        if (op.equals("+")) return (e1.eval(tbl) + e2.eval(tbl));
-        if (op.equals("-")) return (e1.eval(tbl) - e2.eval(tbl));
-        if (op.equals("*")) return (e1.eval(tbl) * e2.eval(tbl));
+    public Integer eval(IMap<String, Integer> tbl, IHeap<Integer> heap) throws UninitializedVariableException, DivisionByZeroException, NoSuchKeyException {
+        if (op.equals("+")) return (e1.eval(tbl, heap) + e2.eval(tbl, heap));
+        if (op.equals("-")) return (e1.eval(tbl, heap) - e2.eval(tbl, heap));
+        if (op.equals("*")) return (e1.eval(tbl, heap) * e2.eval(tbl, heap));
         if (op.equals("/")) {
-            if (e2.eval(tbl) == 0) throw new DivisionByZeroException();
-            return (e1.eval(tbl) / e2.eval(tbl));
+            if (e2.eval(tbl, heap) == 0) throw new DivisionByZeroException();
+            return (e1.eval(tbl, heap) / e2.eval(tbl, heap));
         }
         return 0;
     }

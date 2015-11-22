@@ -5,22 +5,21 @@ import com.victorursan.Models.Map.IMap;
 import com.victorursan.Models.Map.NoSuchKeyException;
 
 /**
- * Created by victor on 11/9/15.
+ * Created by victor on 11/22/15.
  */
-public class NotExp implements Exp {
-    private Exp exp;
+public class ReadHeapExp implements Exp{
+    private String id;
 
-    public NotExp(Exp exp) {
-        this.exp = exp;
+    public ReadHeapExp(String id) {
+        this.id = id;
     }
 
     @Override
     public Integer eval(IMap<String, Integer> tbl, IHeap<Integer> heap) throws UninitializedVariableException, DivisionByZeroException, NoSuchKeyException {
-        return exp.eval(tbl, heap) == 0 ? 1: 0;
+        return null;
     }
 
-    @Override
-    public String toString() {
-        return "!(" + exp + ")";
+    public String getId() {
+        return id;
     }
 }

@@ -1,5 +1,6 @@
 package com.victorursan.Models.Expressions;
 
+import com.victorursan.Models.Heap.IHeap;
 import com.victorursan.Models.Map.IMap;
 import com.victorursan.Models.Map.NoSuchKeyException;
 
@@ -18,13 +19,13 @@ public class RelationalExp implements Exp{
     }
 
     @Override
-    public Integer eval(IMap<String, Integer> tbl) throws UninitializedVariableException, DivisionByZeroException, NoSuchKeyException {
-        if (op.equals("<")) return (e1.eval(tbl) < e2.eval(tbl))? 1 : 0;
-        if (op.equals("<=")) return (e1.eval(tbl) <= e2.eval(tbl))? 1 : 0;
-        if (op.equals("==")) return (e1.eval(tbl).equals(e2.eval(tbl)))? 1 : 0;
-        if (op.equals("!=")) return (!e1.eval(tbl).equals(e2.eval(tbl)))? 1 : 0;
-        if (op.equals(">")) return (e1.eval(tbl) > e2.eval(tbl))? 1 : 0;
-        if (op.equals(">=")) return (e1.eval(tbl) >= e2.eval(tbl))? 1 : 0;
+    public Integer eval(IMap<String, Integer> tbl, IHeap<Integer> heap) throws UninitializedVariableException, DivisionByZeroException, NoSuchKeyException {
+        if (op.equals("<"))  return (e1.eval(tbl, heap) < e2.eval(tbl, heap))? 1 : 0;
+        if (op.equals("<=")) return (e1.eval(tbl, heap) <= e2.eval(tbl, heap))? 1 : 0;
+        if (op.equals("==")) return (e1.eval(tbl, heap).equals(e2.eval(tbl, heap)))? 1 : 0;
+        if (op.equals("!=")) return (!e1.eval(tbl, heap).equals(e2.eval(tbl, heap)))? 1 : 0;
+        if (op.equals(">"))  return (e1.eval(tbl, heap) > e2.eval(tbl, heap))? 1 : 0;
+        if (op.equals(">=")) return (e1.eval(tbl, heap) >= e2.eval(tbl, heap))? 1 : 0;
         return 0;
     }
 

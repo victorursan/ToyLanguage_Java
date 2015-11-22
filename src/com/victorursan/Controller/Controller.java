@@ -1,9 +1,11 @@
 package com.victorursan.Controller;
 
+import com.sun.tools.internal.ws.wsdl.document.jaxws.Exception;
 import com.victorursan.Models.Expressions.ArithExp;
 import com.victorursan.Models.Expressions.DivisionByZeroException;
 import com.victorursan.Models.Expressions.Exp;
 import com.victorursan.Models.Expressions.UninitializedVariableException;
+import com.victorursan.Models.Heap.IHeap;
 import com.victorursan.Models.List.IList;
 import com.victorursan.Models.Map.IMap;
 import com.victorursan.Models.Map.NoSuchKeyException;
@@ -68,13 +70,15 @@ public class Controller {
             AssignStmt crtStmt1 = (AssignStmt) crtStmt;
             Exp exp = crtStmt1.getExp();
             String id = crtStmt1.getId();
-            IMap<String, Integer> symTbl = repo.getCrtProgram().getSymTable();
-            int val = exp.eval(symTbl);
+            IMap<String, Integer> symTbl = getCrtPrgState().getSymTable();
+            IHeap<Integer> heap =  getCrtPrgState().getHeapTable();
+            int val = exp.eval(symTbl, heap);
             symTbl.put(id, val);
         } else if (crtStmt instanceof IfStmt) {
             IfStmt crtStmt1 = (IfStmt) crtStmt;
             IMap<String, Integer> symTbl = crtPrgState.getSymTable();
-            if (crtStmt1.getExp().eval(symTbl) != 0) {
+            IHeap<Integer> heap =  getCrtPrgState().getHeapTable();
+            if (crtStmt1.getExp().eval(symTbl, heap) != 0) {
                 stk.push(crtStmt1.getThenS());
             } else {
                 stk.push(crtStmt1.getElseS());
@@ -82,12 +86,15 @@ public class Controller {
         } else if (crtStmt instanceof PrintStmt) {
             PrintStmt crtStmt1 = (PrintStmt) crtStmt;
             IList<Integer> output = crtPrgState.getOut();
-            output.add(crtStmt1.getExp().eval(crtPrgState.getSymTable()));
+            IMap<String, Integer> symTbl = crtPrgState.getSymTable();
+            IHeap<Integer> heap =  getCrtPrgState().getHeapTable();
+            output.add(crtStmt1.getExp().eval(symTbl, heap));
 
         } else if (crtStmt instanceof WhileStmt) {
             WhileStmt crtStmt1 = (WhileStmt) crtStmt;
             IMap<String, Integer> symTbl = crtPrgState.getSymTable();
-            if (crtStmt1.getExp().eval(symTbl) != 0) {
+            IHeap<Integer> heap =  getCrtPrgState().getHeapTable();
+            if (crtStmt1.getExp().eval(symTbl, heap) != 0) {
                 stk.push(crtStmt1);
                 stk.push(crtStmt1.getStmt());
             }
@@ -103,6 +110,11 @@ public class Controller {
         } else if (crtStmt instanceof IfThenStmt) {
             IfThenStmt crtStmt1 = (IfThenStmt) crtStmt;
             stk.push(new IfStmt(crtStmt1.getExp(), crtStmt1.getThenS(), new SkipStmt()));
+        } else if (crtStmt instanceof NewStmt) {
+            NewStmt crtStmt1 = (NewStmt) crtStmt;
+            IMap<String, Integer> symTbl = crtPrgState.getSymTable();
+            IHeap<Integer> heap =  getCrtPrgState().getHeapTable();
+            symTbl.put(crtStmt1.getId(), heap.add(crtStmt1.getExp().eval(symTbl, heap)));
         }
         } catch (EmptyStackException e) {
             throw new MyStmtExecException();
@@ -117,7 +129,7 @@ public class Controller {
 
     public void allStep() throws MyStmtExecException, UninitializedVariableException, NoSuchKeyException,
                                  EmptyRepositoryException, DivisionByZeroException {
-        while (!crtPrgState.getExeStack().isEmpty()) {
+        while (true) { // (!crtPrgState.getExeStack().isEmpty()) {
             oneStep();
         }
     }

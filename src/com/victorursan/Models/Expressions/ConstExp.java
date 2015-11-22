@@ -1,5 +1,6 @@
 package com.victorursan.Models.Expressions;
 
+import com.victorursan.Models.Heap.IHeap;
 import com.victorursan.Models.Map.IMap;
 
 /**
@@ -21,7 +22,7 @@ public class ConstExp implements Exp {
     }
 
     @Override
-    public Integer eval(IMap<String, Integer> tbl) {
+    public Integer eval(IMap<String, Integer> tbl, IHeap<Integer> heap) {
         return number;
     }
 

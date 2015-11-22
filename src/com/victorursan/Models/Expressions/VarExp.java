@@ -1,5 +1,6 @@
 package com.victorursan.Models.Expressions;
 
+import com.victorursan.Models.Heap.IHeap;
 import com.victorursan.Models.Map.IMap;
 import com.victorursan.Models.Map.NoSuchKeyException;
 
@@ -23,7 +24,7 @@ public class VarExp implements Exp {
     }
 
     @Override
-    public Integer eval(IMap<String, Integer> tbl) throws UninitializedVariableException, NoSuchKeyException {
+    public Integer eval(IMap<String, Integer> tbl, IHeap<Integer> heap) throws UninitializedVariableException, NoSuchKeyException {
         if (tbl.containsKey(id)) return tbl.get(id);
         throw new UninitializedVariableException();
     }

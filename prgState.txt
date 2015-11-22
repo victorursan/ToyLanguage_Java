@@ -5,6 +5,8 @@ a=(read() -  2 )
 
 Symbol table
 
+Heap table
+
 
 Output List
 
@@ -15,10 +17,72 @@ Exec Stack:
 (IF( a )THEN(v= 2 )ELSE(v= 3 );print( v ))
 
 Symbol table
-a -> 2
+a -> 3
+
+Heap table
 
 
 Output List
+
+
+--------------------------------
+--------------------------------
+Exec Stack:
+IF( a )THEN(v= 2 )ELSE(v= 3 )
+print( v )
+
+Symbol table
+a -> 3
+
+Heap table
+
+
+Output List
+
+
+--------------------------------
+--------------------------------
+Exec Stack:
+v= 2 
+print( v )
+
+Symbol table
+a -> 3
+
+Heap table
+
+
+Output List
+
+
+--------------------------------
+--------------------------------
+Exec Stack:
+print( v )
+
+Symbol table
+v -> 2
+a -> 3
+
+Heap table
+
+
+Output List
+
+
+--------------------------------
+--------------------------------
+Exec Stack:
+
+Symbol table
+v -> 2
+a -> 3
+
+Heap table
+
+
+Output List
+2
 
 
 --------------------------------

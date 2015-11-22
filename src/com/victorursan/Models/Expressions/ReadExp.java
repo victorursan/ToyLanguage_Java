@@ -1,5 +1,6 @@
 package com.victorursan.Models.Expressions;
 
+import com.victorursan.Models.Heap.IHeap;
 import com.victorursan.Models.Map.IMap;
 import com.victorursan.Models.Map.NoSuchKeyException;
 import com.victorursan.Views.UnexpectedTypeException;
@@ -39,11 +40,11 @@ public class ReadExp implements Exp {
     }
 
     @Override
-    public Integer eval(IMap<String, Integer> tbl) throws UninitializedVariableException, DivisionByZeroException, NoSuchKeyException {
+    public Integer eval(IMap<String, Integer> tbl, IHeap<Integer> heap) throws UninitializedVariableException, DivisionByZeroException, NoSuchKeyException {
         try {
             return readInteger("input=");
         } catch (UnexpectedTypeException e) {
-            return eval(tbl);
+            return eval(tbl, heap);
         }
     }
 

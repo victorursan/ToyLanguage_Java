@@ -3,6 +3,7 @@ package com.victorursan.Views;
 import com.victorursan.Controller.Controller;
 import com.victorursan.Controller.MyStmtExecException;
 import com.victorursan.Models.Expressions.*;
+import com.victorursan.Models.Heap.MyLibraryHeap;
 import com.victorursan.Models.List.IList;
 import com.victorursan.Models.List.MyLibraryList;
 import com.victorursan.Models.Map.MyLibraryDictionary;
@@ -285,6 +286,13 @@ public class MyConsole {
         return new IfThenStmt(expression, thenS);
     }
 
+    private NewStmt newStatement() throws UnexpectedTypeException {
+        String name = readString("Var name:");
+        print("Right side:");
+        Exp exp = inputExpression();
+        return new NewStmt(name, exp);
+    }
+
     private IStmt inputStatement() {
         print("1. Compound statement");
         print("2. Assignment statement");
@@ -294,6 +302,7 @@ public class MyConsole {
         print("6. Skip statement");
         print("7. Switch statement");
         print("8. If then statement");
+        print("9. New statement");
         try {
             Integer opt = readInteger("Option: ");
             IStmt prg;
@@ -322,6 +331,10 @@ public class MyConsole {
                 case 8:
                     prg = ifThenStatement();
                     break;
+                case 9:
+                    prg = newStatement();
+                    break;
+
                 default:
                     print("Invalid option, please try again");
                     prg = inputStatement();
@@ -335,12 +348,11 @@ public class MyConsole {
     }
 
     private void inputProgram() throws EmptyRepositoryException {
-        IStmt prgStatement = new CompStmt(new AssignStmt("a", new ArithExp(new ReadExp(), "-", new ConstExp(2))),
-                new CompStmt(new IfStmt(new VarExp("a"), new AssignStmt("v", new ConstExp(2)),
-                        new AssignStmt("v", new ConstExp(3))), new PrintStmt(new VarExp("v"))));
-//                inputStatement();
+        IStmt prgStatement =new CompStmt(new AssignStmt("a", new ArithExp(new ReadExp(), "-", new ConstExp(2))), new CompStmt(new IfStmt(new VarExp("a"), new AssignStmt("v", new ConstExp(2)), new AssignStmt("v", new ConstExp(3))), new PrintStmt(new VarExp("v"))));
+                //inputStatement();
+
         IList<PrgState> programs = new MyLibraryList<>();
-        programs.add(new PrgState(new MyLibraryStack<>(), new MyLibraryDictionary<>(), new MyLibraryList<>(), prgStatement));
+        programs.add(new PrgState(new MyLibraryStack<>(), new MyLibraryDictionary<>(), new MyLibraryHeap<>(),new MyLibraryList<>(), prgStatement));
 
         Repository repo = new MyRepository(programs);
 
