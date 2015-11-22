@@ -15,7 +15,7 @@ Exec Stack:
 (IF( a )THEN(v= 2 )ELSE(v= 3 );print( v ))
 
 Symbol table
-a -> 0
+a -> 2
 
 
 Output List

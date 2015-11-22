@@ -55,10 +55,8 @@ public class MyConsole {
     private void oneStep() {
         try {
             ctrl.oneStep();
-//            ctrl.serializeProgramState();
         } catch (MyStmtExecException e) {
             print("Finished");
-//            ctrl.serializeProgramState();
             currentProgram = null;
         } catch (UninitializedVariableException e) {
             print("A variable is not initialized");
