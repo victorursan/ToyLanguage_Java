@@ -21,19 +21,19 @@ public class MyLibraryHeap<T> implements IHeap<T> {
     }
 
     @Override
-    public T get(int index) throws HashIndexOutOfBoundsException{
-        if (elements.get(index) == null) {
+    public T get(int address) throws HashIndexOutOfBoundsException{
+        if (elements.get(address) == null) {
             throw new HashIndexOutOfBoundsException();
         }
-        return elements.get(index);
+        return elements.get(address);
     }
 
     @Override
-    public void update(int index, T value) throws HashIndexOutOfBoundsException {
-        if (elements.get(index) == null) {
+    public void update(int address, T value) throws HashIndexOutOfBoundsException {
+        if (elements.get(address) == null) {
             throw new HashIndexOutOfBoundsException();
         }
-        elements.put(index, value);
+        elements.put(address, value);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.victorursan.Models.Expressions;
 
+import com.victorursan.Models.Heap.HashIndexOutOfBoundsException;
 import com.victorursan.Models.Heap.IHeap;
 import com.victorursan.Models.Map.IMap;
 import com.victorursan.Models.Map.NoSuchKeyException;
@@ -12,6 +13,6 @@ import java.io.Serializable;
  */
 
 public interface Exp extends Serializable {
-    Integer eval(IMap<String, Integer> tbl, IHeap<Integer> heap) throws UninitializedVariableException, DivisionByZeroException, NoSuchKeyException;
+    Integer eval(IMap<String, Integer> tbl, IHeap<Integer> heap) throws UninitializedVariableException, DivisionByZeroException, NoSuchKeyException, HashIndexOutOfBoundsException;
 }
 

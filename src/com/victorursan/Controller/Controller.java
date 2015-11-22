@@ -5,6 +5,7 @@ import com.victorursan.Models.Expressions.ArithExp;
 import com.victorursan.Models.Expressions.DivisionByZeroException;
 import com.victorursan.Models.Expressions.Exp;
 import com.victorursan.Models.Expressions.UninitializedVariableException;
+import com.victorursan.Models.Heap.HashIndexOutOfBoundsException;
 import com.victorursan.Models.Heap.IHeap;
 import com.victorursan.Models.List.IList;
 import com.victorursan.Models.Map.IMap;
@@ -58,7 +59,7 @@ public class Controller {
         repo.serializePrgStatet ();
     }
 
-    public void oneStep() throws MyStmtExecException, UninitializedVariableException, EmptyRepositoryException, DivisionByZeroException, NoSuchKeyException {
+    public void oneStep() throws MyStmtExecException, UninitializedVariableException, EmptyRepositoryException, DivisionByZeroException, NoSuchKeyException, HashIndexOutOfBoundsException {
         IStack<IStmt> stk = crtPrgState.getExeStack();
         try {
             IStmt crtStmt = stk.pop();
@@ -128,7 +129,7 @@ public class Controller {
     }
 
     public void allStep() throws MyStmtExecException, UninitializedVariableException, NoSuchKeyException,
-                                 EmptyRepositoryException, DivisionByZeroException {
+                                 EmptyRepositoryException, DivisionByZeroException, HashIndexOutOfBoundsException{
         while (true) { // (!crtPrgState.getExeStack().isEmpty()) {
             oneStep();
         }

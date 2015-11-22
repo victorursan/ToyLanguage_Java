@@ -1,5 +1,6 @@
 package com.victorursan.Models.Expressions;
 
+import com.victorursan.Models.Heap.HashIndexOutOfBoundsException;
 import com.victorursan.Models.Heap.IHeap;
 import com.victorursan.Models.Map.IMap;
 import com.victorursan.Models.Map.NoSuchKeyException;
@@ -15,7 +16,7 @@ public class NotExp implements Exp {
     }
 
     @Override
-    public Integer eval(IMap<String, Integer> tbl, IHeap<Integer> heap) throws UninitializedVariableException, DivisionByZeroException, NoSuchKeyException {
+    public Integer eval(IMap<String, Integer> tbl, IHeap<Integer> heap) throws UninitializedVariableException, DivisionByZeroException, NoSuchKeyException, HashIndexOutOfBoundsException {
         return exp.eval(tbl, heap) == 0 ? 1: 0;
     }
 

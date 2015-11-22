@@ -2,20 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad1fe0b3-9388-4ef7-ad02-29082d2ebc78" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prgState.ser" afterPath="$PROJECT_DIR$/prgState.ser" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prgState.txt" afterPath="$PROJECT_DIR$/prgState.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Tests/Expressions/ArithExpTest.java" afterPath="$PROJECT_DIR$/src/Tests/Expressions/ArithExpTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Controller/Controller.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Controller/Controller.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/ArithExp.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/ArithExp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/ConstExp.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/ConstExp.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/Exp.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/Exp.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/LogicalExp.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/LogicalExp.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/NotExp.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/NotExp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/ReadExp.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/ReadExp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/ReadHeapExp.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/ReadHeapExp.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/RelationalExp.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/RelationalExp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/VarExp.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/VarExp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Models/ProgramState/PrgState.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Models/ProgramState/PrgState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Models/Heap/IHeap.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Models/Heap/IHeap.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Models/Heap/MyLibraryHeap.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Models/Heap/MyLibraryHeap.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Views/MyConsole.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Views/MyConsole.java" />
     </list>
     <ignored path="ToyLanguage_Java.iws" />
@@ -42,47 +38,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LogicalExp.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/LogicalExp.java">
+      <file leaf-file-name="MyConsole.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/victorursan/Views/MyConsole.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="23" column="83" selection-start-line="23" selection-start-column="83" selection-end-line="23" selection-end-column="83" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReadHeapExp.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/ReadHeapExp.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="70" selection-start-line="17" selection-start-column="70" selection-end-line="17" selection-end-column="70" />
+              <caret line="91" column="10" selection-start-line="91" selection-start-column="10" selection-end-line="91" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#323#324#0" expanded="true" />
-                <element signature="e#351#352#0" expanded="true" />
-                <element signature="e#579#580#0" expanded="true" />
-                <element signature="e#604#605#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RelationalExp.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/RelationalExp.java">
+      <file leaf-file-name="LogicalExp.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/LogicalExp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UninitializedVariableException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/UninitializedVariableException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.4073715">
+              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -92,7 +64,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/VarExp.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
               <folding>
                 <element signature="e#312#313#0" expanded="true" />
                 <element signature="e#337#338#0" expanded="true" />
@@ -101,28 +73,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReadExp.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/ReadExp.java">
+      <file leaf-file-name="MyArrayDictionary.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Map/MyArrayDictionary.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="46" column="21" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
+              <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WriteHeapExp.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/WriteHeapExp.java">
+      <file leaf-file-name="IHeap.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Heap/IHeap.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#664#665#0" expanded="true" />
-                <element signature="e#689#690#0" expanded="true" />
-                <element signature="e#723#724#0" expanded="true" />
-                <element signature="e#756#757#0" expanded="true" />
-              </folding>
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MyLibraryHeap.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Heap/MyLibraryHeap.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="35" column="28" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -131,7 +107,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/victorursan/Controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="130" column="77" selection-start-line="130" selection-start-column="77" selection-end-line="130" selection-end-column="77" />
+              <caret line="132" column="66" selection-start-line="132" selection-start-column="66" selection-end-line="132" selection-end-column="66" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -139,11 +115,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ArithExpTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Tests/Expressions/ArithExpTest.java">
+      <file leaf-file-name="ArithExp.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/ArithExp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6509946">
-              <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="48" column="43" selection-start-line="48" selection-start-column="43" selection-end-line="48" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RelationalExp.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/RelationalExp.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="23" column="44" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -153,11 +139,8 @@
         <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/NotExp.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
-              <folding>
-                <element signature="e#611#612#0" expanded="true" />
-                <element signature="e#650#651#0" expanded="true" />
-              </folding>
+              <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -218,23 +201,23 @@
         <option value="$PROJECT_DIR$/src/com/victorursan/Models/Statements/AssignStmt.java" />
         <option value="$PROJECT_DIR$/src/com/victorursan/Models/Statements/NewStmt.java" />
         <option value="$PROJECT_DIR$/src/com/victorursan/Models/Heap/HashIndexOutOfBoundsException.java" />
-        <option value="$PROJECT_DIR$/src/com/victorursan/Models/Heap/IHeap.java" />
-        <option value="$PROJECT_DIR$/src/com/victorursan/Models/Heap/MyLibraryHeap.java" />
         <option value="$PROJECT_DIR$/src/Tests/Heap/HeapTest.java" />
         <option value="$PROJECT_DIR$/src/com/victorursan/Models/ProgramState/PrgState.java" />
-        <option value="$PROJECT_DIR$/src/com/victorursan/Views/MyConsole.java" />
         <option value="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/Exp.java" />
-        <option value="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/ArithExp.java" />
         <option value="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/ConstExp.java" />
-        <option value="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/LogicalExp.java" />
-        <option value="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/NotExp.java" />
         <option value="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/ReadExp.java" />
-        <option value="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/ReadHeapExp.java" />
-        <option value="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/RelationalExp.java" />
         <option value="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/VarExp.java" />
         <option value="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/WriteHeapExp.java" />
-        <option value="$PROJECT_DIR$/src/com/victorursan/Controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/Tests/Expressions/ArithExpTest.java" />
+        <option value="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/ReadHeapExp.java" />
+        <option value="$PROJECT_DIR$/src/com/victorursan/Models/Heap/IHeap.java" />
+        <option value="$PROJECT_DIR$/src/com/victorursan/Models/Heap/MyLibraryHeap.java" />
+        <option value="$PROJECT_DIR$/src/com/victorursan/Views/MyConsole.java" />
+        <option value="$PROJECT_DIR$/src/com/victorursan/Controller/Controller.java" />
+        <option value="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/ArithExp.java" />
+        <option value="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/RelationalExp.java" />
+        <option value="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/NotExp.java" />
+        <option value="$PROJECT_DIR$/src/com/victorursan/Models/Expressions/LogicalExp.java" />
       </list>
     </option>
   </component>
@@ -1249,7 +1232,7 @@
       <workItem from="1446980417415" duration="10488000" />
       <workItem from="1447074701639" duration="27484000" />
       <workItem from="1447510728769" duration="18785000" />
-      <workItem from="1448189352868" duration="9174000" />
+      <workItem from="1448189352868" duration="9582000" />
     </task>
     <servers />
   </component>
@@ -1286,7 +1269,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122027000" />
+    <option name="totallyTimeSpent" value="122435000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1916" height="1177" extended-state="6" />
@@ -1299,7 +1282,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.292729" sideWeight="0.50213444" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.45136923" sideWeight="0.49786553" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45136923" sideWeight="0.49786553" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23212379" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1549,26 +1532,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Heap/MyLibraryHeap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Heap/HashIndexOutOfBoundsException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="42" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Heap/IHeap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="57" selection-start-line="9" selection-start-column="57" selection-end-line="9" selection-end-column="57" />
           <folding />
         </state>
       </provider>
@@ -1618,14 +1585,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Map/MyArrayDictionary.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Map/NoSuchKeyException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1648,24 +1607,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Views/MyConsole.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.433962">
-          <caret line="371" column="0" selection-start-line="371" selection-start-column="0" selection-end-line="371" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/ArithExp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1700,74 +1641,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/LogicalExp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="83" selection-start-line="23" selection-start-column="83" selection-end-line="23" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/NotExp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
-          <folding>
-            <element signature="e#611#612#0" expanded="true" />
-            <element signature="e#650#651#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/ReadExp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="21" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/ReadHeapExp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="70" selection-start-line="17" selection-start-column="70" selection-end-line="17" selection-end-column="70" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#323#324#0" expanded="true" />
-            <element signature="e#351#352#0" expanded="true" />
-            <element signature="e#579#580#0" expanded="true" />
-            <element signature="e#604#605#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/RelationalExp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/UninitializedVariableException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/VarExp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding>
-            <element signature="e#312#313#0" expanded="true" />
-            <element signature="e#337#338#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/WriteHeapExp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1782,20 +1655,127 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tests/Expressions/ArithExpTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/ReadExp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="21" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/ReadHeapExp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="33" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#389#390#0" expanded="true" />
+            <element signature="e#417#418#0" expanded="true" />
+            <element signature="e#728#729#0" expanded="true" />
+            <element signature="e#753#754#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/UninitializedVariableException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/VarExp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding>
+            <element signature="e#312#313#0" expanded="true" />
+            <element signature="e#337#338#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Map/MyArrayDictionary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Heap/IHeap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Heap/MyLibraryHeap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="28" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/victorursan/Controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="130" column="77" selection-start-line="130" selection-start-column="77" selection-end-line="130" selection-end-column="77" />
+          <caret line="132" column="66" selection-start-line="132" selection-start-column="66" selection-end-line="132" selection-end-column="66" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tests/Expressions/ArithExpTest.java">
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Views/MyConsole.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6509946">
-          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="91" column="10" selection-start-line="91" selection-start-column="10" selection-end-line="91" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/ArithExp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="48" column="43" selection-start-line="48" selection-start-column="43" selection-end-line="48" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/RelationalExp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="44" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/NotExp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Expressions/LogicalExp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4073715">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding />
         </state>
       </provider>

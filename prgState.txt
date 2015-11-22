@@ -17,7 +17,7 @@ Exec Stack:
 (IF( a )THEN(v= 2 )ELSE(v= 3 );print( v ))
 
 Symbol table
-a -> 3
+a -> 0
 
 Heap table
 
@@ -32,7 +32,7 @@ IF( a )THEN(v= 2 )ELSE(v= 3 )
 print( v )
 
 Symbol table
-a -> 3
+a -> 0
 
 Heap table
 
@@ -43,11 +43,11 @@ Output List
 --------------------------------
 --------------------------------
 Exec Stack:
-v= 2 
+v= 3 
 print( v )
 
 Symbol table
-a -> 3
+a -> 0
 
 Heap table
 
@@ -61,8 +61,8 @@ Exec Stack:
 print( v )
 
 Symbol table
-v -> 2
-a -> 3
+v -> 3
+a -> 0
 
 Heap table
 
@@ -75,14 +75,14 @@ Output List
 Exec Stack:
 
 Symbol table
-v -> 2
-a -> 3
+v -> 3
+a -> 0
 
 Heap table
 
 
 Output List
-2
+3
 
 
 --------------------------------

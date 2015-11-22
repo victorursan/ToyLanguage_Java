@@ -3,6 +3,7 @@ package com.victorursan.Views;
 import com.victorursan.Controller.Controller;
 import com.victorursan.Controller.MyStmtExecException;
 import com.victorursan.Models.Expressions.*;
+import com.victorursan.Models.Heap.HashIndexOutOfBoundsException;
 import com.victorursan.Models.Heap.MyLibraryHeap;
 import com.victorursan.Models.List.IList;
 import com.victorursan.Models.List.MyLibraryList;
@@ -67,6 +68,8 @@ public class MyConsole {
             print("Division by zero");
         } catch (EmptyRepositoryException e) {
             print("No program state ");
+        } catch (HashIndexOutOfBoundsException e) {
+            print("No such address");
         }
     }
 
@@ -86,6 +89,8 @@ public class MyConsole {
             print("Division by zero");
         } catch (EmptyRepositoryException e) {
             print("No program state ");
+        } catch (HashIndexOutOfBoundsException e) {
+            print("No such address");
         }
     }
 

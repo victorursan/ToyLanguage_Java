@@ -1,5 +1,6 @@
 package com.victorursan.Models.Expressions;
 
+import com.victorursan.Models.Heap.HashIndexOutOfBoundsException;
 import com.victorursan.Models.Heap.IHeap;
 import com.victorursan.Models.Map.IMap;
 import com.victorursan.Models.Map.NoSuchKeyException;
@@ -44,7 +45,7 @@ public class ArithExp implements Exp {
     }
 
     @Override
-    public Integer eval(IMap<String, Integer> tbl, IHeap<Integer> heap) throws UninitializedVariableException, DivisionByZeroException, NoSuchKeyException {
+    public Integer eval(IMap<String, Integer> tbl, IHeap<Integer> heap) throws UninitializedVariableException, DivisionByZeroException, NoSuchKeyException, HashIndexOutOfBoundsException {
         if (op.equals("+")) return (e1.eval(tbl, heap) + e2.eval(tbl, heap));
         if (op.equals("-")) return (e1.eval(tbl, heap) - e2.eval(tbl, heap));
         if (op.equals("*")) return (e1.eval(tbl, heap) * e2.eval(tbl, heap));

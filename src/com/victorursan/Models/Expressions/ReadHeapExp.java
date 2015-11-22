@@ -1,5 +1,6 @@
 package com.victorursan.Models.Expressions;
 
+import com.victorursan.Models.Heap.HashIndexOutOfBoundsException;
 import com.victorursan.Models.Heap.IHeap;
 import com.victorursan.Models.Map.IMap;
 import com.victorursan.Models.Map.NoSuchKeyException;
@@ -15,8 +16,9 @@ public class ReadHeapExp implements Exp{
     }
 
     @Override
-    public Integer eval(IMap<String, Integer> tbl, IHeap<Integer> heap) throws UninitializedVariableException, DivisionByZeroException, NoSuchKeyException {
-        return null;
+    public Integer eval(IMap<String, Integer> tbl, IHeap<Integer> heap) throws UninitializedVariableException, DivisionByZeroException, NoSuchKeyException, HashIndexOutOfBoundsException {
+        Integer address = tbl.get(id);
+        return heap.get(address);
     }
 
     public String getId() {
