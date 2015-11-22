@@ -6,5 +6,5 @@ import java.io.Serializable;
  * Created by victor on 10/24/15.
  */
 public interface IStmt extends Serializable {
-//    String toStr();
+    String toString();
 }
