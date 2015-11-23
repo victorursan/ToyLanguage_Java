@@ -15,7 +15,7 @@ import java.io.InputStreamReader;
 public class ReadExp implements Exp {
 
     private void print(String message) {
-        System.out.println(message);
+        System.out.print(message);
     }
 
     private String readString(String message) {

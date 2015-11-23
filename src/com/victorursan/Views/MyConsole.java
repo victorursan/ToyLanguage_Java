@@ -367,7 +367,7 @@ public class MyConsole {
                 //inputStatement();
 
         IList<PrgState> programs = new MyLibraryList<>();
-        programs.add(new PrgState(new MyLibraryStack<>(), new MyLibraryDictionary<>(), new MyLibraryHeap<>(),new MyLibraryList<>(), prgStatement));
+        programs.add(new PrgState(1, new MyLibraryStack<>(), new MyLibraryDictionary<>(), new MyLibraryHeap<>(),new MyLibraryList<>(), prgStatement));
 
         Repository repo = new MyRepository(programs);
 

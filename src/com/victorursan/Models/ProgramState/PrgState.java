@@ -12,14 +12,15 @@ import java.io.Serializable;
  * Created by victor on 10/12/15.
  */
 public class PrgState implements Serializable {
+    private int id;
     private IStack<IStmt> exeStack;
     private IMap<String, Integer> symTable;
-
     private IHeap<Integer> heapTable;
     private IList<Integer> out;
     private IStmt originalProgram; //optional field, but good to have
 
-    public PrgState(IStack<IStmt> stack, IMap<String, Integer> dictionary,IHeap<Integer> heap, IList<Integer> list, IStmt prg) {
+    public PrgState(int pid, IStack<IStmt> stack, IMap<String, Integer> dictionary,IHeap<Integer> heap, IList<Integer> list, IStmt prg) {
+        id = pid;
         exeStack = stack;
         symTable = dictionary;
         heapTable = heap;
@@ -45,7 +46,8 @@ public class PrgState implements Serializable {
     }
 
     public String printState() {
-        return "--------------------------------\n" +  "Exec Stack:\n" + exeStack.toString() +
+        return "--------------------------------\n" + "id: " + id +
+        "\nExec Stack:\n" + exeStack.toString() +
                 "\nSymbol table\n" + symTable.toString() + "\nHeap table\n" + heapTable.toString() +
                 "\n\nOutput List\n" + out.toString() + "\n\n--------------------------------\n";
     }
