@@ -1,6 +1,7 @@
 package com.victorursan.Models.Statements;
 
 import com.victorursan.Models.Expressions.Exp;
+import com.victorursan.Models.ProgramState.PrgState;
 
 /**
  * Created by victor on 11/10/15.
@@ -33,5 +34,11 @@ public class IfThenStmt implements IStmt {
     @Override
     public String toString() {
         return "IF(" + exp.toString() + ")THEN(" + thenS.toString() + ")";
+    }
+
+    @Override
+    public PrgState execute(PrgState state) {
+        state.getExeStack().push(new IfStmt(getExp(), getThenS(), new SkipStmt()));
+        return state;
     }
 }

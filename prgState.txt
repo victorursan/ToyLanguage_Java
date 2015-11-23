@@ -1,7 +1,6 @@
 --------------------------------
 Exec Stack:
-new( a,  10 ) 
-(writeHeap( a,  4 );(b= 5 ;writeHeap( b,  7 )))
+(new( a,  10 ) ;(writeHeap( a,  4 );(b= 5 ;print(readHeap( a)))))
 
 Symbol table
 
@@ -14,7 +13,21 @@ Output List
 --------------------------------
 --------------------------------
 Exec Stack:
-(writeHeap( a,  4 );(b= 5 ;writeHeap( b,  7 )))
+new( a,  10 ) 
+(writeHeap( a,  4 );(b= 5 ;print(readHeap( a))))
+
+Symbol table
+
+Heap table
+
+
+Output List
+
+
+--------------------------------
+--------------------------------
+Exec Stack:
+(writeHeap( a,  4 );(b= 5 ;print(readHeap( a))))
 
 Symbol table
 a -> 1
@@ -30,7 +43,7 @@ Output List
 --------------------------------
 Exec Stack:
 writeHeap( a,  4 )
-(b= 5 ;writeHeap( b,  7 ))
+(b= 5 ;print(readHeap( a)))
 
 Symbol table
 a -> 1
@@ -45,7 +58,7 @@ Output List
 --------------------------------
 --------------------------------
 Exec Stack:
-(b= 5 ;writeHeap( b,  7 ))
+(b= 5 ;print(readHeap( a)))
 
 Symbol table
 a -> 1
@@ -61,7 +74,7 @@ Output List
 --------------------------------
 Exec Stack:
 b= 5 
-writeHeap( b,  7 )
+print(readHeap( a))
 
 Symbol table
 a -> 1
@@ -76,7 +89,7 @@ Output List
 --------------------------------
 --------------------------------
 Exec Stack:
-writeHeap( b,  7 )
+print(readHeap( a))
 
 Symbol table
 b -> 5
@@ -87,6 +100,22 @@ Heap table
 
 
 Output List
+
+
+--------------------------------
+--------------------------------
+Exec Stack:
+
+Symbol table
+b -> 5
+a -> 1
+
+Heap table
+1 -> 4
+
+
+Output List
+4
 
 
 --------------------------------

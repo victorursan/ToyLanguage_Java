@@ -56,7 +56,7 @@ public class MyConsole {
 
     private void oneStep() {
         try {
-            ctrl.oneStep();
+            ctrl.oneStep(currentProgram);
         } catch (MyStmtExecException e) {
             print("Finished");
             currentProgram = null;
@@ -75,7 +75,7 @@ public class MyConsole {
 
     private void allStep() {
         try {
-            ctrl.allStep();
+            ctrl.allStep(currentProgram);
 //            ctrl.serializeProgramState();
         } catch (MyStmtExecException e) {
             print("Finished");
@@ -268,16 +268,15 @@ public class MyConsole {
     private SwitchStmt switchStatement() throws UnexpectedTypeException {
         String variableName = readString("Variable name");
         Exp expr = new VarExp(variableName);
-        System.out.println("Case 1 expression:");
+        print("Case 1 expression:");
         Exp expCase1 = inputExpression();
-        System.out.println("Case 1 Statement:");
+        print("Case 1 Statement:");
         IStmt case1 = inputStatement();
-        System.out.println("Case 2 expression:");
+        print("Case 2 expression:");
         Exp expCase2 = inputExpression();
-        System.out.println("Case 2 Statement:");
+        print("Case 2 Statement:");
         IStmt case2 = inputStatement();
-
-        System.out.println("Default case Statement:");
+        print("Default case Statement:");
         IStmt caseDefault = inputStatement();
 
         return new SwitchStmt(expr, expCase1, case1, expCase2, case2, caseDefault);
@@ -363,7 +362,7 @@ public class MyConsole {
     }
 
     private void inputProgram() throws EmptyRepositoryException {
-        IStmt prgStatement = new CompStmt(new NewStmt("a", new ConstExp(10)), new CompStmt(new WriteHeapStmt("a", new ConstExp(4)),  new CompStmt(new AssignStmt("b", new ConstExp(5)), new WriteHeapStmt("b", new ConstExp(7)))));
+        IStmt prgStatement = new CompStmt(new NewStmt("a", new ConstExp(10)), new CompStmt(new WriteHeapStmt("a", new ConstExp(4)),  new CompStmt(new AssignStmt("b", new ConstExp(5)), new PrintStmt(new ReadHeapExp("a")))));
                 //new CompStmt(new AssignStmt("a", new ArithExp(new ReadExp(), "-", new ConstExp(2))), new CompStmt(new IfStmt(new VarExp("a"), new AssignStmt("v", new ConstExp(2)), new AssignStmt("v", new ConstExp(3))), new PrintStmt(new VarExp("v"))));
                 //inputStatement();
 

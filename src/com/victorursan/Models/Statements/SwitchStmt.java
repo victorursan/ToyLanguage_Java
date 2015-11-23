@@ -1,6 +1,8 @@
 package com.victorursan.Models.Statements;
 
+import com.victorursan.Models.Expressions.ArithExp;
 import com.victorursan.Models.Expressions.Exp;
+import com.victorursan.Models.ProgramState.PrgState;
 
 /**
  * Created by victor on 11/9/15.
@@ -50,5 +52,15 @@ public class SwitchStmt implements IStmt{
     public String toString() {
         return "SWITCH(" + exp.toString() + ") " + " case " + expCase1.toString() + ": " + case1.toString()
                 + " case " + expCase2.toString() + ": " + case2.toString() + " default: " + defaultCase.toString();
+    }
+
+    @Override
+    public PrgState execute(PrgState state) {
+            Exp difSwitch = new ArithExp(getExp(), "-", getExpCase2());
+            Exp difSwitch2 = new ArithExp(getExp(), "-", getExpCase1());
+            IStmt ifSwitch = new IfStmt(difSwitch2, getDefaultCase(), getCase1());
+            IStmt switchStmt = new IfStmt(difSwitch, ifSwitch, getCase2());
+            state.getExeStack().push(switchStmt);
+        return null;
     }
 }

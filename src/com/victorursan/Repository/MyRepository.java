@@ -22,6 +22,7 @@ public class MyRepository implements Repository {
         try {
             Files.deleteIfExists(FileSystems.getDefault().getPath("prgState.txt"));
         } catch (IOException e) {
+            System.out.println("No old prgState.txt file");
         }
     }
     public MyRepository() {

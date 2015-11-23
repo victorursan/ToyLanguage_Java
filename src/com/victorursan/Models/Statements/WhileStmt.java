@@ -1,6 +1,13 @@
 package com.victorursan.Models.Statements;
 
+import com.victorursan.Models.Expressions.DivisionByZeroException;
 import com.victorursan.Models.Expressions.Exp;
+import com.victorursan.Models.Expressions.UninitializedVariableException;
+import com.victorursan.Models.Heap.HashIndexOutOfBoundsException;
+import com.victorursan.Models.Heap.IHeap;
+import com.victorursan.Models.Map.IMap;
+import com.victorursan.Models.Map.NoSuchKeyException;
+import com.victorursan.Models.ProgramState.PrgState;
 
 /**
  * Created by victor on 11/3/15.
@@ -33,5 +40,16 @@ public class WhileStmt implements IStmt {
     @Override
     public String toString() {
         return "While( " + exp.toString() + ") { " + stmt.toString() + " }";
+    }
+
+    @Override
+    public PrgState execute(PrgState state) throws HashIndexOutOfBoundsException, NoSuchKeyException, UninitializedVariableException, DivisionByZeroException {
+        IMap<String, Integer> symTbl = state.getSymTable();
+        IHeap<Integer> heap =  state.getHeapTable();
+        if (getExp().eval(symTbl, heap) != 0) {
+            state.getExeStack().push(this);
+            state.getExeStack().push(this.getStmt());
+        }
+        return null;
     }
 }
