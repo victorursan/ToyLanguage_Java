@@ -12,6 +12,7 @@ import java.io.Serializable;
  * Created by victor on 10/12/15.
  */
 public class PrgState implements Serializable {
+    private static int generator = 0;
     private int id;
     private IStack<IStmt> exeStack;
     private IMap<String, Integer> symTable;
@@ -19,8 +20,8 @@ public class PrgState implements Serializable {
     private IList<Integer> out;
     private IStmt originalProgram; //optional field, but good to have
 
-    public PrgState(int pid, IStack<IStmt> stack, IMap<String, Integer> dictionary,IHeap<Integer> heap, IList<Integer> list, IStmt prg) {
-        id = pid;
+    public PrgState(IStack<IStmt> stack, IMap<String, Integer> dictionary,IHeap<Integer> heap, IList<Integer> list, IStmt prg) {
+        id = generator++;
         exeStack = stack;
         symTable = dictionary;
         heapTable = heap;

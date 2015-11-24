@@ -23,7 +23,7 @@ import com.victorursan.Repository.Repository;
  */
 public class Controller {
     private Repository repo;
-    private PrgState crtPrgState;
+//    private PrgState crtPrgState;
     private boolean printFlag;
     private boolean logFlag;
 
@@ -31,7 +31,7 @@ public class Controller {
         printFlag = true;
         logFlag = true;
         repo = thisRepo;
-        crtPrgState = repo.getCrtProgram();
+//        crtPrgState = repo.getCrtProgram();
     }
 
     public boolean isLogFlag() {
