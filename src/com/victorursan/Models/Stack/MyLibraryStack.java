@@ -1,5 +1,7 @@
 package com.victorursan.Models.Stack;
 
+import com.victorursan.Models.Stack.Exception.EmptyStackException;
+
 import java.util.Stack;
 
 /**
@@ -18,7 +20,7 @@ public class MyLibraryStack<T> implements IStack<T> {
     }
 
     @Override
-    public T pop() throws  EmptyStackException {
+    public T pop() throws EmptyStackException {
         if (this.isEmpty()) throw new EmptyStackException();
         return elements.pop();
     }

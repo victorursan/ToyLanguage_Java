@@ -1,5 +1,7 @@
 package com.victorursan.Models.Heap;
 
+import com.victorursan.Models.Heap.Exception.HashIndexOutOfBoundsException;
+
 import java.io.Serializable;
 
 /**

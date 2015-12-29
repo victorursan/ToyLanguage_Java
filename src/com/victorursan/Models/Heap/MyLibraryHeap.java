@@ -1,5 +1,7 @@
 package com.victorursan.Models.Heap;
 
+import com.victorursan.Models.Heap.Exception.HashIndexOutOfBoundsException;
+
 import java.util.HashMap;
 
 /**
@@ -21,7 +23,7 @@ public class MyLibraryHeap<T> implements IHeap<T> {
     }
 
     @Override
-    public T get(int address) throws HashIndexOutOfBoundsException{
+    public T get(int address) throws HashIndexOutOfBoundsException {
         if (elements.get(address) == null) {
             throw new HashIndexOutOfBoundsException();
         }

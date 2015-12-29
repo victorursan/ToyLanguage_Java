@@ -1,5 +1,7 @@
 package com.victorursan.Models.Map;
 
+import com.victorursan.Models.Map.Exception.NoSuchKeyException;
+
 import java.io.Serializable;
 import java.util.Set;
 

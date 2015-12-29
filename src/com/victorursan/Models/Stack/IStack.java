@@ -1,5 +1,7 @@
 package com.victorursan.Models.Stack;
 
+import com.victorursan.Models.Stack.Exception.EmptyStackException;
+
 import java.io.Serializable;
 
 /**

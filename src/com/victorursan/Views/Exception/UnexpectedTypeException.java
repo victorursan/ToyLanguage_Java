@@ -1,4 +1,4 @@
-package com.victorursan.Views;
+package com.victorursan.Views.Exception;
 
 /**
  * Created by victor on 11/9/15.

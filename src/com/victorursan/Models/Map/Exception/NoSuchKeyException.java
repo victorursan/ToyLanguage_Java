@@ -1,4 +1,4 @@
-package com.victorursan.Models.Map;
+package com.victorursan.Models.Map.Exception;
 
 import com.victorursan.Models.ModelException;
 

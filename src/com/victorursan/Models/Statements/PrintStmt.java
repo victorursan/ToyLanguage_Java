@@ -1,13 +1,13 @@
 package com.victorursan.Models.Statements;
 
-import com.victorursan.Models.Expressions.DivisionByZeroException;
+import com.victorursan.Models.Expressions.Exception.DivisionByZeroException;
 import com.victorursan.Models.Expressions.Exp;
-import com.victorursan.Models.Expressions.UninitializedVariableException;
-import com.victorursan.Models.Heap.HashIndexOutOfBoundsException;
+import com.victorursan.Models.Expressions.Exception.UninitializedVariableException;
+import com.victorursan.Models.Heap.Exception.HashIndexOutOfBoundsException;
 import com.victorursan.Models.Heap.IHeap;
 import com.victorursan.Models.List.IList;
 import com.victorursan.Models.Map.IMap;
-import com.victorursan.Models.Map.NoSuchKeyException;
+import com.victorursan.Models.Map.Exception.NoSuchKeyException;
 import com.victorursan.Models.ProgramState.PrgState;
 
 /**

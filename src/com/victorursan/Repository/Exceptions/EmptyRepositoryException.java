@@ -1,4 +1,4 @@
-package com.victorursan.Repository;
+package com.victorursan.Repository.Exceptions;
 
 /**
  * Created by victor on 11/9/15.

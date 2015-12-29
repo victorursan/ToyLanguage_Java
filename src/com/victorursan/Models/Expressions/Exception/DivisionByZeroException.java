@@ -1,4 +1,4 @@
-package com.victorursan.Models.Expressions;
+package com.victorursan.Models.Expressions.Exception;
 
 import com.victorursan.Models.ModelException;
 

@@ -1,4 +1,4 @@
-package com.victorursan.Controller;
+package com.victorursan.Controller.Exception;
 
 /**
  * Created by victor on 11/9/15.

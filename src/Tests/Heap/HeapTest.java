@@ -1,5 +1,6 @@
 package Tests.Heap;
 
+import com.victorursan.Models.Heap.Exception.HashIndexOutOfBoundsException;
 import junit.framework.TestCase;
 import com.victorursan.Models.Heap.*;
 

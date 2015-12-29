@@ -1,20 +1,23 @@
 package com.victorursan.Views;
 
 import com.victorursan.Controller.Controller;
-import com.victorursan.Controller.MyStmtExecException;
+import com.victorursan.Controller.Exception.MyStmtExecException;
 import com.victorursan.Models.Expressions.*;
-import com.victorursan.Models.Heap.HashIndexOutOfBoundsException;
+import com.victorursan.Models.Expressions.Exception.DivisionByZeroException;
+import com.victorursan.Models.Expressions.Exception.UninitializedVariableException;
+import com.victorursan.Models.Heap.Exception.HashIndexOutOfBoundsException;
 import com.victorursan.Models.Heap.MyLibraryHeap;
 import com.victorursan.Models.List.IList;
 import com.victorursan.Models.List.MyLibraryList;
 import com.victorursan.Models.Map.MyLibraryDictionary;
-import com.victorursan.Models.Map.NoSuchKeyException;
+import com.victorursan.Models.Map.Exception.NoSuchKeyException;
 import com.victorursan.Models.ProgramState.PrgState;
 import com.victorursan.Models.Stack.MyLibraryStack;
 import com.victorursan.Models.Statements.*;
-import com.victorursan.Repository.EmptyRepositoryException;
+import com.victorursan.Repository.Exceptions.EmptyRepositoryException;
 import com.victorursan.Repository.MyRepository;
 import com.victorursan.Repository.Repository;
+import com.victorursan.Views.Exception.UnexpectedTypeException;
 
 import java.io.BufferedReader;
 import java.io.IOException;

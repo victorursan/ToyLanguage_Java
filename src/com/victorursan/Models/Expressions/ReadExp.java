@@ -1,9 +1,11 @@
 package com.victorursan.Models.Expressions;
 
+import com.victorursan.Models.Expressions.Exception.DivisionByZeroException;
+import com.victorursan.Models.Expressions.Exception.UninitializedVariableException;
 import com.victorursan.Models.Heap.IHeap;
 import com.victorursan.Models.Map.IMap;
-import com.victorursan.Models.Map.NoSuchKeyException;
-import com.victorursan.Views.UnexpectedTypeException;
+import com.victorursan.Models.Map.Exception.NoSuchKeyException;
+import com.victorursan.Views.Exception.UnexpectedTypeException;
 
 import java.io.BufferedReader;
 import java.io.IOException;

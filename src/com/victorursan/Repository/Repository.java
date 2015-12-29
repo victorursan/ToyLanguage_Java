@@ -1,7 +1,8 @@
 package com.victorursan.Repository;
 
-import com.victorursan.Models.List.IList;
 import com.victorursan.Models.ProgramState.PrgState;
+import com.victorursan.Repository.Exceptions.EmptyRepositoryException;
+
 import java.io.IOException;
 
 /**

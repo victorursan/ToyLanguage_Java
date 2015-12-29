@@ -1,4 +1,4 @@
-package com.victorursan.Models.List;
+package com.victorursan.Models.List.Exception;
 
 import com.victorursan.Models.ModelException;
 

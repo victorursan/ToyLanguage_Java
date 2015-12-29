@@ -1,5 +1,7 @@
 package com.victorursan.Models.List;
 
+import com.victorursan.Models.List.Exception.IndexOutOfBoundsException;
+
 import java.io.Serializable;
 
 /**
