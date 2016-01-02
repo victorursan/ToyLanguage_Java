@@ -10,15 +10,16 @@ import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
+import java.util.List;
 
 /**
  * Created by victor on 10/24/15.
  */
 public class MyRepository implements Repository {
-    private IList<PrgState> prgStates;
+    private List<PrgState> prgStates;
 
 
-    public MyRepository(IList<PrgState> prgStates) {
+    public MyRepository(List<PrgState> prgStates) {
         this.prgStates = prgStates;
         try {
             Files.deleteIfExists(FileSystems.getDefault().getPath("prgState.txt"));
@@ -30,19 +31,19 @@ public class MyRepository implements Repository {
         this.prgStates = null;
     }
 
-    public IList<PrgState> getPrgStates() {
-        return prgStates;
+    @Override
+    public void setPrgList(List<PrgState> prgs) {
+        this.prgStates = prgs;
     }
 
     @Override
-    public PrgState getCrtProgram() throws EmptyRepositoryException {
-        try {
-            if (prgStates.size() > 0)
-                return this.prgStates.get(0);
-        } catch (IndexOutOfBoundsException e) {
+    public List<PrgState> getPrgList() throws EmptyRepositoryException {
+        if (!prgStates.isEmpty()) {
+            return prgStates;
+        } else {
             throw new EmptyRepositoryException();
         }
-        throw new EmptyRepositoryException();
+
     }
 
     @Override
@@ -50,12 +51,11 @@ public class MyRepository implements Repository {
         try {
             FileChannel fc = new RandomAccessFile("prgState.txt", "rw").getChannel();
             fc.position(fc.size());
-            fc.write(ByteBuffer.wrap(this.getCrtProgram().printState().getBytes()));
-        } catch (IOException| EmptyRepositoryException  e) {
+            fc.write(ByteBuffer.wrap(prgStates.get(0).printState().getBytes()));
+        } catch (IOException e) {
            System.out.println("no such file");
         }
     }
-
 
     @Override
     public void serializePrgStatet() {
@@ -75,13 +75,12 @@ public class MyRepository implements Repository {
         }
     }
 
-
     @Override
     public void deserializePrgStatet() throws IOException {
         ObjectInputStream in = null;
         try{
             in = new ObjectInputStream(new FileInputStream("prgState.ser"));
-           this.prgStates = (IList<PrgState>) in.readObject();
+           this.prgStates = (List<PrgState>) in.readObject();
         } catch (ClassNotFoundException e) {
             System.err.println("Error deserialization, class not found " + e.getMessage());
         } finally{

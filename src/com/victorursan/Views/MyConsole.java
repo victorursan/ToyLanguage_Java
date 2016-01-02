@@ -7,6 +7,7 @@ import com.victorursan.Models.Expressions.Exception.DivisionByZeroException;
 import com.victorursan.Models.Expressions.Exception.UninitializedVariableException;
 import com.victorursan.Models.Heap.Exception.HashIndexOutOfBoundsException;
 import com.victorursan.Models.Heap.MyLibraryHeap;
+import com.victorursan.Models.List.Exception.IndexOutOfBoundsException;
 import com.victorursan.Models.List.IList;
 import com.victorursan.Models.List.MyLibraryList;
 import com.victorursan.Models.Map.MyLibraryDictionary;
@@ -22,7 +23,9 @@ import com.victorursan.Views.Exception.UnexpectedTypeException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by victor on 10/24/15.
@@ -58,42 +61,46 @@ public class MyConsole {
     }
 
     private void oneStep() {
-        try {
-            ctrl.oneStep(currentProgram);
-        } catch (MyStmtExecException e) {
-            print("Finished");
-            currentProgram = null;
-        } catch (UninitializedVariableException e) {
-            print("A variable is not initialized");
-        } catch (NoSuchKeyException e) {
-            print("No such Variable");
-        } catch (DivisionByZeroException e) {
-            print("Division by zero");
-        } catch (EmptyRepositoryException e) {
-            print("No program state ");
-        } catch (HashIndexOutOfBoundsException e) {
-            print("No such address");
-        }
+//        try {
+//            ctrl.oneStep(currentProgram);
+//        } catch (MyStmtExecException e) {
+//            print("Finished");
+//            currentProgram = null;
+//        } catch (UninitializedVariableException e) {
+//            print("A variable is not initialized");
+//        } catch (NoSuchKeyException e) {
+//            print("No such Variable");
+//        } catch (DivisionByZeroException e) {
+//            print("Division by zero");
+//        } catch (EmptyRepositoryException e) {
+//            print("No program state ");
+//        } catch (HashIndexOutOfBoundsException e) {
+//            print("No such address");
+//        }
     }
 
     private void allStep() {
         try {
-            ctrl.allStep(currentProgram);
+            ctrl.allStep();
 //            ctrl.serializeProgramState();
-        } catch (MyStmtExecException e) {
-            print("Finished");
-//            ctrl.serializeProgramState();
-            currentProgram = null;
-        } catch (UninitializedVariableException e) {
-            print("A variable is not initialized");
-        } catch (NoSuchKeyException e) {
-            print("No such Variable");
-        } catch (DivisionByZeroException e) {
-            print("Division by zero");
+//        } catch (MyStmtExecException e) {
+//            print("Finished");
+////            ctrl.serializeProgramState();
+//            currentProgram = null;
+//        } catch (UninitializedVariableException e) {
+//            print("A variable is not initialized");
+//        } catch (NoSuchKeyException e) {
+//            print("No such Variable");
+//        } catch (DivisionByZeroException e) {
+//            print("Division by zero");
+//        } catch (EmptyRepositoryException e) {
+//            print("No program state ");
+//        } catch (HashIndexOutOfBoundsException e) {
+//            print("No such address");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         } catch (EmptyRepositoryException e) {
-            print("No program state ");
-        } catch (HashIndexOutOfBoundsException e) {
-            print("No such address");
+            e.printStackTrace();
         }
     }
 
@@ -364,13 +371,22 @@ public class MyConsole {
         }
     }
 
-    private void inputProgram() throws EmptyRepositoryException {
-        IStmt prgStatement = new CompStmt(new NewStmt("a", new ConstExp(10)), new CompStmt(new WriteHeapStmt("a", new ConstExp(4)),  new CompStmt(new AssignStmt("b", new ConstExp(1)), new PrintStmt(new ReadHeapExp("b")))));
-                //new CompStmt(new AssignStmt("a", new ArithExp(new ReadExp(), "-", new ConstExp(2))), new CompStmt(new IfStmt(new VarExp("a"), new AssignStmt("v", new ConstExp(2)), new AssignStmt("v", new ConstExp(3))), new PrintStmt(new VarExp("v"))));
-                //inputStatement();
-
-        IList<PrgState> programs = new MyLibraryList<>();
-        programs.add(new PrgState(new MyLibraryStack<>(), new MyLibraryDictionary<>(), new MyLibraryHeap<>(),new MyLibraryList<>(), prgStatement));
+    private void inputProgram() throws EmptyRepositoryException, IndexOutOfBoundsException {
+//        IStmt prgStatement = new CompStmt(new NewStmt("a", new ConstExp(10)), new CompStmt(new WriteHeapStmt("a", new ConstExp(4)),  new CompStmt(new AssignStmt("b", new ConstExp(1)), new PrintStmt(new ReadHeapExp("b")))));
+//                //new CompStmt(new AssignStmt("a", new ArithExp(new ReadExp(), "-", new ConstExp(2))), new CompStmt(new IfStmt(new VarExp("a"), new AssignStmt("v", new ConstExp(2)), new AssignStmt("v", new ConstExp(3))), new PrintStmt(new VarExp("v"))));
+//                //inputStatement();
+        IStmt st1 = new AssignStmt("v", new ConstExp(10));
+        IStmt st2 = new NewStmt("a", new ConstExp(20));
+        IStmt st8 = new ForkStmt(new WriteHeapStmt("a", new ConstExp(30)));
+        IStmt st3 = new AssignStmt("v", new ConstExp(32));
+        IStmt st4 = new PrintStmt(new VarExp("v"));
+        IStmt st5 = new PrintStmt(new ReadHeapExp("v"));
+        IStmt st6 = new PrintStmt(new VarExp("v"));
+        IStmt st7 = new PrintStmt(new ReadHeapExp("a"));
+        IStmt prgStmt = new CompStmt(new CompStmt(new CompStmt(st1, st2), new CompStmt(st8, st3)),
+                new CompStmt(new CompStmt(st4, st5), new CompStmt(st6, st7)));
+        List<PrgState> programs = new ArrayList<PrgState>();
+        programs.add(new PrgState(new MyLibraryStack<>(), new MyLibraryDictionary<>(), new MyLibraryHeap<>(),new MyLibraryList<>(), prgStmt));
 
         Repository repo = new MyRepository(programs);
 
@@ -380,7 +396,7 @@ public class MyConsole {
         ctrl.serializeProgramState();
     }
 
-    private void lastProgramState() throws EmptyRepositoryException, IOException {
+    private void lastProgramState() throws EmptyRepositoryException, IOException, IndexOutOfBoundsException {
         Repository repo = new MyRepository();
                 repo.deserializePrgStatet();
         ctrl = new Controller(repo);
@@ -452,7 +468,7 @@ public class MyConsole {
         } catch (UnexpectedTypeException e) {
             print("Invalid option, please insert a number");
             firstMenu();
-        } catch (EmptyRepositoryException e) {
+        } catch (EmptyRepositoryException| IndexOutOfBoundsException e) {
             print("No program added");
         } catch (IOException e) {
             print("No previous program");

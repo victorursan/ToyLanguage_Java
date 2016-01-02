@@ -1,16 +1,16 @@
 package com.victorursan.Controller;
 
-import com.victorursan.Controller.Exception.MyStmtExecException;
-import com.victorursan.Models.Expressions.Exception.DivisionByZeroException;
-import com.victorursan.Models.Expressions.Exception.UninitializedVariableException;
-import com.victorursan.Models.Heap.Exception.HashIndexOutOfBoundsException;
-import com.victorursan.Models.Map.Exception.NoSuchKeyException;
+import com.victorursan.Models.List.Exception.IndexOutOfBoundsException;
 import com.victorursan.Models.ProgramState.PrgState;
-import com.victorursan.Models.Stack.Exception.EmptyStackException;
-import com.victorursan.Models.Stack.IStack;
-import com.victorursan.Models.Statements.*;
 import com.victorursan.Repository.Exceptions.EmptyRepositoryException;
 import com.victorursan.Repository.Repository;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.stream.Collectors;
 
 
 /**
@@ -18,7 +18,7 @@ import com.victorursan.Repository.Repository;
  */
 public class Controller {
     private Repository repo;
-//    private PrgState crtPrgState;
+    //    private PrgState crtPrgState;
     private boolean printFlag;
     private boolean logFlag;
 
@@ -45,34 +45,45 @@ public class Controller {
         this.printFlag = printFlag;
     }
 
-    public PrgState getCrtPrgState() throws EmptyRepositoryException {
-        return repo.getCrtProgram();
+    public PrgState getCrtPrgState() throws EmptyRepositoryException, IndexOutOfBoundsException {
+        return repo.getPrgList().get(0);
     }
 
-    public void serializeProgramState () {
-        repo.serializePrgStatet ();
+    public void serializeProgramState() {
+        repo.serializePrgStatet();
     }
 
-    public PrgState oneStep(PrgState state) throws MyStmtExecException, UninitializedVariableException, EmptyRepositoryException, DivisionByZeroException, NoSuchKeyException, HashIndexOutOfBoundsException {
-        IStack<IStmt> stk = state.getExeStack();
-        if (printFlag) {
-            System.out.println(state.printState());
-        }
-        if (logFlag) {
-            repo.logPrgState();
-        }
-        try {
-            IStmt crtStmt = stk.pop();
-            return crtStmt.execute(state);
-        } catch (EmptyStackException e) {
-            throw  new MyStmtExecException();
-        }
+    public List<PrgState> removeCompletedPrg(List<PrgState> inPrgList) {
+        return inPrgList.stream()
+                .filter(PrgState::isNotCompleted)
+                .collect(Collectors.toList());
     }
 
-    public void allStep(PrgState state) throws MyStmtExecException, UninitializedVariableException, NoSuchKeyException,
-                                 EmptyRepositoryException, DivisionByZeroException, HashIndexOutOfBoundsException{
-        while (true) { // (!crtPrgState.getExeStack().isEmpty()) {
-            oneStep(state);
+    public void oneStepForAllPrg(List<PrgState> prgList) throws InterruptedException {
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        prgList.forEach(p -> System.out.println(p.printState()));
+        List<Callable<PrgState>> callList = prgList.stream()
+                .map(p -> (Callable<PrgState>) p::oneStep)
+                .collect(Collectors.toList());
+
+        List<PrgState> newPrgList = executor.invokeAll(callList)
+                .stream()
+                .map(future -> { try {return future.get();} catch(Exception e) { return null; }})
+                .filter(p -> p != null)
+                .collect(Collectors.toList());
+        prgList.addAll(newPrgList);
+        prgList.forEach(p -> System.out.println(p.printState()));
+        repo.setPrgList(prgList);
+    }
+
+    public void allStep() throws EmptyRepositoryException, InterruptedException 1{
+        while(true) {
+            List<PrgState> prgList = removeCompletedPrg(repo.getPrgList());
+            if (prgList.size() != 0) {
+                oneStepForAllPrg(prgList);
+            }
+            return;
+
         }
     }
 
