@@ -58,7 +58,7 @@ public class MyRepository implements Repository {
     }
 
     @Override
-    public void serializePrgStatet() {
+    public void serializePrgState() {
         ObjectOutputStream out = null;
         try {
             out = new ObjectOutputStream(new FileOutputStream("prgState.ser"));

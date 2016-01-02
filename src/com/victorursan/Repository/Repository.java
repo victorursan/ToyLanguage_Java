@@ -13,7 +13,7 @@ import java.util.List;
 public interface Repository {
     void setPrgList(List<PrgState> prgs);
     List<PrgState> getPrgList() throws EmptyRepositoryException;
-    void serializePrgStatet();
+    void serializePrgState();
     void logPrgState();
     void deserializePrgStatet() throws IOException;
 }

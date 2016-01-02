@@ -50,7 +50,7 @@ public class Controller {
     }
 
     public void serializeProgramState() {
-        repo.serializePrgStatet();
+        repo.serializePrgState();
     }
 
     public List<PrgState> removeCompletedPrg(List<PrgState> inPrgList) {
@@ -76,7 +76,7 @@ public class Controller {
         repo.setPrgList(prgList);
     }
 
-    public void allStep() throws EmptyRepositoryException, InterruptedException 1{
+    public void allStep() throws EmptyRepositoryException, InterruptedException {
         while(true) {
             List<PrgState> prgList = removeCompletedPrg(repo.getPrgList());
             if (prgList.size() != 0) {
