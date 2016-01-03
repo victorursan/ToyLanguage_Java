@@ -15,9 +15,10 @@ public class MyLibraryDictionary<K, V> implements IMap<K, V> {
         hashMap = new HashMap<>();
     }
 
-    public MyLibraryDictionary(MyLibraryDictionary<K, V> tmp) {
+    public MyLibraryDictionary(MyLibraryDictionary<String, Integer> tmp) {
         hashMap = (HashMap<K, V>) tmp.hashMap.clone();
     }
+
     @Override
     public void clear() {
         hashMap = new HashMap<>();
