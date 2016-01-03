@@ -32,7 +32,7 @@ import java.util.List;
  */
 public class MyConsole {
     private Controller ctrl;
-    private PrgState currentProgram;
+//    private PrgState currentProgram;
 
     public MyConsole() {
     }
@@ -376,23 +376,22 @@ public class MyConsole {
 //                //new CompStmt(new AssignStmt("a", new ArithExp(new ReadExp(), "-", new ConstExp(2))), new CompStmt(new IfStmt(new VarExp("a"), new AssignStmt("v", new ConstExp(2)), new AssignStmt("v", new ConstExp(3))), new PrintStmt(new VarExp("v"))));
 //                //inputStatement();
         IStmt st1 = new AssignStmt("v", new ConstExp(10));
-        IStmt st2 = new NewStmt("a", new ConstExp(20));
-        IStmt st8 = new ForkStmt(new WriteHeapStmt("a", new ConstExp(30)));
+        IStmt st2 = new NewStmt("a", new ConstExp(22));
         IStmt st3 = new AssignStmt("v", new ConstExp(32));
         IStmt st4 = new PrintStmt(new VarExp("v"));
-        IStmt st5 = new PrintStmt(new ReadHeapExp("v"));
+        IStmt st5 = new PrintStmt(new ReadHeapExp("a"));
+        IStmt st8 = new ForkStmt(new CompStmt(new WriteHeapStmt("a", new ConstExp(30)), new CompStmt(st3, new CompStmt(st4, st5))));
         IStmt st6 = new PrintStmt(new VarExp("v"));
         IStmt st7 = new PrintStmt(new ReadHeapExp("a"));
-        IStmt prgStmt = new CompStmt(new CompStmt(new CompStmt(st1, st2), new CompStmt(st8, st3)),
-                new CompStmt(new CompStmt(st4, st5), new CompStmt(st6, st7)));
-        List<PrgState> programs = new ArrayList<PrgState>();
+        IStmt prgStmt = new CompStmt(st1, new CompStmt(st2, new CompStmt(st8, new CompStmt(st6,new CompStmt (st7, new CompStmt(new SkipStmt(), new CompStmt(new SkipStmt(), new SkipStmt() )))))));
+        List<PrgState> programs = new ArrayList<>();
         programs.add(new PrgState(new MyLibraryStack<>(), new MyLibraryDictionary<>(), new MyLibraryHeap<>(),new MyLibraryList<>(), prgStmt));
 
         Repository repo = new MyRepository(programs);
 
         ctrl = new Controller(repo);
-        currentProgram = ctrl.getCrtPrgState();
-        print(currentProgram.printState());
+//        currentProgram = ctrl.getCrtPrgState();
+//        print(currentProgram.printState());
         ctrl.serializeProgramState();
     }
 
@@ -400,8 +399,8 @@ public class MyConsole {
         Repository repo = new MyRepository();
                 repo.deserializePrgStatet();
         ctrl = new Controller(repo);
-        currentProgram = ctrl.getCrtPrgState();
-        print(currentProgram.printState());
+//        currentProgram = ctrl.getCrtPrgState();
+//        print(currentProgram.printState());
     }
 
     private void setLogFlag() throws UnexpectedTypeException {
@@ -437,7 +436,7 @@ public class MyConsole {
         print("6. Set logFlag");
         try {
             Integer opt = readInteger("Option: ");
-            if (opt != 1 && opt != 5 && currentProgram == null) {
+            if (opt != 1 && opt != 5 && ctrl == null) {
                 print("There is no program, please insert a program");
             } else {
                 switch (opt) {

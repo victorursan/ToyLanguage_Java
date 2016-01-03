@@ -38,11 +38,11 @@ public class MyRepository implements Repository {
 
     @Override
     public List<PrgState> getPrgList() throws EmptyRepositoryException {
-        if (!prgStates.isEmpty()) {
+//        if (!prgStates.isEmpty()) {
             return prgStates;
-        } else {
-            throw new EmptyRepositoryException();
-        }
+//        } else {
+//            throw new EmptyRepositoryException();
+//        }
 
     }
 

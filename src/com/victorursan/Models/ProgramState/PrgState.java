@@ -36,7 +36,9 @@ public class PrgState implements Serializable {
         originalProgram = prg;
         exeStack.push(originalProgram);
     }
-
+    public int getId() {
+        return id;
+    }
     public IStack<IStmt> getExeStack() {
         return exeStack;
     }
@@ -64,10 +66,9 @@ public class PrgState implements Serializable {
         }
     }
 
-
     public String printState() {
-        return "--------------------------------\n" + "id: " + id +
-        "\nExec Stack:\n" + exeStack.toString() +
+        return "--------------------------------\n id: " + id +
+                "\nExec Stack:\n" + exeStack.toString() +
                 "\nSymbol table\n" + symTable.toString() + "\nHeap table\n" + heapTable.toString() +
                 "\n\nOutput List\n" + out.toString() + "\n\n--------------------------------\n";
     }

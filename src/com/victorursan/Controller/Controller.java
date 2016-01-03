@@ -45,10 +45,6 @@ public class Controller {
         this.printFlag = printFlag;
     }
 
-    public PrgState getCrtPrgState() throws EmptyRepositoryException, IndexOutOfBoundsException {
-        return repo.getPrgList().get(0);
-    }
-
     public void serializeProgramState() {
         repo.serializePrgState();
     }
@@ -61,28 +57,31 @@ public class Controller {
 
     public void oneStepForAllPrg(List<PrgState> prgList) throws InterruptedException {
         ExecutorService executor = Executors.newSingleThreadExecutor();
-        prgList.forEach(p -> System.out.println(p.printState()));
+//        prgList.forEach(p -> System.out.println(p.printState()));
         List<Callable<PrgState>> callList = prgList.stream()
-                .map(p -> (Callable<PrgState>) p::oneStep)
-                .collect(Collectors.toList());
+                                                    .map(p -> (Callable<PrgState>) p::oneStep)
+                                                    .collect(Collectors.toList());
 
         List<PrgState> newPrgList = executor.invokeAll(callList)
-                .stream()
-                .map(future -> { try {return future.get();} catch(Exception e) { return null; }})
-                .filter(p -> p != null)
-                .collect(Collectors.toList());
-        prgList.addAll(newPrgList);
-        prgList.forEach(p -> System.out.println(p.printState()));
-        repo.setPrgList(prgList);
+                                            .stream()
+                                            .map(future -> { try {return future.get();} catch(Exception e) { return null; }})
+                                            .filter(p -> p != null)
+                                            .collect(Collectors.toList());
+
+        prgList.forEach(p -> {if(!newPrgList.stream().anyMatch(s -> s.getId() == p.getId())) newPrgList.add(p);});
+        newPrgList.forEach(p -> System.out.println(p.printState()));
+        repo.setPrgList(newPrgList);
+
     }
 
     public void allStep() throws EmptyRepositoryException, InterruptedException {
         while(true) {
             List<PrgState> prgList = removeCompletedPrg(repo.getPrgList());
-            if (prgList.size() != 0) {
+            if (prgList.size() == 0) {
+                return;
+            } else {
                 oneStepForAllPrg(prgList);
             }
-            return;
 
         }
     }

@@ -42,8 +42,7 @@ public class NewStmt implements IStmt {
     }
 
     @Override
-    public PrgState execute(PrgState state) throws HashIndexOutOfBoundsException,
-            NoSuchKeyException, UninitializedVariableException, DivisionByZeroException {
+    public PrgState execute(PrgState state) throws HashIndexOutOfBoundsException,NoSuchKeyException, UninitializedVariableException, DivisionByZeroException {
         IMap<String, Integer> symTbl = state.getSymTable();
         IHeap<Integer> heap =  state.getHeapTable();
         symTbl.put(getId(), heap.add(getExp().eval(symTbl, heap)));
