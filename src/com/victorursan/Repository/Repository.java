@@ -14,6 +14,6 @@ public interface Repository {
     void setPrgList(List<PrgState> prgs);
     List<PrgState> getPrgList() throws EmptyRepositoryException;
     void serializePrgState();
-    void logPrgState();
+    void logPrgStates();
     void deserializePrgStatet() throws IOException;
 }

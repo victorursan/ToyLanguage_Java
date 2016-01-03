@@ -1,11 +1,9 @@
 package com.victorursan.Controller;
 
-import com.victorursan.Models.List.Exception.IndexOutOfBoundsException;
 import com.victorursan.Models.ProgramState.PrgState;
 import com.victorursan.Repository.Exceptions.EmptyRepositoryException;
 import com.victorursan.Repository.Repository;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
@@ -55,9 +53,8 @@ public class Controller {
                 .collect(Collectors.toList());
     }
 
-    public void oneStepForAllPrg(List<PrgState> prgList) throws InterruptedException {
-        ExecutorService executor = Executors.newSingleThreadExecutor();
-//        prgList.forEach(p -> System.out.println(p.printState()));
+    private void oneStepForAllPrg(List<PrgState> prgList) throws InterruptedException {
+        ExecutorService executor = Executors.newFixedThreadPool(10);
         List<Callable<PrgState>> callList = prgList.stream()
                                                     .map(p -> (Callable<PrgState>) p::oneStep)
                                                     .collect(Collectors.toList());
@@ -69,9 +66,19 @@ public class Controller {
                                             .collect(Collectors.toList());
 
         prgList.forEach(p -> {if(!newPrgList.stream().anyMatch(s -> s.getId() == p.getId())) newPrgList.add(p);});
-        newPrgList.forEach(p -> System.out.println(p.printState()));
+        if (printFlag) {
+            newPrgList.forEach(System.out::println);
+        }
+        if (logFlag) {
+            repo.logPrgStates();
+        }
         repo.setPrgList(newPrgList);
 
+    }
+
+    public void oneStep() throws EmptyRepositoryException, InterruptedException {
+        List<PrgState> prgList = removeCompletedPrg(repo.getPrgList());
+        oneStepForAllPrg(prgList);
     }
 
     public void allStep() throws EmptyRepositoryException, InterruptedException {

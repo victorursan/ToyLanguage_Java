@@ -36,6 +36,17 @@ public class PrgState implements Serializable {
         originalProgram = prg;
         exeStack.push(originalProgram);
     }
+
+    public PrgState(IStack<IStmt> stack, IMap<String, Integer> dictionary, IHeap<Integer> heap, IList<Integer> list, IStmt prg, int identifier) {
+        id = identifier;
+        exeStack = stack;
+        symTable = dictionary;
+        heapTable = heap;
+        out = list;
+        originalProgram = prg;
+        exeStack.push(originalProgram);
+    }
+
     public int getId() {
         return id;
     }
@@ -65,6 +76,15 @@ public class PrgState implements Serializable {
             throw new MyStmtExecException();
         }
     }
+
+    @Override
+    public String toString() {
+        return "--------------------------------\n id: " + id +
+                "\nExec Stack:\n" + exeStack.toString() +
+                "\nSymbol table\n" + symTable.toString() + "\nHeap table\n" + heapTable.toString() +
+                "\n\nOutput List\n" + out.toString() + "\n\n--------------------------------\n";
+    }
+
 
     public String printState() {
         return "--------------------------------\n id: " + id +

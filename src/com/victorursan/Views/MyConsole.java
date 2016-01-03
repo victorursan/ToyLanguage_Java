@@ -61,46 +61,22 @@ public class MyConsole {
     }
 
     private void oneStep() {
-//        try {
-//            ctrl.oneStep(currentProgram);
-//        } catch (MyStmtExecException e) {
-//            print("Finished");
-//            currentProgram = null;
-//        } catch (UninitializedVariableException e) {
-//            print("A variable is not initialized");
-//        } catch (NoSuchKeyException e) {
-//            print("No such Variable");
-//        } catch (DivisionByZeroException e) {
-//            print("Division by zero");
-//        } catch (EmptyRepositoryException e) {
-//            print("No program state ");
-//        } catch (HashIndexOutOfBoundsException e) {
-//            print("No such address");
-//        }
+        try {
+            ctrl.oneStep();
+        } catch (EmptyRepositoryException e) {
+            print("No program state ");
+        } catch (InterruptedException e) {
+            print("Something went wrong");
+        }
     }
 
     private void allStep() {
         try {
             ctrl.allStep();
-//            ctrl.serializeProgramState();
-//        } catch (MyStmtExecException e) {
-//            print("Finished");
-////            ctrl.serializeProgramState();
-//            currentProgram = null;
-//        } catch (UninitializedVariableException e) {
-//            print("A variable is not initialized");
-//        } catch (NoSuchKeyException e) {
-//            print("No such Variable");
-//        } catch (DivisionByZeroException e) {
-//            print("Division by zero");
-//        } catch (EmptyRepositoryException e) {
-//            print("No program state ");
-//        } catch (HashIndexOutOfBoundsException e) {
-//            print("No such address");
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            print("Something went wrong");
         } catch (EmptyRepositoryException e) {
-            e.printStackTrace();
+            print("No program state ");
         }
     }
 
@@ -383,15 +359,15 @@ public class MyConsole {
         IStmt st8 = new ForkStmt(new CompStmt(new WriteHeapStmt("a", new ConstExp(30)), new CompStmt(st3, new CompStmt(st4, st5))));
         IStmt st6 = new PrintStmt(new VarExp("v"));
         IStmt st7 = new PrintStmt(new ReadHeapExp("a"));
-        IStmt prgStmt = new CompStmt(st1, new CompStmt(st2, new CompStmt(st8, new CompStmt(st6,new CompStmt (st7, new CompStmt(new SkipStmt(), new CompStmt(new SkipStmt(), new SkipStmt() )))))));
-        List<PrgState> programs = new ArrayList<>();
-        programs.add(new PrgState(new MyLibraryStack<>(), new MyLibraryDictionary<>(), new MyLibraryHeap<>(),new MyLibraryList<>(), prgStmt));
+        IStmt prgStatement = new CompStmt(st1, new CompStmt(st2, new CompStmt(st8, new CompStmt(st6,new CompStmt (st7, new CompStmt(new SkipStmt(), new CompStmt(new SkipStmt(), new SkipStmt() )))))));
 
+        List<PrgState> programs = new ArrayList<>();
+
+        programs.add(new PrgState(new MyLibraryStack<>(), new MyLibraryDictionary<>(), new MyLibraryHeap<>(),new MyLibraryList<>(), prgStatement));
+        print(programs.toString());
         Repository repo = new MyRepository(programs);
 
         ctrl = new Controller(repo);
-//        currentProgram = ctrl.getCrtPrgState();
-//        print(currentProgram.printState());
         ctrl.serializeProgramState();
     }
 
@@ -399,8 +375,6 @@ public class MyConsole {
         Repository repo = new MyRepository();
                 repo.deserializePrgStatet();
         ctrl = new Controller(repo);
-//        currentProgram = ctrl.getCrtPrgState();
-//        print(currentProgram.printState());
     }
 
     private void setLogFlag() throws UnexpectedTypeException {

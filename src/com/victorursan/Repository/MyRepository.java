@@ -38,20 +38,15 @@ public class MyRepository implements Repository {
 
     @Override
     public List<PrgState> getPrgList() throws EmptyRepositoryException {
-//        if (!prgStates.isEmpty()) {
             return prgStates;
-//        } else {
-//            throw new EmptyRepositoryException();
-//        }
-
     }
 
     @Override
-    public void logPrgState() {
+    public void logPrgStates() {
         try {
             FileChannel fc = new RandomAccessFile("prgState.txt", "rw").getChannel();
             fc.position(fc.size());
-            fc.write(ByteBuffer.wrap(prgStates.get(0).printState().getBytes()));
+            fc.write(ByteBuffer.wrap(prgStates.toString().getBytes()));
         } catch (IOException e) {
            System.out.println("no such file");
         }
