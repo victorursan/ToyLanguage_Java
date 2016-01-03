@@ -1,16 +1,14 @@
 package com.victorursan.Controller;
 
-import com.victorursan.Controller.Exception.MyStmtExecException;
-import com.victorursan.Models.Expressions.Exception.DivisionByZeroException;
-import com.victorursan.Models.Expressions.Exception.UninitializedVariableException;
-import com.victorursan.Models.Heap.Exception.HashIndexOutOfBoundsException;
-import com.victorursan.Models.Map.Exception.NoSuchKeyException;
 import com.victorursan.Models.ProgramState.PrgState;
-import com.victorursan.Models.Stack.Exception.EmptyStackException;
-import com.victorursan.Models.Stack.IStack;
-import com.victorursan.Models.Statements.*;
 import com.victorursan.Repository.Exceptions.EmptyRepositoryException;
 import com.victorursan.Repository.Repository;
+
+import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.stream.Collectors;
 
 
 /**
@@ -18,7 +16,7 @@ import com.victorursan.Repository.Repository;
  */
 public class Controller {
     private Repository repo;
-//    private PrgState crtPrgState;
+    //    private PrgState crtPrgState;
     private boolean printFlag;
     private boolean logFlag;
 
@@ -45,34 +43,53 @@ public class Controller {
         this.printFlag = printFlag;
     }
 
-    public PrgState getCrtPrgState() throws EmptyRepositoryException {
-        return repo.getCrtProgram();
+    public void serializeProgramState() {
+        repo.serializePrgState();
     }
 
-    public void serializeProgramState () {
-        repo.serializePrgStatet ();
+    public List<PrgState> removeCompletedPrg(List<PrgState> inPrgList) {
+        return inPrgList.stream()
+                .filter(PrgState::isNotCompleted)
+                .collect(Collectors.toList());
     }
 
-    public PrgState oneStep(PrgState state) throws MyStmtExecException, UninitializedVariableException, EmptyRepositoryException, DivisionByZeroException, NoSuchKeyException, HashIndexOutOfBoundsException {
-        IStack<IStmt> stk = state.getExeStack();
+    private void oneStepForAllPrg(List<PrgState> prgList) throws InterruptedException {
+        ExecutorService executor = Executors.newFixedThreadPool(10);
+        List<Callable<PrgState>> callList = prgList.stream()
+                                                    .map(p -> (Callable<PrgState>) p::oneStep)
+                                                    .collect(Collectors.toList());
+
+        List<PrgState> newPrgList = executor.invokeAll(callList)
+                                            .stream()
+                                            .map(future -> { try {return future.get();} catch(Exception e) { return null; }})
+                                            .filter(p -> p != null)
+                                            .collect(Collectors.toList());
+
+        prgList.forEach(p -> {if(!newPrgList.stream().anyMatch(s -> s.getId() == p.getId())) newPrgList.add(p);});
         if (printFlag) {
-            System.out.println(state.printState());
+            newPrgList.forEach(System.out::println);
         }
         if (logFlag) {
-            repo.logPrgState();
+            repo.logPrgStates();
         }
-        try {
-            IStmt crtStmt = stk.pop();
-            return crtStmt.execute(state);
-        } catch (EmptyStackException e) {
-            throw  new MyStmtExecException();
-        }
+        repo.setPrgList(newPrgList);
+
     }
 
-    public void allStep(PrgState state) throws MyStmtExecException, UninitializedVariableException, NoSuchKeyException,
-                                 EmptyRepositoryException, DivisionByZeroException, HashIndexOutOfBoundsException{
-        while (true) { // (!crtPrgState.getExeStack().isEmpty()) {
-            oneStep(state);
+    public void oneStep() throws EmptyRepositoryException, InterruptedException {
+        List<PrgState> prgList = removeCompletedPrg(repo.getPrgList());
+        oneStepForAllPrg(prgList);
+    }
+
+    public void allStep() throws EmptyRepositoryException, InterruptedException {
+        while(true) {
+            List<PrgState> prgList = removeCompletedPrg(repo.getPrgList());
+            if (prgList.size() == 0) {
+                return;
+            } else {
+                oneStepForAllPrg(prgList);
+            }
+
         }
     }
 
