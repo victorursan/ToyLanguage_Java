@@ -427,4 +427,132 @@ Output List
 
 
 --------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+v= 10 
+(new( a,  22 ) ;(fork ((writeHeap( a,  30 );(v= 32 ;(print( v );print(readHeap( a))))));(print( v );(print(readHeap( a));(SKIP;(SKIP;SKIP))))))
+
+Symbol table
+
+Heap table
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+(new( a,  22 ) ;(fork ((writeHeap( a,  30 );(v= 32 ;(print( v );print(readHeap( a))))));(print( v );(print(readHeap( a));(SKIP;(SKIP;SKIP))))))
+
+Symbol table
+v -> 10
+
+Heap table
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+new( a,  22 ) 
+(fork ((writeHeap( a,  30 );(v= 32 ;(print( v );print(readHeap( a))))));(print( v );(print(readHeap( a));(SKIP;(SKIP;SKIP)))))
+
+Symbol table
+v -> 10
+
+Heap table
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+(fork ((writeHeap( a,  30 );(v= 32 ;(print( v );print(readHeap( a))))));(print( v );(print(readHeap( a));(SKIP;(SKIP;SKIP)))))
+
+Symbol table
+v -> 10
+a -> 1
+
+Heap table
+1 -> 22
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+fork ((writeHeap( a,  30 );(v= 32 ;(print( v );print(readHeap( a))))))
+(print( v );(print(readHeap( a));(SKIP;(SKIP;SKIP))))
+
+Symbol table
+v -> 10
+a -> 1
+
+Heap table
+1 -> 22
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+(print( v );(print(readHeap( a));(SKIP;(SKIP;SKIP))))
+
+Symbol table
+v -> 10
+a -> 1
+
+Heap table
+1 -> 22
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+v= 10 
+(new( a,  22 ) ;(fork ((writeHeap( a,  30 );(v= 32 ;(print( v );print(readHeap( a))))));(print( v );(print(readHeap( a));(SKIP;(SKIP;SKIP))))))
+
+Symbol table
+
+Heap table
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+(new( a,  22 ) ;(fork ((writeHeap( a,  30 );(v= 32 ;(print( v );print(readHeap( a))))));(print( v );(print(readHeap( a));(SKIP;(SKIP;SKIP))))))
+
+Symbol table
+v -> 10
+
+Heap table
+
+
+Output List
+
+
+--------------------------------
 ]

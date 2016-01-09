@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.victorursan.Views.ViewControllers.OneStepViewController">
+   <children>
+      <Button layoutX="25.0" layoutY="312.0" mnemonicParsing="false" onAction="#oneStepTouched" prefHeight="27.0" prefWidth="550.0" text="One Step" AnchorPane.bottomAnchor="61.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" />
+      <Button layoutX="15.0" layoutY="347.0" mnemonicParsing="false" onAction="#backTouched" prefHeight="27.0" prefWidth="571.0" text="Back" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" />
+      <TextArea fx:id="txtView" editable="false" layoutX="25.0" layoutY="14.0" prefHeight="280.0" prefWidth="550.0" AnchorPane.bottomAnchor="95.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0" />
+   </children>
+</AnchorPane>

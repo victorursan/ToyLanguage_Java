@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="434.0" prefWidth="714.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.victorursan.Views.ViewControllers.InputProgramViewController">
+   <children>
+      <Button fx:id="btnAssign" layoutX="25.0" layoutY="39.0" mnemonicParsing="false" onAction="#assignBtnTouched" prefHeight="27.0" prefWidth="165.0" text="Assign" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="39.0" />
+      <Button fx:id="btnCompound" layoutX="25.0" layoutY="74.0" mnemonicParsing="false" onAction="#compoundTouched" prefHeight="27.0" prefWidth="165.0" text="Compound" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="74.0" />
+      <Button fx:id="btnFork" layoutX="25.0" layoutY="109.0" mnemonicParsing="false" onAction="#forkTouched" prefHeight="27.0" prefWidth="165.0" text="Fork" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="109.0" />
+      <Button fx:id="btnNew" layoutX="25.0" layoutY="213.0" mnemonicParsing="false" onAction="#newTouched" prefHeight="27.0" prefWidth="165.0" text="New" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="213.0" />
+      <Button fx:id="btnIfThen" layoutX="25.0" layoutY="178.0" mnemonicParsing="false" onAction="#ifThenTouched" prefHeight="27.0" prefWidth="165.0" text="If Then" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="178.0" />
+      <Button fx:id="btnIf" layoutX="25.0" layoutY="143.0" mnemonicParsing="false" onAction="#IfTouched" prefHeight="27.0" prefWidth="165.0" text="If" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="143.0" />
+      <Button fx:id="btnSwitch" layoutX="25.0" layoutY="316.0" mnemonicParsing="false" onAction="#switchTouched" prefHeight="27.0" prefWidth="165.0" text="Switch" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="316.0" />
+      <Button fx:id="btnSkip" layoutX="25.0" layoutY="281.0" mnemonicParsing="false" onAction="#skipTouched" prefHeight="27.0" prefWidth="165.0" text="Skip" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="281.0" />
+      <Button fx:id="btnPrint" layoutX="25.0" layoutY="246.0" mnemonicParsing="false" onAction="#printTouched" prefHeight="27.0" prefWidth="165.0" text="Print" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="246.0" />
+      <Button fx:id="btnWriteToHeap" layoutX="25.0" layoutY="383.0" mnemonicParsing="false" onAction="#riteToHeapTouched" prefHeight="27.0" prefWidth="165.0" text="Write to Heap" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="383.0" />
+      <Button fx:id="btnWhile" layoutX="25.0" layoutY="348.0" mnemonicParsing="false" onAction="#whileTouched" prefHeight="27.0" prefWidth="165.0" text="While" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="348.0" />
+      <TextField fx:id="inputField" layoutX="533.0" layoutY="39.0" AnchorPane.leftAnchor="533.0" AnchorPane.topAnchor="39.0" />
+      <Label fx:id="inputLabel" layoutX="470.0" layoutY="44.0" text="Input" AnchorPane.leftAnchor="470.0" AnchorPane.topAnchor="44.0" />
+      <Label layoutX="91.0" layoutY="14.0" text="Statements" AnchorPane.leftAnchor="25.0" />
+      <Label layoutX="267.0" layoutY="14.0" text="Expressions" />
+      <Button fx:id="btnRelational" layoutX="268.0" layoutY="246.0" mnemonicParsing="false" onAction="#relationalTouched" prefHeight="27.0" prefWidth="165.0" text="Relational" AnchorPane.leftAnchor="268.0" AnchorPane.topAnchor="246.0" />
+      <Button fx:id="btnVariable" layoutX="268.0" layoutY="281.0" mnemonicParsing="false" onAction="#variableTouched" prefHeight="27.0" prefWidth="165.0" text="Variable" AnchorPane.leftAnchor="268.0" AnchorPane.topAnchor="281.0" />
+      <Button fx:id="btnNot" layoutX="268.0" layoutY="143.0" mnemonicParsing="false" onAction="#notTouched" prefHeight="27.0" prefWidth="165.0" text="Not" AnchorPane.leftAnchor="268.0" AnchorPane.topAnchor="143.0" />
+      <Button fx:id="btnReadHeap" layoutX="268.0" layoutY="178.0" mnemonicParsing="false" onAction="#readHeapTouched" prefHeight="27.0" prefWidth="165.0" text="Read Heap" AnchorPane.leftAnchor="268.0" AnchorPane.topAnchor="178.0" />
+      <Button fx:id="btnRead" layoutX="268.0" layoutY="213.0" mnemonicParsing="false" onAction="#readTouched" prefHeight="27.0" prefWidth="165.0" text="Read" AnchorPane.leftAnchor="268.0" AnchorPane.topAnchor="213.0" />
+      <Button fx:id="btnLogical" layoutX="268.0" layoutY="109.0" mnemonicParsing="false" onAction="#logicalTouched" prefHeight="27.0" prefWidth="165.0" text="Logical" AnchorPane.leftAnchor="268.0" AnchorPane.topAnchor="109.0" />
+      <Button fx:id="btnConstant" layoutX="268.0" layoutY="74.0" mnemonicParsing="false" onAction="#constantTouched" prefHeight="27.0" prefWidth="165.0" text="Constant" AnchorPane.leftAnchor="268.0" AnchorPane.topAnchor="74.0" />
+      <Button fx:id="btnArithmetical" layoutX="268.0" layoutY="39.0" mnemonicParsing="false" onAction="#arithmeticalTouched" prefHeight="27.0" prefWidth="165.0" text="Arithmetical" AnchorPane.leftAnchor="268.0" AnchorPane.topAnchor="39.0" />
+      <Button layoutX="470.0" layoutY="74.0" mnemonicParsing="false" onAction="#submitTouched" text="Submit" />
+   </children>
+</AnchorPane>

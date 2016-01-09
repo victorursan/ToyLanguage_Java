@@ -16,7 +16,6 @@ import java.util.stream.Collectors;
  */
 public class Controller {
     private Repository repo;
-    //    private PrgState crtPrgState;
     private boolean printFlag;
     private boolean logFlag;
 
@@ -24,7 +23,6 @@ public class Controller {
         printFlag = true;
         logFlag = true;
         repo = thisRepo;
-//        crtPrgState = repo.getCrtProgram();
     }
 
     public boolean isLogFlag() {
@@ -92,6 +90,14 @@ public class Controller {
             }
 
         }
+    }
+
+    public List<PrgState> getPrgList() throws EmptyRepositoryException {
+        return repo.getPrgList();
+    }
+
+    public void setPrgList(List<PrgState> prgs) {
+        repo.setPrgList(prgs);
     }
 
 }
