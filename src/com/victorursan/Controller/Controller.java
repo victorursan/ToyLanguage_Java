@@ -66,6 +66,7 @@ public class Controller {
                                             .collect(Collectors.toList());
 
         prgList.forEach(p -> {if(!newPrgList.stream().anyMatch(s -> s.getId() == p.getId())) newPrgList.add(p);});
+
         if (printFlag) {
             newPrgList.forEach(System.out::println);
         }
@@ -73,7 +74,7 @@ public class Controller {
             repo.logPrgStates();
         }
         repo.setPrgList(newPrgList);
-
+        executor.shutdown();
     }
 
     public void oneStep() throws EmptyRepositoryException, InterruptedException {

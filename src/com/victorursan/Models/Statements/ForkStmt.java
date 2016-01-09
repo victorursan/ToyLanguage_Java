@@ -7,6 +7,7 @@ import com.victorursan.Models.Map.Exception.NoSuchKeyException;
 import com.victorursan.Models.Map.IMap;
 import com.victorursan.Models.Map.MyLibraryDictionary;
 import com.victorursan.Models.ProgramState.PrgState;
+import com.victorursan.Models.Stack.IStack;
 import com.victorursan.Models.Stack.MyLibraryStack;
 
 /**
@@ -27,7 +28,7 @@ public class ForkStmt implements IStmt {
 
     @Override
     public PrgState execute(PrgState state) throws HashIndexOutOfBoundsException, NoSuchKeyException, UninitializedVariableException, DivisionByZeroException {
-        MyLibraryStack<IStmt> newStack = new MyLibraryStack<>();
+        IStack<IStmt> newStack = new MyLibraryStack<>();
         IMap<String, Integer> cloneSymTbl = new MyLibraryDictionary<>((MyLibraryDictionary<String, Integer>)state.getSymTable());
         return new PrgState(newStack, cloneSymTbl, state.getHeapTable(), state.getOut(), stmt);
     }

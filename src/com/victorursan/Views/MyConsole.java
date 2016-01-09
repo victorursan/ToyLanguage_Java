@@ -1,17 +1,11 @@
 package com.victorursan.Views;
 
 import com.victorursan.Controller.Controller;
-import com.victorursan.Controller.Exception.MyStmtExecException;
 import com.victorursan.Models.Expressions.*;
-import com.victorursan.Models.Expressions.Exception.DivisionByZeroException;
-import com.victorursan.Models.Expressions.Exception.UninitializedVariableException;
-import com.victorursan.Models.Heap.Exception.HashIndexOutOfBoundsException;
 import com.victorursan.Models.Heap.MyLibraryHeap;
 import com.victorursan.Models.List.Exception.IndexOutOfBoundsException;
-import com.victorursan.Models.List.IList;
 import com.victorursan.Models.List.MyLibraryList;
 import com.victorursan.Models.Map.MyLibraryDictionary;
-import com.victorursan.Models.Map.Exception.NoSuchKeyException;
 import com.victorursan.Models.ProgramState.PrgState;
 import com.victorursan.Models.Stack.MyLibraryStack;
 import com.victorursan.Models.Statements.*;
