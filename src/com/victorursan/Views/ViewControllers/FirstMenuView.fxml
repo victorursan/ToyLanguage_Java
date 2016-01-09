@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="360.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.victorursan.Views.ViewControllers.FirstMenuViewController">
+   <children>
+         <Label alignment="TOP_LEFT" layoutX="25.0" layoutY="27.0" prefHeight="17.0" prefWidth="550.0" text="Choose an option:" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0">
+            <font>
+               <Font size="22.0" />
+            </font>
+         </Label>
+         <Button alignment="TOP_LEFT" layoutX="25.0" layoutY="67.0" mnemonicParsing="false" onAction="#inputProgramTouched" prefHeight="27.0" prefWidth="550.0" text="Input program" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="65.0" />
+         <Button alignment="TOP_LEFT" layoutX="25.0" layoutY="103.0" mnemonicParsing="false" onAction="#oneStepTouched" prefHeight="27.0" prefWidth="550.0" text="One Step" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="104.0" />
+         <Button alignment="TOP_LEFT" layoutX="25.0" layoutY="148.0" mnemonicParsing="false" onAction="#allStepTouched" prefHeight="27.0" prefWidth="550.0" text="All Step" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="141.0" />
+         <Button alignment="TOP_LEFT" layoutX="25.0" layoutY="180.0" mnemonicParsing="false" onAction="#deserializeTouched" prefHeight="27.0" prefWidth="550.0" text="Deserialize" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="180.0" />
+         <CheckBox fx:id="checkSerialize" layoutX="25.0" layoutY="227.0" mnemonicParsing="false" onAction="#checkSerializeTouched" text="Serialize" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="227.0" />
+         <CheckBox fx:id="checkLog" layoutX="25.0" layoutY="260.0" mnemonicParsing="false" onAction="#checkLogTouched" text="Log" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="260.0" />
+   </children>
+</AnchorPane>
