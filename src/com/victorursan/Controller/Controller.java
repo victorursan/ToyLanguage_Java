@@ -19,11 +19,13 @@ public class Controller {
     private Repository repo;
     private boolean printFlag;
     private boolean logFlag;
+    private String programsOutput;
 
     public Controller(Repository thisRepo) throws EmptyRepositoryException {
         printFlag = true;
         logFlag = true;
         repo = thisRepo;
+        programsOutput = "";
     }
 
     public boolean isLogFlag() {
@@ -70,9 +72,10 @@ public class Controller {
 
         prgList.forEach(p -> {if(!newPrgList.stream().anyMatch(s -> s.getId() == p.getId())) newPrgList.add(p);});
 
-        if (printFlag) {
-            newPrgList.forEach(System.out::println);
-        }
+//        if (printFlag) {
+//            newPrgList.forEach(System.out::println);
+//        }
+        programsOutput += prgList.toString();
         if (logFlag) {
             repo.logPrgStates();
         }
@@ -95,6 +98,10 @@ public class Controller {
             }
 
         }
+    }
+
+    public String getProgramsOutput() {
+        return programsOutput;
     }
 
     public List<PrgState> getPrgList() throws EmptyRepositoryException {

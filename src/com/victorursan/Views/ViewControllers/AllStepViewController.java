@@ -18,7 +18,7 @@ public class AllStepViewController extends AnchorPane {
     public void setCtrl(Controller ctrl) throws EmptyRepositoryException, InterruptedException {
         this.ctrl = ctrl;
         ctrl.allStep();
-        txtView.setText(ctrl.getPrgList().toString());
+        txtView.setText(ctrl.getProgramsOutput());
     }
 
 

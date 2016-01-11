@@ -15,8 +15,9 @@ public class OneStepViewController  extends AnchorPane {
 
     public TextArea txtView;
 
-    public void setCtrl(Controller ctrl) throws EmptyRepositoryException {
+    public void setCtrl(Controller ctrl) throws EmptyRepositoryException, InterruptedException {
         this.ctrl = ctrl;
+        this.ctrl.oneStep();
         txtView.setText(ctrl.getPrgList().toString());
     }
 

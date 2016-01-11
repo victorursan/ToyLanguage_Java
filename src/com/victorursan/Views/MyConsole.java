@@ -57,6 +57,7 @@ public class MyConsole {
     private void oneStep() {
         try {
             ctrl.oneStep();
+            print(ctrl.getPrgList().toString());
         } catch (EmptyRepositoryException e) {
             print("No program state ");
         } catch (InterruptedException e) {
@@ -67,6 +68,7 @@ public class MyConsole {
     private void allStep() {
         try {
             ctrl.allStep();
+            print(ctrl.getProgramsOutput());
         } catch (InterruptedException e) {
             print("Something went wrong");
         } catch (EmptyRepositoryException e) {

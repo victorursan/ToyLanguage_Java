@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad1fe0b3-9388-4ef7-ad02-29082d2ebc78" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/InputProgramViewController.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ToyLanguage_Java/com/victorursan/Views/ViewControllers/InputProgramView.fxml" afterPath="$PROJECT_DIR$/out/production/ToyLanguage_Java/com/victorursan/Views/ViewControllers/InputProgramView.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prgState.ser" afterPath="$PROJECT_DIR$/prgState.ser" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prgState.txt" afterPath="$PROJECT_DIR$/prgState.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Controller/Controller.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Controller/Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Views/MyConsole.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Views/MyConsole.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/AllStepViewController.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/AllStepViewController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/FirstMenuViewController.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/FirstMenuViewController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/InputProgramView.fxml" afterPath="$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/InputProgramView.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/MainView.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/MainView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/OneStepViewController.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/OneStepViewController.java" />
     </list>
     <ignored path="ToyLanguage_Java.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,8 +61,11 @@
         <entry file="file://$PROJECT_DIR$/src/com/victorursan/Controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="49" column="20" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
-              <folding />
+              <caret line="106" column="36" selection-start-line="106" selection-start-column="26" selection-end-line="106" selection-end-column="36" />
+              <folding>
+                <element signature="e#3262#3263#0" expanded="true" />
+                <element signature="e#3299#3300#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -74,23 +73,22 @@
       <file leaf-file-name="MyConsole.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/victorursan/Views/MyConsole.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.074074">
-              <caret line="367" column="24" selection-start-line="367" selection-start-column="17" selection-end-line="367" selection-end-column="24" />
+            <state vertical-scroll-proportion="-131.66667">
+              <caret line="258" column="35" selection-start-line="258" selection-start-column="35" selection-end-line="258" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FirstMenuView.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/FirstMenuView.fxml">
+      <file leaf-file-name="OneStepViewController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/OneStepViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.5094337">
-              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
           </provider>
         </entry>
       </file>
@@ -132,11 +130,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AllStepViewController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AllStepViewController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/AllStepViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="25" column="72" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="72" />
+            <state vertical-scroll-proportion="0.37827352">
+              <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -144,11 +142,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FirstMenuViewController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FirstMenuViewController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/FirstMenuViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.41788855">
-              <caret line="19" column="3" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="44" column="28" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -224,18 +222,18 @@
         <option value="$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/MainView.fxml" />
         <option value="$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/FirstMenuView.fxml" />
         <option value="$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/OneStepView.fxml" />
-        <option value="$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/OneStepViewController.java" />
         <option value="$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/AllStepView.fxml" />
-        <option value="$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/AllStepViewController.java" />
         <option value="$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/InputProgramView.java" />
-        <option value="$PROJECT_DIR$/src/com/victorursan/Views/MyConsole.java" />
         <option value="$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/InputProgramView.fxml" />
         <option value="$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/InputProgramViewController.java" />
         <option value="$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/DeserializeView.fxml" />
-        <option value="$PROJECT_DIR$/src/com/victorursan/Controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/DeserializeViewController.java" />
         <option value="$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/MainView.java" />
         <option value="$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/FirstMenuViewController.java" />
+        <option value="$PROJECT_DIR$/src/com/victorursan/Controller/Controller.java" />
+        <option value="$PROJECT_DIR$/src/com/victorursan/Views/MyConsole.java" />
+        <option value="$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/OneStepViewController.java" />
+        <option value="$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/AllStepViewController.java" />
       </list>
     </option>
   </component>
@@ -1219,7 +1217,7 @@
       <workItem from="1452260801846" duration="165000" />
       <workItem from="1452339498062" duration="2567000" />
       <workItem from="1452345344326" duration="17356000" />
-      <workItem from="1452535511312" duration="8542000" />
+      <workItem from="1452535511312" duration="9410000" />
     </task>
     <task id="LOCAL-00001" summary="added Exceptions in their own folders">
       <created>1451392626822</created>
@@ -1269,7 +1267,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="209689000" />
+    <option name="totallyTimeSpent" value="210557000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1916" height="1177" extended-state="6" />
@@ -1283,7 +1281,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="REPL" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3295562" sideWeight="0.49786553" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295562" sideWeight="0.49786553" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Leiningen" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295562" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1605,16 +1603,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/OneStepViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="72" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="72" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Statements/SwitchStmt.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1688,43 +1676,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/DeserializeView.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.54717">
-          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/AllStepViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="72" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="72" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Views/MyConsole.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.074074">
-          <caret line="367" column="24" selection-start-line="367" selection-start-column="17" selection-end-line="367" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Controller/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="20" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/DeserializeViewController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1745,17 +1696,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/OneStepView.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.8301888">
-          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/MainView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1768,8 +1708,69 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/FirstMenuViewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41788855">
-          <caret line="19" column="3" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="44" column="28" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Controller/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="106" column="36" selection-start-line="106" selection-start-column="26" selection-end-line="106" selection-end-column="36" />
+          <folding>
+            <element signature="e#3262#3263#0" expanded="true" />
+            <element signature="e#3299#3300#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Views/MyConsole.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-131.66667">
+          <caret line="258" column="35" selection-start-line="258" selection-start-column="35" selection-end-line="258" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/OneStepView.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.8301888">
+          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/DeserializeView.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.54717">
+          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/OneStepViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/victorursan/Views/ViewControllers/AllStepViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37827352">
+          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
