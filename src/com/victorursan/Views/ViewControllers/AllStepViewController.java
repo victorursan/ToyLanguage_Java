@@ -3,6 +3,7 @@ package com.victorursan.Views.ViewControllers;
 import com.victorursan.Controller.Controller;
 import com.victorursan.Repository.Exceptions.EmptyRepositoryException;
 import javafx.event.ActionEvent;
+import javafx.scene.Node;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 
@@ -22,5 +23,6 @@ public class AllStepViewController extends AnchorPane {
 
 
     public void backButtonTouched(ActionEvent actionEvent) {
+        ((Node)(actionEvent.getSource())).getScene().getWindow().hide();
     }
 }

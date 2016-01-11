@@ -555,4 +555,64 @@ Output List
 
 
 --------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+v= 10 
+(new( a,  22 ) ;(fork ((writeHeap( a,  30 );(v= 32 ;(print( v );print(readHeap( a))))));(print( v );(print(readHeap( a));(SKIP;(SKIP;SKIP))))))
+
+Symbol table
+
+Heap table
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 1
+Exec Stack:
+a= 2 
+print( a )
+
+Symbol table
+
+Heap table
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 1
+Exec Stack:
+print( a )
+
+Symbol table
+a -> 2
+
+Heap table
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 1
+Exec Stack:
+
+Symbol table
+a -> 2
+
+Heap table
+
+
+Output List
+2
+
+
+--------------------------------
 ]

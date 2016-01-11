@@ -67,10 +67,38 @@ public class FirstMenuViewController extends AnchorPane {
         primaryStage.show();
     }
 
-    public void allStepTouched(ActionEvent actionEvent) {
+    public void allStepTouched(ActionEvent actionEvent) throws IOException, EmptyRepositoryException, InterruptedException {
+        Stage primaryStage = new Stage();
+        URL location = AllStepViewController.class.getResource("AllStepView.fxml");
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(location);
+        fxmlLoader.setBuilderFactory(new JavaFXBuilderFactory());
+        Parent root = fxmlLoader.load(location.openStream());
+
+        AllStepViewController ctrl1 = fxmlLoader.getController();
+        ctrl1.setCtrl(ctrl);
+
+        Scene scene = new Scene(root);
+        primaryStage.setScene(scene);
+
+        primaryStage.show();
     }
 
-    public void deserializeTouched(ActionEvent actionEvent) {
+    public void deserializeTouched(ActionEvent actionEvent) throws IOException {
+        Stage primaryStage = new Stage();
+        URL location = DeserializeViewController.class.getResource("DeserializeView.fxml");
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(location);
+        fxmlLoader.setBuilderFactory(new JavaFXBuilderFactory());
+        Parent root = fxmlLoader.load(location.openStream());
+
+        DeserializeViewController ctrl1 = fxmlLoader.getController();
+        ctrl1.setCtrl(ctrl);
+
+        Scene scene = new Scene(root);
+        primaryStage.setScene(scene);
+
+        primaryStage.show();
     }
 
     public void checkLogTouched(ActionEvent actionEvent) {

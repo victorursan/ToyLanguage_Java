@@ -4,6 +4,7 @@ import com.victorursan.Models.ProgramState.PrgState;
 import com.victorursan.Repository.Exceptions.EmptyRepositoryException;
 import com.victorursan.Repository.Repository;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
@@ -43,6 +44,10 @@ public class Controller {
 
     public void serializeProgramState() {
         repo.serializePrgState();
+    }
+
+    public void deserializePrgStatet() throws IOException {
+        repo.deserializePrgStatet();
     }
 
     public List<PrgState> removeCompletedPrg(List<PrgState> inPrgList) {
