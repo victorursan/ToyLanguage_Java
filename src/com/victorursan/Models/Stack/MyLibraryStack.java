@@ -14,6 +14,10 @@ public class MyLibraryStack<T> implements IStack<T> {
         elements = new Stack<>();
     }
 
+    public MyLibraryStack(MyLibraryStack<T> old) {
+        elements = (Stack<T>)old.elements.clone();
+    }
+
     @Override
     public void push(T e) {
         elements.push(e);

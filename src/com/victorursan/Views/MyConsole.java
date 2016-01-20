@@ -5,8 +5,11 @@ import com.victorursan.Models.Expressions.*;
 import com.victorursan.Models.Heap.MyLibraryHeap;
 import com.victorursan.Models.List.Exception.IndexOutOfBoundsException;
 import com.victorursan.Models.List.MyLibraryList;
+import com.victorursan.Models.Map.IMap;
 import com.victorursan.Models.Map.MyLibraryDictionary;
+import com.victorursan.Models.Procedure;
 import com.victorursan.Models.ProgramState.PrgState;
+import com.victorursan.Models.Stack.IStack;
 import com.victorursan.Models.Stack.MyLibraryStack;
 import com.victorursan.Models.Statements.*;
 import com.victorursan.Repository.Exceptions.EmptyRepositoryException;
@@ -348,19 +351,32 @@ public class MyConsole {
 //                //new CompStmt(new AssignStmt("a", new ArithExp(new ReadExp(), "-", new ConstExp(2))), new CompStmt(new IfStmt(new VarExp("a"), new AssignStmt("v", new ConstExp(2)), new AssignStmt("v", new ConstExp(3))), new PrintStmt(new VarExp("v"))));
 //                //inputStatement();
 
-        IStmt st1 = new AssignStmt("v", new ConstExp(10));
-        IStmt st2 = new NewStmt("a", new ConstExp(22));
-        IStmt st3 = new AssignStmt("v", new ConstExp(32));
-        IStmt st4 = new PrintStmt(new VarExp("v"));
-        IStmt st5 = new PrintStmt(new ReadHeapExp("a"));
-        IStmt st8 = new ForkStmt(new CompStmt(new WriteHeapStmt("a", new ConstExp(30)), new CompStmt(st3, new CompStmt(st4, st5))));
-        IStmt st6 = new PrintStmt(new VarExp("v"));
-        IStmt st7 = new PrintStmt(new ReadHeapExp("a"));
-        IStmt prgStatement = new CompStmt(st1, new CompStmt(st2, new CompStmt(st8, new CompStmt(st6,new CompStmt (st7, new CompStmt(new SkipStmt(), new CompStmt(new SkipStmt(), new SkipStmt() )))))));
+//        IStmt st1 = new AssignStmt("v", new ConstExp(10));
+//        IStmt st2 = new NewStmt("a", new ConstExp(22));
+//        IStmt st3 = new AssignStmt("v", new ConstExp(32));
+//        IStmt st4 = new PrintStmt(new VarExp("v"));
+//        IStmt st5 = new PrintStmt(new ReadHeapExp("a"));
+//        IStmt st8 = new ForkStmt(new CompStmt(new WriteHeapStmt("a", new ConstExp(30)), new CompStmt(st3, new CompStmt(st4, st5))));
+//        IStmt st6 = new PrintStmt(new VarExp("v"));
+//        IStmt st7 = new PrintStmt(new ReadHeapExp("a"));
+//        IStmt prgStatement = new CompStmt(st1, new CompStmt(st2, new CompStmt(st8, new CompStmt(st6,new CompStmt (st7, new CompStmt(new SkipStmt(), new CompStmt(new SkipStmt(), new SkipStmt() )))))));
 
+        ArrayList<Exp> params1 = new ArrayList<>();
+        params1.add(new ArithExp(new VarExp("a"), "*", new ConstExp(10)));
+        params1.add(new VarExp("b"));
+        IStmt prgStatement = new CompStmt(new AssignStmt("a", new ConstExp(11)), new CompStmt(new AssignStmt("b", new ConstExp(10)), new CallStmt("sum", params1)));
         List<PrgState> programs = new ArrayList<>();
+        MyLibraryStack<IMap<String, Integer>> symtable = new MyLibraryStack<>();
+        symtable.push(new MyLibraryDictionary<>());
 
-        programs.add(new PrgState(new MyLibraryStack<>(), new MyLibraryDictionary<>(), new MyLibraryHeap<>(),new MyLibraryList<>(), prgStatement));
+        MyLibraryDictionary<String, Procedure> procTable = new MyLibraryDictionary<>();
+        MyLibraryList<String> params = new MyLibraryList<>();
+        params.add("x");
+        params.add("y");
+        IStmt body = new CompStmt(new AssignStmt("v", new ArithExp(new VarExp("x"), "+",new VarExp("y"))), new PrintStmt(new VarExp("v")));
+        procTable.put("sum", new Procedure(params, body));
+
+        programs.add(new PrgState(new MyLibraryStack<>(), symtable, new MyLibraryHeap<>(),new MyLibraryList<>(), procTable, prgStatement));
         print(programs.toString());
         Repository repo = new MyRepository(programs);
 

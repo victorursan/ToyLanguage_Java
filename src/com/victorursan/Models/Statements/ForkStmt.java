@@ -29,8 +29,8 @@ public class ForkStmt implements IStmt {
     @Override
     public PrgState execute(PrgState state) throws HashIndexOutOfBoundsException, NoSuchKeyException, UninitializedVariableException, DivisionByZeroException {
         IStack<IStmt> newStack = new MyLibraryStack<>();
-        IMap<String, Integer> cloneSymTbl = new MyLibraryDictionary<>((MyLibraryDictionary<String, Integer>)state.getSymTable());
-        return new PrgState(newStack, cloneSymTbl, state.getHeapTable(), state.getOut(), stmt);
+        IStack<IMap<String, Integer>> cloneSymTbl = new MyLibraryStack<>((MyLibraryStack<IMap<String, Integer>>)state.getFullSymTable());
+        return new PrgState(newStack, cloneSymTbl, state.getHeapTable(), state.getOut(), state.getProcTable(), stmt);
     }
 
     @Override

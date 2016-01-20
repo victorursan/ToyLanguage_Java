@@ -1,10 +1,11 @@
 [--------------------------------
  id: 0
 Exec Stack:
-v= 10 
-(new( a,  22 ) ;(fork ((writeHeap( a,  30 );(v= 32 ;(print( v );print(readHeap( a))))));(print( v );(print(readHeap( a));(SKIP;(SKIP;SKIP))))))
+a= 11 
+(b= 10 ;call sum [( a  *  10 ),  b ])
 
 Symbol table
+
 
 Heap table
 
@@ -16,10 +17,11 @@ Output List
 ][--------------------------------
  id: 0
 Exec Stack:
-(new( a,  22 ) ;(fork ((writeHeap( a,  30 );(v= 32 ;(print( v );print(readHeap( a))))));(print( v );(print(readHeap( a));(SKIP;(SKIP;SKIP))))))
+(b= 10 ;call sum [( a  *  10 ),  b ])
 
 Symbol table
-v -> 10
+a -> 11
+
 
 Heap table
 
@@ -31,11 +33,12 @@ Output List
 ][--------------------------------
  id: 0
 Exec Stack:
-new( a,  22 ) 
-(fork ((writeHeap( a,  30 );(v= 32 ;(print( v );print(readHeap( a))))));(print( v );(print(readHeap( a));(SKIP;(SKIP;SKIP)))))
+b= 10 
+call sum [( a  *  10 ),  b ]
 
 Symbol table
-v -> 10
+a -> 11
+
 
 Heap table
 
@@ -47,14 +50,14 @@ Output List
 ][--------------------------------
  id: 0
 Exec Stack:
-(fork ((writeHeap( a,  30 );(v= 32 ;(print( v );print(readHeap( a))))));(print( v );(print(readHeap( a));(SKIP;(SKIP;SKIP)))))
+call sum [( a  *  10 ),  b ]
 
 Symbol table
-v -> 10
-a -> 1
+b -> 10
+a -> 11
+
 
 Heap table
-1 -> 22
 
 
 Output List
@@ -64,15 +67,18 @@ Output List
 ][--------------------------------
  id: 0
 Exec Stack:
-fork ((writeHeap( a,  30 );(v= 32 ;(print( v );print(readHeap( a))))))
-(print( v );(print(readHeap( a));(SKIP;(SKIP;SKIP))))
+(v=( x  +  y );print( v ))
+return
 
 Symbol table
-v -> 10
-a -> 1
+y -> 10
+x -> 110
+
+b -> 10
+a -> 11
+
 
 Heap table
-1 -> 22
 
 
 Output List
@@ -82,14 +88,19 @@ Output List
 ][--------------------------------
  id: 0
 Exec Stack:
-(print( v );(print(readHeap( a));(SKIP;(SKIP;SKIP))))
+v=( x  +  y )
+print( v )
+return
 
 Symbol table
-v -> 10
-a -> 1
+y -> 10
+x -> 110
+
+b -> 10
+a -> 11
+
 
 Heap table
-1 -> 22
 
 
 Output List
@@ -100,32 +111,18 @@ Output List
  id: 0
 Exec Stack:
 print( v )
-(print(readHeap( a));(SKIP;(SKIP;SKIP)))
+return
 
 Symbol table
-v -> 10
-a -> 1
+y -> 10
+x -> 110
+v -> 120
+
+b -> 10
+a -> 11
+
 
 Heap table
-1 -> 22
-
-
-Output List
-
-
---------------------------------
-, --------------------------------
- id: 1
-Exec Stack:
-writeHeap( a,  30 )
-(v= 32 ;(print( v );print(readHeap( a))))
-
-Symbol table
-v -> 10
-a -> 1
-
-Heap table
-1 -> 22
 
 
 Output List
@@ -135,275 +132,22 @@ Output List
 ][--------------------------------
  id: 0
 Exec Stack:
-(print(readHeap( a));(SKIP;(SKIP;SKIP)))
+return
 
 Symbol table
-v -> 10
-a -> 1
+y -> 10
+x -> 110
+v -> 120
+
+b -> 10
+a -> 11
+
 
 Heap table
-1 -> 30
 
 
 Output List
-10
-
-
---------------------------------
-, --------------------------------
- id: 1
-Exec Stack:
-(v= 32 ;(print( v );print(readHeap( a))))
-
-Symbol table
-v -> 10
-a -> 1
-
-Heap table
-1 -> 30
-
-
-Output List
-10
-
-
---------------------------------
-][--------------------------------
- id: 0
-Exec Stack:
-print(readHeap( a))
-(SKIP;(SKIP;SKIP))
-
-Symbol table
-v -> 10
-a -> 1
-
-Heap table
-1 -> 30
-
-
-Output List
-10
-
-
---------------------------------
-, --------------------------------
- id: 1
-Exec Stack:
-v= 32 
-(print( v );print(readHeap( a)))
-
-Symbol table
-v -> 10
-a -> 1
-
-Heap table
-1 -> 30
-
-
-Output List
-10
-
-
---------------------------------
-][--------------------------------
- id: 0
-Exec Stack:
-(SKIP;(SKIP;SKIP))
-
-Symbol table
-v -> 10
-a -> 1
-
-Heap table
-1 -> 30
-
-
-Output List
-10
-30
-
-
---------------------------------
-, --------------------------------
- id: 1
-Exec Stack:
-(print( v );print(readHeap( a)))
-
-Symbol table
-v -> 32
-a -> 1
-
-Heap table
-1 -> 30
-
-
-Output List
-10
-30
-
-
---------------------------------
-][--------------------------------
- id: 0
-Exec Stack:
-SKIP
-(SKIP;SKIP)
-
-Symbol table
-v -> 10
-a -> 1
-
-Heap table
-1 -> 30
-
-
-Output List
-10
-30
-
-
---------------------------------
-, --------------------------------
- id: 1
-Exec Stack:
-print( v )
-print(readHeap( a))
-
-Symbol table
-v -> 32
-a -> 1
-
-Heap table
-1 -> 30
-
-
-Output List
-10
-30
-
-
---------------------------------
-][--------------------------------
- id: 0
-Exec Stack:
-(SKIP;SKIP)
-
-Symbol table
-v -> 10
-a -> 1
-
-Heap table
-1 -> 30
-
-
-Output List
-10
-30
-32
-
-
---------------------------------
-, --------------------------------
- id: 1
-Exec Stack:
-print(readHeap( a))
-
-Symbol table
-v -> 32
-a -> 1
-
-Heap table
-1 -> 30
-
-
-Output List
-10
-30
-32
-
-
---------------------------------
-][--------------------------------
- id: 0
-Exec Stack:
-SKIP
-SKIP
-
-Symbol table
-v -> 10
-a -> 1
-
-Heap table
-1 -> 30
-
-
-Output List
-10
-30
-32
-30
-
-
---------------------------------
-, --------------------------------
- id: 1
-Exec Stack:
-
-Symbol table
-v -> 32
-a -> 1
-
-Heap table
-1 -> 30
-
-
-Output List
-10
-30
-32
-30
-
-
---------------------------------
-][--------------------------------
- id: 0
-Exec Stack:
-SKIP
-
-Symbol table
-v -> 10
-a -> 1
-
-Heap table
-1 -> 30
-
-
-Output List
-10
-30
-32
-30
-
-
---------------------------------
-, --------------------------------
- id: 1
-Exec Stack:
-
-Symbol table
-v -> 32
-a -> 1
-
-Heap table
-1 -> 30
-
-
-Output List
-10
-30
-32
-30
+120
 
 
 --------------------------------
@@ -412,18 +156,15 @@ Output List
 Exec Stack:
 
 Symbol table
-v -> 10
-a -> 1
+b -> 10
+a -> 11
+
 
 Heap table
-1 -> 30
 
 
 Output List
-10
-30
-32
-30
+120
 
 
 --------------------------------

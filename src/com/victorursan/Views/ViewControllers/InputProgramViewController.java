@@ -4,7 +4,9 @@ import com.victorursan.Controller.Controller;
 import com.victorursan.Models.Expressions.*;
 import com.victorursan.Models.Heap.MyLibraryHeap;
 import com.victorursan.Models.List.MyLibraryList;
+import com.victorursan.Models.Map.IMap;
 import com.victorursan.Models.Map.MyLibraryDictionary;
+import com.victorursan.Models.Procedure;
 import com.victorursan.Models.ProgramState.PrgState;
 import com.victorursan.Models.Stack.MyLibraryStack;
 import com.victorursan.Models.Statements.*;
@@ -43,7 +45,20 @@ public class InputProgramViewController extends AnchorPane {
     public void newTouched(ActionEvent actionEvent) throws IOException {
         IStmt stmt = newStatement("First");
         List<PrgState> programs = new ArrayList<>();
-        programs.add(new PrgState(new MyLibraryStack<>(), new MyLibraryDictionary<>(), new MyLibraryHeap<>(), new MyLibraryList<>(), stmt));
+        MyLibraryStack<IMap<String, Integer>> symtable = new MyLibraryStack<>();
+        symtable.push(new MyLibraryDictionary<>());
+
+        MyLibraryDictionary<String, Procedure> procTable = new MyLibraryDictionary<>();
+        MyLibraryList<String> params = new MyLibraryList<>();
+        params.add("a");
+        params.add("b");
+        IStmt body = new CompStmt(new AssignStmt("v", new ArithExp(new VarExp("a"), "+",new VarExp("b"))), new PrintStmt(new VarExp("v")));
+        procTable.put("sum", new Procedure(params, body));
+
+
+
+
+        programs.add(new PrgState(new MyLibraryStack<>(), symtable, new MyLibraryHeap<>(), new MyLibraryList<>(), procTable, stmt));
         ctrl.setPrgList(programs);
         txtProgram.setText(stmt.toString());
     }
