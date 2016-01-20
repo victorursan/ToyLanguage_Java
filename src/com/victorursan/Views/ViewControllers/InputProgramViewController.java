@@ -8,24 +8,15 @@ import com.victorursan.Models.Map.MyLibraryDictionary;
 import com.victorursan.Models.ProgramState.PrgState;
 import com.victorursan.Models.Stack.MyLibraryStack;
 import com.victorursan.Models.Statements.*;
-import com.victorursan.Repository.Exceptions.EmptyRepositoryException;
-import com.victorursan.Views.Exception.UnexpectedTypeException;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceDialog;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.AnchorPane;
-import sun.tools.tree.CompoundStatement;
-import sun.tools.tree.Expression;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,7 +34,7 @@ public class InputProgramViewController extends AnchorPane {
     public void newTouched(ActionEvent actionEvent) throws IOException {
         IStmt stmt = newStatement("First");
         List<PrgState> programs = new ArrayList<>();
-        programs.add(new PrgState(new MyLibraryStack<>(), new MyLibraryDictionary<>(), new MyLibraryHeap<>(), new MyLibraryList<>(), stmt));
+        programs.add(new PrgState(new MyLibraryStack<>(), new MyLibraryDictionary<>(), new MyLibraryHeap<>(), new MyLibraryList<>(), new MyLibraryDictionary<>(), stmt));
         ctrl.setPrgList(programs);
         txtProgram.setText(stmt.toString());
     }

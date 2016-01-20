@@ -360,7 +360,7 @@ public class MyConsole {
 
         List<PrgState> programs = new ArrayList<>();
 
-        programs.add(new PrgState(new MyLibraryStack<>(), new MyLibraryDictionary<>(), new MyLibraryHeap<>(),new MyLibraryList<>(), prgStatement));
+        programs.add(new PrgState(new MyLibraryStack<>(), new MyLibraryDictionary<>(), new MyLibraryHeap<>(),new MyLibraryList<>(), new MyLibraryDictionary<>(), prgStatement));
         print(programs.toString());
         Repository repo = new MyRepository(programs);
 

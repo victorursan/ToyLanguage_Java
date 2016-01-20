@@ -1,6 +1,7 @@
 package com.victorursan.Models.ProgramState;
 
 import com.victorursan.Controller.Exception.MyStmtExecException;
+import com.victorursan.Models.Buffer;
 import com.victorursan.Models.Expressions.Exception.DivisionByZeroException;
 import com.victorursan.Models.Expressions.Exception.UninitializedVariableException;
 import com.victorursan.Models.Heap.Exception.HashIndexOutOfBoundsException;
@@ -25,31 +26,36 @@ public class PrgState implements Serializable {
     private IMap<String, Integer> symTable;
     private IHeap<Integer> heapTable;
     private IList<Integer> out;
+    private IMap<String, Buffer> fileTable;
+
     private IStmt originalProgram; //optional field, but good to have
 
-    public PrgState(IStack<IStmt> stack, IMap<String, Integer> dictionary, IHeap<Integer> heap, IList<Integer> list, IStmt prg) {
+    public PrgState(IStack<IStmt> stack, IMap<String, Integer> dictionary, IHeap<Integer> heap, IList<Integer> list, IMap<String, Buffer> files, IStmt prg) {
         id = generator++;
         exeStack = stack;
         symTable = dictionary;
         heapTable = heap;
         out = list;
         originalProgram = prg;
+        fileTable = files;
         exeStack.push(originalProgram);
     }
 
-    public PrgState(IStack<IStmt> stack, IMap<String, Integer> dictionary, IHeap<Integer> heap, IList<Integer> list, IStmt prg, int identifier) {
+    public PrgState(IStack<IStmt> stack, IMap<String, Integer> dictionary, IHeap<Integer> heap, IMap<String, Buffer> files, IList<Integer> list, IStmt prg, int identifier) {
         id = identifier;
         exeStack = stack;
         symTable = dictionary;
         heapTable = heap;
         out = list;
         originalProgram = prg;
+        fileTable = files;
         exeStack.push(originalProgram);
     }
 
     public int getId() {
         return id;
     }
+
     public IStack<IStmt> getExeStack() {
         return exeStack;
     }
@@ -67,6 +73,10 @@ public class PrgState implements Serializable {
     }
 
     public boolean isNotCompleted() {return !exeStack.isEmpty(); }
+
+    public IMap<String, Buffer> getFileTable() {
+        return fileTable;
+    }
 
     public PrgState oneStep() throws MyStmtExecException, UninitializedVariableException, EmptyRepositoryException, DivisionByZeroException, NoSuchKeyException, HashIndexOutOfBoundsException {
         try {
@@ -92,5 +102,6 @@ public class PrgState implements Serializable {
                 "\nSymbol table\n" + symTable.toString() + "\nHeap table\n" + heapTable.toString() +
                 "\n\nOutput List\n" + out.toString() + "\n\n--------------------------------\n";
     }
+
 
 }
