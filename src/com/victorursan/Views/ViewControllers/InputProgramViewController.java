@@ -103,7 +103,7 @@ public class InputProgramViewController extends AnchorPane {
     private IStmt newStatement(String content) throws IOException {
         String[] statementsStrings = {"Compound Statement", "Assign Statement", "Print Statement",
                 "If Statement", "While Statement", "IfThen Statement", "Switch Statement", "Skip Statement",
-                "New Statement", "Write Heap", "Fork"};
+                "New Statement", "Write Heap", "Fork", "Open File", "Write to File", "Close File"};
         ChoiceDialog<String> stmtDialog = new ChoiceDialog<>(statementsStrings[0], statementsStrings);
         stmtDialog.setContentText(content);
         Optional<String> result = stmtDialog.showAndWait();
@@ -163,6 +163,19 @@ public class InputProgramViewController extends AnchorPane {
             }
             if (choice.equals(statementsStrings[10])) {
                 return new ForkStmt(newStatement("Statement: "));
+            }
+            if (choice.equals(statementsStrings[11])) {
+                String fileName = newString("File Name: ");
+                return new OpenFileStmt(fileName);
+            }
+            if (choice.equals(statementsStrings[12])) {
+                String fileName = newString("File Name: ");
+                Exp exp = newExpression("To Write: ");
+                return new WriteFileStmt(fileName, exp);
+            }
+            if (choice.equals(statementsStrings[13])) {
+                String fileName = newString("File Name: ");
+                return new CloseFileStmt(fileName);
             }
         }
         throw new IOException();

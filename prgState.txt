@@ -1,8 +1,8 @@
 [--------------------------------
  id: 0
 Exec Stack:
-v= 10 
-(new( a,  22 ) ;(fork ((writeHeap( a,  30 );(v= 32 ;(print( v );print(readHeap( a))))));(print( v );(print(readHeap( a));(SKIP;(SKIP;SKIP))))))
+open_file(a.txt)
+(fork ((open_file(a.txt);(write_file( a.txt,  10 );close_file(a.txt))));(write_file( a.txt,  1 );close_file(a.txt)))
 
 Symbol table
 
@@ -16,10 +16,9 @@ Output List
 ][--------------------------------
  id: 0
 Exec Stack:
-(new( a,  22 ) ;(fork ((writeHeap( a,  30 );(v= 32 ;(print( v );print(readHeap( a))))));(print( v );(print(readHeap( a));(SKIP;(SKIP;SKIP))))))
+(fork ((open_file(a.txt);(write_file( a.txt,  10 );close_file(a.txt))));(write_file( a.txt,  1 );close_file(a.txt)))
 
 Symbol table
-v -> 10
 
 Heap table
 
@@ -31,11 +30,10 @@ Output List
 ][--------------------------------
  id: 0
 Exec Stack:
-new( a,  22 ) 
-(fork ((writeHeap( a,  30 );(v= 32 ;(print( v );print(readHeap( a))))));(print( v );(print(readHeap( a));(SKIP;(SKIP;SKIP)))))
+fork ((open_file(a.txt);(write_file( a.txt,  10 );close_file(a.txt))))
+(write_file( a.txt,  1 );close_file(a.txt))
 
 Symbol table
-v -> 10
 
 Heap table
 
@@ -47,14 +45,11 @@ Output List
 ][--------------------------------
  id: 0
 Exec Stack:
-(fork ((writeHeap( a,  30 );(v= 32 ;(print( v );print(readHeap( a))))));(print( v );(print(readHeap( a));(SKIP;(SKIP;SKIP)))))
+(write_file( a.txt,  1 );close_file(a.txt))
 
 Symbol table
-v -> 10
-a -> 1
 
 Heap table
-1 -> 22
 
 
 Output List
@@ -64,50 +59,12 @@ Output List
 ][--------------------------------
  id: 0
 Exec Stack:
-fork ((writeHeap( a,  30 );(v= 32 ;(print( v );print(readHeap( a))))))
-(print( v );(print(readHeap( a));(SKIP;(SKIP;SKIP))))
+write_file( a.txt,  1 )
+close_file(a.txt)
 
 Symbol table
-v -> 10
-a -> 1
 
 Heap table
-1 -> 22
-
-
-Output List
-
-
---------------------------------
-][--------------------------------
- id: 0
-Exec Stack:
-(print( v );(print(readHeap( a));(SKIP;(SKIP;SKIP))))
-
-Symbol table
-v -> 10
-a -> 1
-
-Heap table
-1 -> 22
-
-
-Output List
-
-
---------------------------------
-][--------------------------------
- id: 0
-Exec Stack:
-print( v )
-(print(readHeap( a));(SKIP;(SKIP;SKIP)))
-
-Symbol table
-v -> 10
-a -> 1
-
-Heap table
-1 -> 22
 
 
 Output List
@@ -117,15 +74,12 @@ Output List
 , --------------------------------
  id: 1
 Exec Stack:
-writeHeap( a,  30 )
-(v= 32 ;(print( v );print(readHeap( a))))
+open_file(a.txt)
+(write_file( a.txt,  10 );close_file(a.txt))
 
 Symbol table
-v -> 10
-a -> 1
 
 Heap table
-1 -> 22
 
 
 Output List
@@ -135,275 +89,197 @@ Output List
 ][--------------------------------
  id: 0
 Exec Stack:
-(print(readHeap( a));(SKIP;(SKIP;SKIP)))
+close_file(a.txt)
 
 Symbol table
-v -> 10
-a -> 1
 
 Heap table
-1 -> 30
 
 
 Output List
-10
 
 
 --------------------------------
 , --------------------------------
  id: 1
 Exec Stack:
-(v= 32 ;(print( v );print(readHeap( a))))
+open_file(a.txt)
+(write_file( a.txt,  10 );close_file(a.txt))
 
 Symbol table
-v -> 10
-a -> 1
 
 Heap table
-1 -> 30
 
 
 Output List
-10
 
 
 --------------------------------
 ][--------------------------------
  id: 0
 Exec Stack:
-print(readHeap( a))
-(SKIP;(SKIP;SKIP))
 
 Symbol table
-v -> 10
-a -> 1
 
 Heap table
-1 -> 30
 
 
 Output List
-10
 
 
 --------------------------------
 , --------------------------------
  id: 1
 Exec Stack:
-v= 32 
-(print( v );print(readHeap( a)))
+open_file(a.txt)
+(write_file( a.txt,  10 );close_file(a.txt))
 
 Symbol table
-v -> 10
-a -> 1
 
 Heap table
-1 -> 30
 
 
 Output List
-10
 
 
 --------------------------------
 ][--------------------------------
  id: 0
 Exec Stack:
-(SKIP;(SKIP;SKIP))
 
 Symbol table
-v -> 10
-a -> 1
 
 Heap table
-1 -> 30
 
 
 Output List
-10
-30
 
 
 --------------------------------
 , --------------------------------
  id: 1
 Exec Stack:
-(print( v );print(readHeap( a)))
+(write_file( a.txt,  10 );close_file(a.txt))
 
 Symbol table
-v -> 32
-a -> 1
 
 Heap table
-1 -> 30
 
 
 Output List
-10
-30
 
 
 --------------------------------
 ][--------------------------------
- id: 0
-Exec Stack:
-SKIP
-(SKIP;SKIP)
-
-Symbol table
-v -> 10
-a -> 1
-
-Heap table
-1 -> 30
-
-
-Output List
-10
-30
-
-
---------------------------------
-, --------------------------------
  id: 1
 Exec Stack:
-print( v )
-print(readHeap( a))
+write_file( a.txt,  10 )
+close_file(a.txt)
 
 Symbol table
-v -> 32
-a -> 1
 
 Heap table
-1 -> 30
 
 
 Output List
-10
-30
 
 
 --------------------------------
 ][--------------------------------
- id: 0
-Exec Stack:
-(SKIP;SKIP)
-
-Symbol table
-v -> 10
-a -> 1
-
-Heap table
-1 -> 30
-
-
-Output List
-10
-30
-32
-
-
---------------------------------
-, --------------------------------
  id: 1
 Exec Stack:
-print(readHeap( a))
+close_file(a.txt)
 
 Symbol table
-v -> 32
-a -> 1
 
 Heap table
-1 -> 30
 
 
 Output List
-10
-30
-32
 
 
 --------------------------------
 ][--------------------------------
- id: 0
-Exec Stack:
-SKIP
-SKIP
-
-Symbol table
-v -> 10
-a -> 1
-
-Heap table
-1 -> 30
-
-
-Output List
-10
-30
-32
-30
-
-
---------------------------------
-, --------------------------------
  id: 1
 Exec Stack:
 
 Symbol table
-v -> 32
-a -> 1
 
 Heap table
-1 -> 30
 
 
 Output List
-10
-30
-32
-30
 
 
 --------------------------------
 ][--------------------------------
- id: 0
-Exec Stack:
-SKIP
-
-Symbol table
-v -> 10
-a -> 1
-
-Heap table
-1 -> 30
-
-
-Output List
-10
-30
-32
-30
-
-
---------------------------------
-, --------------------------------
  id: 1
 Exec Stack:
 
 Symbol table
-v -> 32
-a -> 1
 
 Heap table
-1 -> 30
 
 
 Output List
-10
-30
-32
-30
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+open_file(b.txt)
+(write_file( b.txt,  123333 );close_file(b.txt))
+
+Symbol table
+
+Heap table
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+(write_file( b.txt,  123333 );close_file(b.txt))
+
+Symbol table
+
+Heap table
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+write_file( b.txt,  123333 )
+close_file(b.txt)
+
+Symbol table
+
+Heap table
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+close_file(b.txt)
+
+Symbol table
+
+Heap table
+
+
+Output List
 
 
 --------------------------------
@@ -412,18 +288,11 @@ Output List
 Exec Stack:
 
 Symbol table
-v -> 10
-a -> 1
 
 Heap table
-1 -> 30
 
 
 Output List
-10
-30
-32
-30
 
 
 --------------------------------

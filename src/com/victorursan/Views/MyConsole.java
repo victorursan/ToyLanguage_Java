@@ -286,6 +286,28 @@ public class MyConsole {
         return new WriteHeapStmt(name, exp);
     }
 
+    private OpenFileStmt openFileStatement() throws UnexpectedTypeException {
+        String name = readString("File name:");
+        return new OpenFileStmt(name);
+    }
+
+    private CloseFileStmt closeFileStatement() throws UnexpectedTypeException {
+        String name = readString("File name:");
+        return new CloseFileStmt(name);
+    }
+
+    private WriteFileStmt writeFileStatement() throws UnexpectedTypeException {
+        String name = readString("File name:");
+        print("Right side:");
+        Exp exp = inputExpression();
+        return new WriteFileStmt(name, exp);
+    }
+
+    private ForkStmt forkStatement() {
+        IStmt fStatement = inputStatement();
+        return new ForkStmt(fStatement);
+    }
+
     private IStmt inputStatement() {
         print("1. Compound statement");
         print("2. Assignment statement");
@@ -297,6 +319,10 @@ public class MyConsole {
         print("8. If then statement");
         print("9. New statement");
         print("10. Write Heap statement");
+        print("11. Open File");
+        print("12. Close File");
+        print("13. Write to File");
+        print("14. Fork");
         try {
             Integer opt = readInteger("Option: ");
             IStmt prg;
@@ -331,6 +357,18 @@ public class MyConsole {
                 case 10:
                     prg = writeHeapStatement();
                     break;
+                case 11:
+                    prg = openFileStatement();
+                    break;
+                case 12:
+                    prg = closeFileStatement();
+                    break;
+                case 13:
+                    prg = writeFileStatement();
+                    break;
+                case 14:
+                    prg = forkStatement();
+                    break;
                 default:
                     print("Invalid option, please try again");
                     prg = inputStatement();
@@ -344,19 +382,11 @@ public class MyConsole {
     }
 
     private void inputProgram() throws EmptyRepositoryException, IndexOutOfBoundsException {
-//        IStmt prgStatement = new CompStmt(new NewStmt("a", new ConstExp(10)), new CompStmt(new WriteHeapStmt("a", new ConstExp(4)),  new CompStmt(new AssignStmt("b", new ConstExp(1)), new PrintStmt(new ReadHeapExp("b")))));
+        IStmt prgStatement =new CompStmt(new OpenFileStmt("a.txt"), new CompStmt(new ForkStmt(new CompStmt(new OpenFileStmt("a.txt"), new CompStmt(new WriteFileStmt("a.txt", new ConstExp(10)), new CloseFileStmt("a.txt")))),  new CompStmt(new WriteFileStmt("a.txt", new ConstExp(1)), new CloseFileStmt("a.txt"))));
+                //inputStatement();
+
 //                //new CompStmt(new AssignStmt("a", new ArithExp(new ReadExp(), "-", new ConstExp(2))), new CompStmt(new IfStmt(new VarExp("a"), new AssignStmt("v", new ConstExp(2)), new AssignStmt("v", new ConstExp(3))), new PrintStmt(new VarExp("v"))));
 //                //inputStatement();
-
-        IStmt st1 = new AssignStmt("v", new ConstExp(10));
-        IStmt st2 = new NewStmt("a", new ConstExp(22));
-        IStmt st3 = new AssignStmt("v", new ConstExp(32));
-        IStmt st4 = new PrintStmt(new VarExp("v"));
-        IStmt st5 = new PrintStmt(new ReadHeapExp("a"));
-        IStmt st8 = new ForkStmt(new CompStmt(new WriteHeapStmt("a", new ConstExp(30)), new CompStmt(st3, new CompStmt(st4, st5))));
-        IStmt st6 = new PrintStmt(new VarExp("v"));
-        IStmt st7 = new PrintStmt(new ReadHeapExp("a"));
-        IStmt prgStatement = new CompStmt(st1, new CompStmt(st2, new CompStmt(st8, new CompStmt(st6,new CompStmt (st7, new CompStmt(new SkipStmt(), new CompStmt(new SkipStmt(), new SkipStmt() )))))));
 
         List<PrgState> programs = new ArrayList<>();
 
