@@ -39,6 +39,6 @@ public class CompStmt implements IStmt {
     public PrgState execute(PrgState state) {
             state.getExeStack().push(second);
             state.getExeStack().push(first);
-        return state;
+        return null;
     }
 }

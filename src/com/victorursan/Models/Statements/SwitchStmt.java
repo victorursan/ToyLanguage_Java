@@ -61,6 +61,6 @@ public class SwitchStmt implements IStmt{
             IStmt ifSwitch = new IfStmt(difSwitch2, getDefaultCase(), getCase1());
             IStmt switchStmt = new IfStmt(difSwitch, ifSwitch, getCase2());
             state.getExeStack().push(switchStmt);
-        return state;
+        return null;
     }
 }

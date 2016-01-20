@@ -61,6 +61,6 @@ public class IfStmt implements IStmt {
         } else {
             state.getExeStack().push(getElseS());
         }
-        return state;
+        return null;
     }
 }

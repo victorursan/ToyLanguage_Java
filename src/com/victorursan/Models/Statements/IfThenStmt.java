@@ -39,6 +39,6 @@ public class IfThenStmt implements IStmt {
     @Override
     public PrgState execute(PrgState state) {
         state.getExeStack().push(new IfStmt(getExp(), getThenS(), new SkipStmt()));
-        return state;
+        return null;
     }
 }

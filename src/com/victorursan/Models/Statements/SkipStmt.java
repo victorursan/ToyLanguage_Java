@@ -13,7 +13,7 @@ public class SkipStmt implements IStmt {
 
     @Override
     public PrgState execute(PrgState state) {
-        return state;
+        return null;
     }
 
 }

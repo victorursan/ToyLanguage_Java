@@ -46,6 +46,6 @@ public class NewStmt implements IStmt {
         IMap<String, Integer> symTbl = state.getSymTable();
         IHeap<Integer> heap =  state.getHeapTable();
         symTbl.put(getId(), heap.add(getExp().eval(symTbl, heap)));
-        return state;
+        return null;
     }
 }

@@ -97,24 +97,6 @@ Output List
 
 --------------------------------
 ][--------------------------------
- id: 1
-Exec Stack:
-writeHeap( a,  30 )
-(v= 32 ;(print( v );print(readHeap( a))))
-
-Symbol table
-v -> 10
-a -> 1
-
-Heap table
-1 -> 22
-
-
-Output List
-
-
---------------------------------
-, --------------------------------
  id: 0
 Exec Stack:
 print( v )
@@ -132,10 +114,28 @@ Output List
 
 
 --------------------------------
-][--------------------------------
+, --------------------------------
  id: 1
 Exec Stack:
+writeHeap( a,  30 )
 (v= 32 ;(print( v );print(readHeap( a))))
+
+Symbol table
+v -> 10
+a -> 1
+
+Heap table
+1 -> 22
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+(print(readHeap( a));(SKIP;(SKIP;SKIP)))
 
 Symbol table
 v -> 10
@@ -151,9 +151,9 @@ Output List
 
 --------------------------------
 , --------------------------------
- id: 0
+ id: 1
 Exec Stack:
-(print(readHeap( a));(SKIP;(SKIP;SKIP)))
+(v= 32 ;(print( v );print(readHeap( a))))
 
 Symbol table
 v -> 10
@@ -424,126 +424,6 @@ Output List
 30
 32
 30
-
-
---------------------------------
-][--------------------------------
- id: 0
-Exec Stack:
-a= 2 
-print( a )
-
-Symbol table
-
-Heap table
-
-
-Output List
-
-
---------------------------------
-][--------------------------------
- id: 0
-Exec Stack:
-print( a )
-
-Symbol table
-a -> 2
-
-Heap table
-
-
-Output List
-
-
---------------------------------
-][--------------------------------
- id: 0
-Exec Stack:
-
-Symbol table
-a -> 2
-
-Heap table
-
-
-Output List
-2
-
-
---------------------------------
-][--------------------------------
- id: 0
-Exec Stack:
-
-Symbol table
-a -> 2
-
-Heap table
-
-
-Output List
-2
-
-
---------------------------------
-][][--------------------------------
- id: 0
-Exec Stack:
-a= 2 
-print( a )
-
-Symbol table
-
-Heap table
-
-
-Output List
-
-
---------------------------------
-][--------------------------------
- id: 0
-Exec Stack:
-print( a )
-
-Symbol table
-a -> 2
-
-Heap table
-
-
-Output List
-
-
---------------------------------
-][--------------------------------
- id: 0
-Exec Stack:
-
-Symbol table
-a -> 2
-
-Heap table
-
-
-Output List
-2
-
-
---------------------------------
-][--------------------------------
- id: 0
-Exec Stack:
-
-Symbol table
-a -> 2
-
-Heap table
-
-
-Output List
-2
 
 
 --------------------------------

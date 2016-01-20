@@ -48,6 +48,6 @@ public class AssignStmt implements IStmt {
         IHeap<Integer> heap =  state.getHeapTable();
         int val = exp.eval(symTbl, heap);
         symTbl.put(id, val);
-        return state;
+        return null;
     }
 }

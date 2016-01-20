@@ -70,16 +70,12 @@ public class Controller {
                                             .filter(p -> p != null)
                                             .collect(Collectors.toList());
 
-        prgList.forEach(p -> {if(!newPrgList.stream().anyMatch(s -> s.getId() == p.getId())) newPrgList.add(p);});
-
-//        if (printFlag) {
-//            newPrgList.forEach(System.out::println);
-//        }
+        prgList.addAll(newPrgList);
         programsOutput += prgList.toString();
         if (logFlag) {
             repo.logPrgStates();
         }
-        repo.setPrgList(newPrgList);
+        repo.setPrgList(prgList);
         executor.shutdown();
     }
 
@@ -89,6 +85,7 @@ public class Controller {
     }
 
     public void allStep() throws EmptyRepositoryException, InterruptedException {
+        programsOutput = "";
         while(true) {
             List<PrgState> prgList = removeCompletedPrg(repo.getPrgList());
             if (prgList.size() == 0) {

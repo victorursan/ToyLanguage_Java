@@ -50,6 +50,6 @@ public class WhileStmt implements IStmt {
             state.getExeStack().push(this);
             state.getExeStack().push(this.getStmt());
         }
-        return state;
+        return null;
     }
 }
