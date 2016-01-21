@@ -2,7 +2,7 @@
  id: 0
 Exec Stack:
 open_file(a.txt)
-(fork ((open_file(a.txt);(write_file( a.txt,  10 );close_file(a.txt))));(write_file( a.txt,  1 );close_file(a.txt)))
+(fork ((open_file(a.txt);(write_file( a.txt,  10 );(write_file( a.txt,  10 );close_file(a.txt)))));(write_file( a.txt,  1 );close_file(a.txt)))
 
 Symbol table
 
@@ -16,7 +16,7 @@ Output List
 ][--------------------------------
  id: 0
 Exec Stack:
-(fork ((open_file(a.txt);(write_file( a.txt,  10 );close_file(a.txt))));(write_file( a.txt,  1 );close_file(a.txt)))
+(fork ((open_file(a.txt);(write_file( a.txt,  10 );(write_file( a.txt,  10 );close_file(a.txt)))));(write_file( a.txt,  1 );close_file(a.txt)))
 
 Symbol table
 
@@ -30,7 +30,7 @@ Output List
 ][--------------------------------
  id: 0
 Exec Stack:
-fork ((open_file(a.txt);(write_file( a.txt,  10 );close_file(a.txt))))
+fork ((open_file(a.txt);(write_file( a.txt,  10 );(write_file( a.txt,  10 );close_file(a.txt)))))
 (write_file( a.txt,  1 );close_file(a.txt))
 
 Symbol table
@@ -75,7 +75,7 @@ Output List
  id: 1
 Exec Stack:
 open_file(a.txt)
-(write_file( a.txt,  10 );close_file(a.txt))
+(write_file( a.txt,  10 );(write_file( a.txt,  10 );close_file(a.txt)))
 
 Symbol table
 
@@ -104,7 +104,7 @@ Output List
  id: 1
 Exec Stack:
 open_file(a.txt)
-(write_file( a.txt,  10 );close_file(a.txt))
+(write_file( a.txt,  10 );(write_file( a.txt,  10 );close_file(a.txt)))
 
 Symbol table
 
@@ -132,7 +132,7 @@ Output List
  id: 1
 Exec Stack:
 open_file(a.txt)
-(write_file( a.txt,  10 );close_file(a.txt))
+(write_file( a.txt,  10 );(write_file( a.txt,  10 );close_file(a.txt)))
 
 Symbol table
 
@@ -157,6 +157,35 @@ Output List
 
 --------------------------------
 , --------------------------------
+ id: 1
+Exec Stack:
+(write_file( a.txt,  10 );(write_file( a.txt,  10 );close_file(a.txt)))
+
+Symbol table
+
+Heap table
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 1
+Exec Stack:
+write_file( a.txt,  10 )
+(write_file( a.txt,  10 );close_file(a.txt))
+
+Symbol table
+
+Heap table
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
  id: 1
 Exec Stack:
 (write_file( a.txt,  10 );close_file(a.txt))
@@ -201,90 +230,6 @@ Output List
 --------------------------------
 ][--------------------------------
  id: 1
-Exec Stack:
-
-Symbol table
-
-Heap table
-
-
-Output List
-
-
---------------------------------
-][--------------------------------
- id: 1
-Exec Stack:
-
-Symbol table
-
-Heap table
-
-
-Output List
-
-
---------------------------------
-][--------------------------------
- id: 0
-Exec Stack:
-open_file(b.txt)
-(write_file( b.txt,  123333 );close_file(b.txt))
-
-Symbol table
-
-Heap table
-
-
-Output List
-
-
---------------------------------
-][--------------------------------
- id: 0
-Exec Stack:
-(write_file( b.txt,  123333 );close_file(b.txt))
-
-Symbol table
-
-Heap table
-
-
-Output List
-
-
---------------------------------
-][--------------------------------
- id: 0
-Exec Stack:
-write_file( b.txt,  123333 )
-close_file(b.txt)
-
-Symbol table
-
-Heap table
-
-
-Output List
-
-
---------------------------------
-][--------------------------------
- id: 0
-Exec Stack:
-close_file(b.txt)
-
-Symbol table
-
-Heap table
-
-
-Output List
-
-
---------------------------------
-][--------------------------------
- id: 0
 Exec Stack:
 
 Symbol table

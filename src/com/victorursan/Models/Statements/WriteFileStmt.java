@@ -75,10 +75,12 @@ public class WriteFileStmt implements IStmt {
 
     private void writeToDisk(Integer[] buffer) {
         try {
-            FileChannel fc = new RandomAccessFile(fileName, "rw").getChannel();
+            FileChannel fc = new RandomAccessFile(fileName, "a").getChannel();
             fc.position(fc.size());
             fc.write(ByteBuffer.wrap(buffer[0].toString().getBytes()));
+            fc.write(ByteBuffer.wrap(" ".getBytes()));
             fc.write(ByteBuffer.wrap(buffer[1].toString().getBytes()));
+            fc.write(ByteBuffer.wrap(" ".getBytes()));
             fc.close();
         } catch (FileNotFoundException e) {
             System.out.println("No file found");

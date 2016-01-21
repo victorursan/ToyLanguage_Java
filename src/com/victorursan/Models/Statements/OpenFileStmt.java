@@ -28,10 +28,14 @@ public class OpenFileStmt implements IStmt {
     public PrgState execute(PrgState state) throws HashIndexOutOfBoundsException, NoSuchKeyException, UninitializedVariableException, DivisionByZeroException {
         if(state.getFileTable().containsKey(fileName)) {
             Buffer b = state.getFileTable().get(fileName);
-            if (b.getThreadID() == state.getId()) {
-                return null;
+            if (b == null) {
+                state.getFileTable().put(fileName, new Buffer(state.getId()));
             } else {
-                state.getExeStack().push(this);
+                if (b.getThreadID() == state.getId()) {
+                    return null;
+                } else {
+                    state.getExeStack().push(this);
+                }
             }
         } else {
             try {

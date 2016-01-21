@@ -382,7 +382,7 @@ public class MyConsole {
     }
 
     private void inputProgram() throws EmptyRepositoryException, IndexOutOfBoundsException {
-        IStmt prgStatement =new CompStmt(new OpenFileStmt("a.txt"), new CompStmt(new ForkStmt(new CompStmt(new OpenFileStmt("a.txt"), new CompStmt(new WriteFileStmt("a.txt", new ConstExp(10)), new CloseFileStmt("a.txt")))),  new CompStmt(new WriteFileStmt("a.txt", new ConstExp(1)), new CloseFileStmt("a.txt"))));
+        IStmt prgStatement =new CompStmt(new OpenFileStmt("a.txt"), new CompStmt(new ForkStmt(new CompStmt(new OpenFileStmt("a.txt"), new CompStmt(new WriteFileStmt("a.txt", new ConstExp(10)), new CompStmt(new WriteFileStmt("a.txt", new ConstExp(10)), new CloseFileStmt("a.txt"))))),  new CompStmt(new WriteFileStmt("a.txt", new ConstExp(1)), new CloseFileStmt("a.txt"))));
                 //inputStatement();
 
 //                //new CompStmt(new AssignStmt("a", new ArithExp(new ReadExp(), "-", new ConstExp(2))), new CompStmt(new IfStmt(new VarExp("a"), new AssignStmt("v", new ConstExp(2)), new AssignStmt("v", new ConstExp(3))), new PrintStmt(new VarExp("v"))));

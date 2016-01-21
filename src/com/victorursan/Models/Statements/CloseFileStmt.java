@@ -49,9 +49,11 @@ public class CloseFileStmt implements IStmt {
             fc.position(fc.size());
             if(buffer[0] != null) {
                 fc.write(ByteBuffer.wrap(buffer[0].toString().getBytes()));
+                fc.write(ByteBuffer.wrap(" ".getBytes()));
             }
             if(buffer[1] != null) {
                 fc.write(ByteBuffer.wrap(buffer[1].toString().getBytes()));
+                fc.write(ByteBuffer.wrap(" ".getBytes()));
             }
             fc.close();
         } catch (FileNotFoundException e) {
