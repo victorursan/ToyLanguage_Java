@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ad1fe0b3-9388-4ef7-ad02-29082d2ebc78" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prgState.ser" afterPath="$PROJECT_DIR$/prgState.ser" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prgState.txt" afterPath="$PROJECT_DIR$/prgState.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Models/Statements/CloseFileStmt.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Models/Statements/CloseFileStmt.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Models/Statements/OpenFileStmt.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Models/Statements/OpenFileStmt.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Models/Statements/WriteFileStmt.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Models/Statements/WriteFileStmt.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/victorursan/Views/MyConsole.java" afterPath="$PROJECT_DIR$/src/com/victorursan/Views/MyConsole.java" />
-    </list>
+    <list default="true" id="ad1fe0b3-9388-4ef7-ad02-29082d2ebc78" name="Default" comment="" />
     <ignored path="ToyLanguage_Java.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -80,11 +72,9 @@
       <file leaf-file-name="WriteFileStmt.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Statements/WriteFileStmt.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.0620756">
-              <caret line="83" column="23" selection-start-line="83" selection-start-column="23" selection-end-line="83" selection-end-column="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="-0.09117362">
+              <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1242,7 +1232,7 @@
       <workItem from="1452345344326" duration="17356000" />
       <workItem from="1452535511312" duration="17754000" />
       <workItem from="1453228606818" duration="4471000" />
-      <workItem from="1453322294607" duration="8712000" />
+      <workItem from="1453322294607" duration="9177000" />
     </task>
     <task id="LOCAL-00001" summary="added Exceptions in their own folders">
       <created>1451392626822</created>
@@ -1292,7 +1282,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="232084000" />
+    <option name="totallyTimeSpent" value="232549000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1916" height="1177" extended-state="6" />
@@ -1843,11 +1833,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/victorursan/Models/Statements/WriteFileStmt.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0620756">
-          <caret line="83" column="23" selection-start-line="83" selection-start-column="23" selection-end-line="83" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-0.09117362">
+          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
