@@ -3,6 +3,7 @@ package com.victorursan.Views;
 import com.victorursan.Controller.Controller;
 import com.victorursan.Models.Expressions.*;
 import com.victorursan.Models.Heap.MyLibraryHeap;
+import com.victorursan.Models.Latch.MyLatchTable;
 import com.victorursan.Models.List.Exception.IndexOutOfBoundsException;
 import com.victorursan.Models.List.MyLibraryList;
 import com.victorursan.Models.Map.MyLibraryDictionary;
@@ -360,7 +361,7 @@ public class MyConsole {
 
         List<PrgState> programs = new ArrayList<>();
 
-        programs.add(new PrgState(new MyLibraryStack<>(), new MyLibraryDictionary<>(), new MyLibraryHeap<>(),new MyLibraryList<>(), prgStatement));
+        programs.add(new PrgState(new MyLibraryStack<>(), new MyLibraryDictionary<>(), new MyLibraryHeap<>(),new MyLibraryList<>(), new MyLatchTable<>(), prgStatement));
         print(programs.toString());
         Repository repo = new MyRepository(programs);
 

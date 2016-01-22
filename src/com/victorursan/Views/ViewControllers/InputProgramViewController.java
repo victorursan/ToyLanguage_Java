@@ -3,6 +3,7 @@ package com.victorursan.Views.ViewControllers;
 import com.victorursan.Controller.Controller;
 import com.victorursan.Models.Expressions.*;
 import com.victorursan.Models.Heap.MyLibraryHeap;
+import com.victorursan.Models.Latch.MyLatchTable;
 import com.victorursan.Models.List.MyLibraryList;
 import com.victorursan.Models.Map.MyLibraryDictionary;
 import com.victorursan.Models.ProgramState.PrgState;
@@ -41,9 +42,22 @@ public class InputProgramViewController extends AnchorPane {
     }
 
     public void newTouched(ActionEvent actionEvent) throws IOException {
-        IStmt stmt = newStatement("First");
+//        IStmt stmt = newStatement("First");
+        IStmt first = new CompStmt(new NewStmt("v1", new ConstExp(2)), new CompStmt(new NewStmt("v2", new ConstExp(3)), new CompStmt(new NewStmt("v3", new ConstExp(4)), new NewLatchStmt("cnt", 3))));
+        ForkStmt fork1 = new ForkStmt(new CompStmt(new WriteHeapStmt("v1", new ArithExp(new ReadHeapExp("v1"), "*", new ConstExp(10))), new CompStmt(new PrintStmt(new ReadHeapExp("v1")), new CountDownStmt("cnt"))));
+        ForkStmt fork2 = new ForkStmt(new CompStmt(new WriteHeapStmt("v2", new ArithExp(new ReadHeapExp("v2"), "*", new ConstExp(10))), new CompStmt(new PrintStmt(new ReadHeapExp("v2")), new CountDownStmt("cnt"))));
+        ForkStmt fork3 = new ForkStmt(new CompStmt(new WriteHeapStmt("v3", new ArithExp(new ReadHeapExp("v3"), "*", new ConstExp(10))), new CompStmt(new PrintStmt(new ReadHeapExp("v3")), new CountDownStmt("cnt"))));
+        IStmt last = new CompStmt(new AWaitStmt("cnt"), new CompStmt(new PrintStmt(new VarExp("cnt")), new CompStmt(new CountDownStmt("cnt"), new PrintStmt(new VarExp("cnt")))));
+        IStmt stmt = new CompStmt(first, new CompStmt(fork1, new CompStmt(fork2, new CompStmt( fork3, last))));
+
+//        new(v1,2);new(v2,3);new(v3,4);newLatch(cnt,3);
+//        fork(wh(v1,rh(v1)*10));print(rh(v1));countDown(cnt));
+//        fork(wh(v2,rh(v2)*10));print(rh(v2));countDown(cnt));
+//        fork(wh(v3,rh(v3)*10));print(rh(v3));countDown(cnt));
+//        await(cnt); print(cnt); countDown(cnt); print(cnt);
+
         List<PrgState> programs = new ArrayList<>();
-        programs.add(new PrgState(new MyLibraryStack<>(), new MyLibraryDictionary<>(), new MyLibraryHeap<>(), new MyLibraryList<>(), stmt));
+        programs.add(new PrgState(new MyLibraryStack<>(), new MyLibraryDictionary<>(), new MyLibraryHeap<>(), new MyLibraryList<>(), new MyLatchTable<>(), stmt));
         ctrl.setPrgList(programs);
         txtProgram.setText(stmt.toString());
     }

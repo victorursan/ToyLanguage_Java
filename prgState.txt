@@ -427,4 +427,2154 @@ Output List
 
 
 --------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+(new( v1,  2 ) ;(new( v2,  3 ) ;(new( v3,  4 ) ;newLatch(cnt, 3))))
+(fork ((writeHeap( v1, (readHeap( v1) *  10 ));(print(readHeap( v1));CountDown(cnt))));(fork ((writeHeap( v2, (readHeap( v2) *  10 ));(print(readHeap( v2));CountDown(cnt))));(fork ((writeHeap( v3, (readHeap( v3) *  10 ));(print(readHeap( v3));CountDown(cnt))));(await(cnt);(print( cnt );(CountDown(cnt);print( cnt )))))))
+
+Symbol table
+
+Heap table
+
+Latch Table
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+new( v1,  2 ) 
+(new( v2,  3 ) ;(new( v3,  4 ) ;newLatch(cnt, 3)))
+(fork ((writeHeap( v1, (readHeap( v1) *  10 ));(print(readHeap( v1));CountDown(cnt))));(fork ((writeHeap( v2, (readHeap( v2) *  10 ));(print(readHeap( v2));CountDown(cnt))));(fork ((writeHeap( v3, (readHeap( v3) *  10 ));(print(readHeap( v3));CountDown(cnt))));(await(cnt);(print( cnt );(CountDown(cnt);print( cnt )))))))
+
+Symbol table
+
+Heap table
+
+Latch Table
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+(new( v2,  3 ) ;(new( v3,  4 ) ;newLatch(cnt, 3)))
+(fork ((writeHeap( v1, (readHeap( v1) *  10 ));(print(readHeap( v1));CountDown(cnt))));(fork ((writeHeap( v2, (readHeap( v2) *  10 ));(print(readHeap( v2));CountDown(cnt))));(fork ((writeHeap( v3, (readHeap( v3) *  10 ));(print(readHeap( v3));CountDown(cnt))));(await(cnt);(print( cnt );(CountDown(cnt);print( cnt )))))))
+
+Symbol table
+v1 -> 1
+
+Heap table
+1 -> 2
+
+Latch Table
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+new( v2,  3 ) 
+(new( v3,  4 ) ;newLatch(cnt, 3))
+(fork ((writeHeap( v1, (readHeap( v1) *  10 ));(print(readHeap( v1));CountDown(cnt))));(fork ((writeHeap( v2, (readHeap( v2) *  10 ));(print(readHeap( v2));CountDown(cnt))));(fork ((writeHeap( v3, (readHeap( v3) *  10 ));(print(readHeap( v3));CountDown(cnt))));(await(cnt);(print( cnt );(CountDown(cnt);print( cnt )))))))
+
+Symbol table
+v1 -> 1
+
+Heap table
+1 -> 2
+
+Latch Table
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+(new( v3,  4 ) ;newLatch(cnt, 3))
+(fork ((writeHeap( v1, (readHeap( v1) *  10 ));(print(readHeap( v1));CountDown(cnt))));(fork ((writeHeap( v2, (readHeap( v2) *  10 ));(print(readHeap( v2));CountDown(cnt))));(fork ((writeHeap( v3, (readHeap( v3) *  10 ));(print(readHeap( v3));CountDown(cnt))));(await(cnt);(print( cnt );(CountDown(cnt);print( cnt )))))))
+
+Symbol table
+v2 -> 2
+v1 -> 1
+
+Heap table
+2 -> 3
+1 -> 2
+
+Latch Table
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+new( v3,  4 ) 
+newLatch(cnt, 3)
+(fork ((writeHeap( v1, (readHeap( v1) *  10 ));(print(readHeap( v1));CountDown(cnt))));(fork ((writeHeap( v2, (readHeap( v2) *  10 ));(print(readHeap( v2));CountDown(cnt))));(fork ((writeHeap( v3, (readHeap( v3) *  10 ));(print(readHeap( v3));CountDown(cnt))));(await(cnt);(print( cnt );(CountDown(cnt);print( cnt )))))))
+
+Symbol table
+v2 -> 2
+v1 -> 1
+
+Heap table
+2 -> 3
+1 -> 2
+
+Latch Table
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+newLatch(cnt, 3)
+(fork ((writeHeap( v1, (readHeap( v1) *  10 ));(print(readHeap( v1));CountDown(cnt))));(fork ((writeHeap( v2, (readHeap( v2) *  10 ));(print(readHeap( v2));CountDown(cnt))));(fork ((writeHeap( v3, (readHeap( v3) *  10 ));(print(readHeap( v3));CountDown(cnt))));(await(cnt);(print( cnt );(CountDown(cnt);print( cnt )))))))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+
+Heap table
+3 -> 4
+2 -> 3
+1 -> 2
+
+Latch Table
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+(fork ((writeHeap( v1, (readHeap( v1) *  10 ));(print(readHeap( v1));CountDown(cnt))));(fork ((writeHeap( v2, (readHeap( v2) *  10 ));(print(readHeap( v2));CountDown(cnt))));(fork ((writeHeap( v3, (readHeap( v3) *  10 ));(print(readHeap( v3));CountDown(cnt))));(await(cnt);(print( cnt );(CountDown(cnt);print( cnt )))))))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 4
+2 -> 3
+1 -> 2
+
+Latch Table
+1 -> 3
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+fork ((writeHeap( v1, (readHeap( v1) *  10 ));(print(readHeap( v1));CountDown(cnt))))
+(fork ((writeHeap( v2, (readHeap( v2) *  10 ));(print(readHeap( v2));CountDown(cnt))));(fork ((writeHeap( v3, (readHeap( v3) *  10 ));(print(readHeap( v3));CountDown(cnt))));(await(cnt);(print( cnt );(CountDown(cnt);print( cnt ))))))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 4
+2 -> 3
+1 -> 2
+
+Latch Table
+1 -> 3
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+(fork ((writeHeap( v2, (readHeap( v2) *  10 ));(print(readHeap( v2));CountDown(cnt))));(fork ((writeHeap( v3, (readHeap( v3) *  10 ));(print(readHeap( v3));CountDown(cnt))));(await(cnt);(print( cnt );(CountDown(cnt);print( cnt ))))))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 4
+2 -> 3
+1 -> 2
+
+Latch Table
+1 -> 3
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+fork ((writeHeap( v2, (readHeap( v2) *  10 ));(print(readHeap( v2));CountDown(cnt))))
+(fork ((writeHeap( v3, (readHeap( v3) *  10 ));(print(readHeap( v3));CountDown(cnt))));(await(cnt);(print( cnt );(CountDown(cnt);print( cnt )))))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 4
+2 -> 3
+1 -> 2
+
+Latch Table
+1 -> 3
+
+
+Output List
+
+
+--------------------------------
+, --------------------------------
+ id: 1
+Exec Stack:
+writeHeap( v1, (readHeap( v1) *  10 ))
+(print(readHeap( v1));CountDown(cnt))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 4
+2 -> 3
+1 -> 2
+
+Latch Table
+1 -> 3
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+(fork ((writeHeap( v3, (readHeap( v3) *  10 ));(print(readHeap( v3));CountDown(cnt))));(await(cnt);(print( cnt );(CountDown(cnt);print( cnt )))))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 4
+2 -> 3
+1 -> 20
+
+Latch Table
+1 -> 3
+
+
+Output List
+
+
+--------------------------------
+, --------------------------------
+ id: 1
+Exec Stack:
+(print(readHeap( v1));CountDown(cnt))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 4
+2 -> 3
+1 -> 20
+
+Latch Table
+1 -> 3
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+fork ((writeHeap( v3, (readHeap( v3) *  10 ));(print(readHeap( v3));CountDown(cnt))))
+(await(cnt);(print( cnt );(CountDown(cnt);print( cnt ))))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 4
+2 -> 3
+1 -> 20
+
+Latch Table
+1 -> 3
+
+
+Output List
+
+
+--------------------------------
+, --------------------------------
+ id: 1
+Exec Stack:
+print(readHeap( v1))
+CountDown(cnt)
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 4
+2 -> 3
+1 -> 20
+
+Latch Table
+1 -> 3
+
+
+Output List
+
+
+--------------------------------
+, --------------------------------
+ id: 2
+Exec Stack:
+writeHeap( v2, (readHeap( v2) *  10 ))
+(print(readHeap( v2));CountDown(cnt))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 4
+2 -> 3
+1 -> 20
+
+Latch Table
+1 -> 3
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+(await(cnt);(print( cnt );(CountDown(cnt);print( cnt ))))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 4
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 3
+
+
+Output List
+20
+
+
+--------------------------------
+, --------------------------------
+ id: 1
+Exec Stack:
+CountDown(cnt)
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 4
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 3
+
+
+Output List
+20
+
+
+--------------------------------
+, --------------------------------
+ id: 2
+Exec Stack:
+(print(readHeap( v2));CountDown(cnt))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 4
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 3
+
+
+Output List
+20
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+await(cnt)
+(print( cnt );(CountDown(cnt);print( cnt )))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 4
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 2
+
+
+Output List
+20
+
+
+--------------------------------
+, --------------------------------
+ id: 1
+Exec Stack:
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 4
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 2
+
+
+Output List
+20
+
+
+--------------------------------
+, --------------------------------
+ id: 2
+Exec Stack:
+print(readHeap( v2))
+CountDown(cnt)
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 4
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 2
+
+
+Output List
+20
+
+
+--------------------------------
+, --------------------------------
+ id: 3
+Exec Stack:
+writeHeap( v3, (readHeap( v3) *  10 ))
+(print(readHeap( v3));CountDown(cnt))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 4
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 2
+
+
+Output List
+20
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+await(cnt)
+(print( cnt );(CountDown(cnt);print( cnt )))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 2
+
+
+Output List
+20
+30
+
+
+--------------------------------
+, --------------------------------
+ id: 1
+Exec Stack:
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 2
+
+
+Output List
+20
+30
+
+
+--------------------------------
+, --------------------------------
+ id: 2
+Exec Stack:
+CountDown(cnt)
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 2
+
+
+Output List
+20
+30
+
+
+--------------------------------
+, --------------------------------
+ id: 3
+Exec Stack:
+(print(readHeap( v3));CountDown(cnt))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 2
+
+
+Output List
+20
+30
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+await(cnt)
+(print( cnt );(CountDown(cnt);print( cnt )))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 1
+
+
+Output List
+20
+30
+
+
+--------------------------------
+, --------------------------------
+ id: 2
+Exec Stack:
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 1
+
+
+Output List
+20
+30
+
+
+--------------------------------
+, --------------------------------
+ id: 3
+Exec Stack:
+print(readHeap( v3))
+CountDown(cnt)
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 1
+
+
+Output List
+20
+30
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+await(cnt)
+(print( cnt );(CountDown(cnt);print( cnt )))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 1
+
+
+Output List
+20
+30
+40
+
+
+--------------------------------
+, --------------------------------
+ id: 2
+Exec Stack:
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 1
+
+
+Output List
+20
+30
+40
+
+
+--------------------------------
+, --------------------------------
+ id: 3
+Exec Stack:
+CountDown(cnt)
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 1
+
+
+Output List
+20
+30
+40
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+await(cnt)
+(print( cnt );(CountDown(cnt);print( cnt )))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 0
+
+
+Output List
+20
+30
+40
+
+
+--------------------------------
+, --------------------------------
+ id: 3
+Exec Stack:
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 0
+
+
+Output List
+20
+30
+40
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+(print( cnt );(CountDown(cnt);print( cnt )))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 0
+
+
+Output List
+20
+30
+40
+
+
+--------------------------------
+, --------------------------------
+ id: 3
+Exec Stack:
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 0
+
+
+Output List
+20
+30
+40
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+print( cnt )
+(CountDown(cnt);print( cnt ))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 0
+
+
+Output List
+20
+30
+40
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+(CountDown(cnt);print( cnt ))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 0
+
+
+Output List
+20
+30
+40
+1
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+CountDown(cnt)
+print( cnt )
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 0
+
+
+Output List
+20
+30
+40
+1
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+print( cnt )
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 0
+
+
+Output List
+20
+30
+40
+1
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 0
+
+
+Output List
+20
+30
+40
+1
+1
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+(new( v1,  2 ) ;(new( v2,  3 ) ;(new( v3,  4 ) ;newLatch(cnt, 3))))
+(fork ((writeHeap( v1, (readHeap( v1) *  10 ));(print(readHeap( v1));CountDown(cnt))));(fork ((writeHeap( v2, (readHeap( v2) *  10 ));(print(readHeap( v2));CountDown(cnt))));(fork ((writeHeap( v3, (readHeap( v3) *  10 ));(print(readHeap( v3));CountDown(cnt))));(await(cnt);(print( cnt );(CountDown(cnt);print( cnt )))))))
+
+Symbol table
+
+Heap table
+
+Latch Table
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+new( v1,  2 ) 
+(new( v2,  3 ) ;(new( v3,  4 ) ;newLatch(cnt, 3)))
+(fork ((writeHeap( v1, (readHeap( v1) *  10 ));(print(readHeap( v1));CountDown(cnt))));(fork ((writeHeap( v2, (readHeap( v2) *  10 ));(print(readHeap( v2));CountDown(cnt))));(fork ((writeHeap( v3, (readHeap( v3) *  10 ));(print(readHeap( v3));CountDown(cnt))));(await(cnt);(print( cnt );(CountDown(cnt);print( cnt )))))))
+
+Symbol table
+
+Heap table
+
+Latch Table
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+(new( v2,  3 ) ;(new( v3,  4 ) ;newLatch(cnt, 3)))
+(fork ((writeHeap( v1, (readHeap( v1) *  10 ));(print(readHeap( v1));CountDown(cnt))));(fork ((writeHeap( v2, (readHeap( v2) *  10 ));(print(readHeap( v2));CountDown(cnt))));(fork ((writeHeap( v3, (readHeap( v3) *  10 ));(print(readHeap( v3));CountDown(cnt))));(await(cnt);(print( cnt );(CountDown(cnt);print( cnt )))))))
+
+Symbol table
+v1 -> 1
+
+Heap table
+1 -> 2
+
+Latch Table
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+new( v2,  3 ) 
+(new( v3,  4 ) ;newLatch(cnt, 3))
+(fork ((writeHeap( v1, (readHeap( v1) *  10 ));(print(readHeap( v1));CountDown(cnt))));(fork ((writeHeap( v2, (readHeap( v2) *  10 ));(print(readHeap( v2));CountDown(cnt))));(fork ((writeHeap( v3, (readHeap( v3) *  10 ));(print(readHeap( v3));CountDown(cnt))));(await(cnt);(print( cnt );(CountDown(cnt);print( cnt )))))))
+
+Symbol table
+v1 -> 1
+
+Heap table
+1 -> 2
+
+Latch Table
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+(new( v3,  4 ) ;newLatch(cnt, 3))
+(fork ((writeHeap( v1, (readHeap( v1) *  10 ));(print(readHeap( v1));CountDown(cnt))));(fork ((writeHeap( v2, (readHeap( v2) *  10 ));(print(readHeap( v2));CountDown(cnt))));(fork ((writeHeap( v3, (readHeap( v3) *  10 ));(print(readHeap( v3));CountDown(cnt))));(await(cnt);(print( cnt );(CountDown(cnt);print( cnt )))))))
+
+Symbol table
+v2 -> 2
+v1 -> 1
+
+Heap table
+2 -> 3
+1 -> 2
+
+Latch Table
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+new( v3,  4 ) 
+newLatch(cnt, 3)
+(fork ((writeHeap( v1, (readHeap( v1) *  10 ));(print(readHeap( v1));CountDown(cnt))));(fork ((writeHeap( v2, (readHeap( v2) *  10 ));(print(readHeap( v2));CountDown(cnt))));(fork ((writeHeap( v3, (readHeap( v3) *  10 ));(print(readHeap( v3));CountDown(cnt))));(await(cnt);(print( cnt );(CountDown(cnt);print( cnt )))))))
+
+Symbol table
+v2 -> 2
+v1 -> 1
+
+Heap table
+2 -> 3
+1 -> 2
+
+Latch Table
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+newLatch(cnt, 3)
+(fork ((writeHeap( v1, (readHeap( v1) *  10 ));(print(readHeap( v1));CountDown(cnt))));(fork ((writeHeap( v2, (readHeap( v2) *  10 ));(print(readHeap( v2));CountDown(cnt))));(fork ((writeHeap( v3, (readHeap( v3) *  10 ));(print(readHeap( v3));CountDown(cnt))));(await(cnt);(print( cnt );(CountDown(cnt);print( cnt )))))))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+
+Heap table
+3 -> 4
+2 -> 3
+1 -> 2
+
+Latch Table
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+(fork ((writeHeap( v1, (readHeap( v1) *  10 ));(print(readHeap( v1));CountDown(cnt))));(fork ((writeHeap( v2, (readHeap( v2) *  10 ));(print(readHeap( v2));CountDown(cnt))));(fork ((writeHeap( v3, (readHeap( v3) *  10 ));(print(readHeap( v3));CountDown(cnt))));(await(cnt);(print( cnt );(CountDown(cnt);print( cnt )))))))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 4
+2 -> 3
+1 -> 2
+
+Latch Table
+1 -> 3
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+fork ((writeHeap( v1, (readHeap( v1) *  10 ));(print(readHeap( v1));CountDown(cnt))))
+(fork ((writeHeap( v2, (readHeap( v2) *  10 ));(print(readHeap( v2));CountDown(cnt))));(fork ((writeHeap( v3, (readHeap( v3) *  10 ));(print(readHeap( v3));CountDown(cnt))));(await(cnt);(print( cnt );(CountDown(cnt);print( cnt ))))))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 4
+2 -> 3
+1 -> 2
+
+Latch Table
+1 -> 3
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+(fork ((writeHeap( v2, (readHeap( v2) *  10 ));(print(readHeap( v2));CountDown(cnt))));(fork ((writeHeap( v3, (readHeap( v3) *  10 ));(print(readHeap( v3));CountDown(cnt))));(await(cnt);(print( cnt );(CountDown(cnt);print( cnt ))))))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 4
+2 -> 3
+1 -> 2
+
+Latch Table
+1 -> 3
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+fork ((writeHeap( v2, (readHeap( v2) *  10 ));(print(readHeap( v2));CountDown(cnt))))
+(fork ((writeHeap( v3, (readHeap( v3) *  10 ));(print(readHeap( v3));CountDown(cnt))));(await(cnt);(print( cnt );(CountDown(cnt);print( cnt )))))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 4
+2 -> 3
+1 -> 2
+
+Latch Table
+1 -> 3
+
+
+Output List
+
+
+--------------------------------
+, --------------------------------
+ id: 1
+Exec Stack:
+writeHeap( v1, (readHeap( v1) *  10 ))
+(print(readHeap( v1));CountDown(cnt))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 4
+2 -> 3
+1 -> 2
+
+Latch Table
+1 -> 3
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+(fork ((writeHeap( v3, (readHeap( v3) *  10 ));(print(readHeap( v3));CountDown(cnt))));(await(cnt);(print( cnt );(CountDown(cnt);print( cnt )))))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 4
+2 -> 3
+1 -> 20
+
+Latch Table
+1 -> 3
+
+
+Output List
+
+
+--------------------------------
+, --------------------------------
+ id: 1
+Exec Stack:
+(print(readHeap( v1));CountDown(cnt))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 4
+2 -> 3
+1 -> 20
+
+Latch Table
+1 -> 3
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+fork ((writeHeap( v3, (readHeap( v3) *  10 ));(print(readHeap( v3));CountDown(cnt))))
+(await(cnt);(print( cnt );(CountDown(cnt);print( cnt ))))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 4
+2 -> 3
+1 -> 20
+
+Latch Table
+1 -> 3
+
+
+Output List
+
+
+--------------------------------
+, --------------------------------
+ id: 1
+Exec Stack:
+print(readHeap( v1))
+CountDown(cnt)
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 4
+2 -> 3
+1 -> 20
+
+Latch Table
+1 -> 3
+
+
+Output List
+
+
+--------------------------------
+, --------------------------------
+ id: 2
+Exec Stack:
+writeHeap( v2, (readHeap( v2) *  10 ))
+(print(readHeap( v2));CountDown(cnt))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 4
+2 -> 3
+1 -> 20
+
+Latch Table
+1 -> 3
+
+
+Output List
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+(await(cnt);(print( cnt );(CountDown(cnt);print( cnt ))))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 4
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 3
+
+
+Output List
+20
+
+
+--------------------------------
+, --------------------------------
+ id: 1
+Exec Stack:
+CountDown(cnt)
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 4
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 3
+
+
+Output List
+20
+
+
+--------------------------------
+, --------------------------------
+ id: 2
+Exec Stack:
+(print(readHeap( v2));CountDown(cnt))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 4
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 3
+
+
+Output List
+20
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+await(cnt)
+(print( cnt );(CountDown(cnt);print( cnt )))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 4
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 2
+
+
+Output List
+20
+
+
+--------------------------------
+, --------------------------------
+ id: 1
+Exec Stack:
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 4
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 2
+
+
+Output List
+20
+
+
+--------------------------------
+, --------------------------------
+ id: 2
+Exec Stack:
+print(readHeap( v2))
+CountDown(cnt)
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 4
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 2
+
+
+Output List
+20
+
+
+--------------------------------
+, --------------------------------
+ id: 3
+Exec Stack:
+writeHeap( v3, (readHeap( v3) *  10 ))
+(print(readHeap( v3));CountDown(cnt))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 4
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 2
+
+
+Output List
+20
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+await(cnt)
+(print( cnt );(CountDown(cnt);print( cnt )))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 2
+
+
+Output List
+20
+30
+
+
+--------------------------------
+, --------------------------------
+ id: 1
+Exec Stack:
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 2
+
+
+Output List
+20
+30
+
+
+--------------------------------
+, --------------------------------
+ id: 2
+Exec Stack:
+CountDown(cnt)
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 2
+
+
+Output List
+20
+30
+
+
+--------------------------------
+, --------------------------------
+ id: 3
+Exec Stack:
+(print(readHeap( v3));CountDown(cnt))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 2
+
+
+Output List
+20
+30
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+await(cnt)
+(print( cnt );(CountDown(cnt);print( cnt )))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 1
+
+
+Output List
+20
+30
+
+
+--------------------------------
+, --------------------------------
+ id: 2
+Exec Stack:
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 1
+
+
+Output List
+20
+30
+
+
+--------------------------------
+, --------------------------------
+ id: 3
+Exec Stack:
+print(readHeap( v3))
+CountDown(cnt)
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 1
+
+
+Output List
+20
+30
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+await(cnt)
+(print( cnt );(CountDown(cnt);print( cnt )))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 1
+
+
+Output List
+20
+30
+40
+
+
+--------------------------------
+, --------------------------------
+ id: 2
+Exec Stack:
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 1
+
+
+Output List
+20
+30
+40
+
+
+--------------------------------
+, --------------------------------
+ id: 3
+Exec Stack:
+CountDown(cnt)
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 1
+
+
+Output List
+20
+30
+40
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+await(cnt)
+(print( cnt );(CountDown(cnt);print( cnt )))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 0
+
+
+Output List
+20
+30
+40
+
+
+--------------------------------
+, --------------------------------
+ id: 3
+Exec Stack:
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 0
+
+
+Output List
+20
+30
+40
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+(print( cnt );(CountDown(cnt);print( cnt )))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 0
+
+
+Output List
+20
+30
+40
+
+
+--------------------------------
+, --------------------------------
+ id: 3
+Exec Stack:
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 0
+
+
+Output List
+20
+30
+40
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+print( cnt )
+(CountDown(cnt);print( cnt ))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 0
+
+
+Output List
+20
+30
+40
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+(CountDown(cnt);print( cnt ))
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 0
+
+
+Output List
+20
+30
+40
+1
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+CountDown(cnt)
+print( cnt )
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 0
+
+
+Output List
+20
+30
+40
+1
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+print( cnt )
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 0
+
+
+Output List
+20
+30
+40
+1
+
+
+--------------------------------
+][--------------------------------
+ id: 0
+Exec Stack:
+
+Symbol table
+v3 -> 3
+v2 -> 2
+v1 -> 1
+cnt -> 1
+
+Heap table
+3 -> 40
+2 -> 30
+1 -> 20
+
+Latch Table
+1 -> 0
+
+
+Output List
+20
+30
+40
+1
+1
+
+
+--------------------------------
 ]

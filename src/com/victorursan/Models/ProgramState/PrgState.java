@@ -5,6 +5,8 @@ import com.victorursan.Models.Expressions.Exception.DivisionByZeroException;
 import com.victorursan.Models.Expressions.Exception.UninitializedVariableException;
 import com.victorursan.Models.Heap.Exception.HashIndexOutOfBoundsException;
 import com.victorursan.Models.Heap.IHeap;
+import com.victorursan.Models.Latch.Latch;
+import com.victorursan.Models.Latch.MyLatchTable;
 import com.victorursan.Models.List.IList;
 import com.victorursan.Models.Map.Exception.NoSuchKeyException;
 import com.victorursan.Models.Map.IMap;
@@ -25,26 +27,38 @@ public class PrgState implements Serializable {
     private IMap<String, Integer> symTable;
     private IHeap<Integer> heapTable;
     private IList<Integer> out;
+    private Latch<Integer, Integer> latchTable;
     private IStmt originalProgram; //optional field, but good to have
 
-    public PrgState(IStack<IStmt> stack, IMap<String, Integer> dictionary, IHeap<Integer> heap, IList<Integer> list, IStmt prg) {
+    public PrgState(IStack<IStmt> stack, IMap<String, Integer> dictionary, IHeap<Integer> heap, IList<Integer> list, Latch<Integer, Integer> latch, IStmt prg) {
         id = generator++;
         exeStack = stack;
         symTable = dictionary;
         heapTable = heap;
         out = list;
         originalProgram = prg;
+        latchTable = latch;
         exeStack.push(originalProgram);
     }
 
-    public PrgState(IStack<IStmt> stack, IMap<String, Integer> dictionary, IHeap<Integer> heap, IList<Integer> list, IStmt prg, int identifier) {
+    public PrgState(IStack<IStmt> stack, IMap<String, Integer> dictionary, IHeap<Integer> heap, IList<Integer> list, IStmt prg, Latch<Integer, Integer> latch, int identifier) {
         id = identifier;
         exeStack = stack;
         symTable = dictionary;
         heapTable = heap;
         out = list;
         originalProgram = prg;
+        latchTable = latch;
         exeStack.push(originalProgram);
+    }
+
+
+    public Latch<Integer, Integer> getLatchTable() {
+        return latchTable;
+    }
+
+    public void setLatchTable(Latch<Integer, Integer> latchTable) {
+        this.latchTable = latchTable;
     }
 
     public int getId() {
@@ -82,6 +96,7 @@ public class PrgState implements Serializable {
         return "--------------------------------\n id: " + id +
                 "\nExec Stack:\n" + exeStack.toString() +
                 "\nSymbol table\n" + symTable.toString() + "\nHeap table\n" + heapTable.toString() +
+                "\nLatch Table\n" +latchTable.toString() +
                 "\n\nOutput List\n" + out.toString() + "\n\n--------------------------------\n";
     }
 
@@ -92,5 +107,6 @@ public class PrgState implements Serializable {
                 "\nSymbol table\n" + symTable.toString() + "\nHeap table\n" + heapTable.toString() +
                 "\n\nOutput List\n" + out.toString() + "\n\n--------------------------------\n";
     }
+
 
 }
